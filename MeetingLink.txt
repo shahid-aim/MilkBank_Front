@@ -1,1 +1,14 @@
-Test file for GitHub
+1. create dir of source code
+2. 'cd' to the dir
+3. git init
+4. git add .  (or include the 'file names' to publish)
+5. git commit -m "message with the commit"
+6. git clone 
+7. git branch Mayuri
+8. git push -u origin Mayuri
+
+
+------------------------------
+git remote add origin 
+
+url https://github.com/aimprohub/MilkBank_Front.git
