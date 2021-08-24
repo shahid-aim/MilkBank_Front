@@ -12,3 +12,13 @@
 git remote add origin 
 
 url https://github.com/aimprohub/MilkBank_Front.git    -- url to  access
+
+
+Branch commit:
+git branch Mayuri
+git checkout Mayuri
+git add .
+git commit -m "message for the new commit"
+git push --set-upstream origin Mayuri
+     This will create new update on the Mayuri branch
+
