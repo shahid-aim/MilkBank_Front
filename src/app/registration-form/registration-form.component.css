@@ -1,0 +1,78 @@
+#col-img{
+   background-image: linear-gradient(to right,#E3E7EA, #fff), url('../../assets/mom-baby.jpg'); 
+   
+}
+
+.img-family {
+  width: 100%;
+  height: 120vh !important;
+}
+
+.leftarrowButton {
+  padding-top: 30px;
+}
+
+.shadow-effect {
+    /* box-shadow: 20px 0px 20px 100px #fff; */
+    /* filter: drop-shadow(0 0 0.75rem crimson); */
+    /* box-shadow:  5px -5px 5px 0px #E3E7EA,  */
+}
+.mat-icon {
+  color: #7e7ca8;
+}
+#form-container {
+  text-align: center;
+
+  /* top: 20%;
+  position: relative; */
+}
+
+.login-head {
+  /* padding-top: 35px; */
+  font-family: DM Sans;
+  font-weight: 500;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+  width: 300px;
+  position: relative;
+  border-radius: 37px !important;
+}
+
+.btn-login {
+  width: 300px;
+  height: 7vh;
+  background-color: #f25b87;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.p-login-here {
+  color: #7e7ca8;
+  font-size: 18px;
+}
+
+.p-login-here a {
+  color: #f25b87;
+  text-decoration: none;
+}
+
+/* ::ng-deep .mat-body p, .mat-body-1 p, .mat-typography p{
+    margin: 0px !important;
+} */
+
+.example-margin {
+  color: #7e7ca8;
+}
+::ng-deep .mat-form-field input,
+::placeholder,
+.mat-form-field,
+::ng-deep .mat-form-field-label {
+  color: #7e7ca8 !important;
+  font-size: 18px;
+}
+
+
+/* box-shadow: 20px 0px 20px 100px #fff; */

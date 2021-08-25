@@ -1,0 +1,180 @@
+.navbar-nav{
+  margin-left: auto;
+}
+.logo1{
+  font-size: 40px;
+  padding-left:30px ;
+}
+.nav-link{
+  color : #000 !important;
+  font-size: 20px;
+}
+.nav-item{
+  padding-right: 25px;
+}
+.loginButton {
+  border: 2px solid #f25b87;
+  border-radius: 20px;
+  width: 150px;
+  height: 40px;
+}
+/* end of navbar */
+
+/* starting of background image */
+.background-img{
+  background-image: url(../../../assets/lucy-wolski-sljmgxyzmqM-unsplash.jpg);
+  background-size:cover ;
+  padding: 40px;
+  width:100%;
+  height: 550px;
+  padding-right: 20px !important;
+  background-repeat: no-repeat;
+  background-position:center;
+  padding-bottom: 20px;
+}
+
+.making-difference{
+  font-size: 30px;
+  color: #0A2463;
+  font-weight: 500;
+  text-align: center;
+  padding-bottom: 10px;
+  line-height: 20px;
+  
+}
+.p-making-difference{
+  font-size: 20px;
+  text-align: center;
+  color: #0A2463;
+  padding-top: 8px;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+.btn-donateMilk{
+    height: 54px;
+    border-radius: 27px;
+    width: 225px;
+    color: #fff;
+    background: #f25b87;
+    margin-top: 13px;
+    font-size: 22px;
+    border: none;
+    margin-left: 53px;
+    margin-top: 20px;
+}
+
+.box1{
+  margin-right: 65px;
+}
+.box2{
+  background-color: white;
+  width: 418px;
+  height: 412px;
+  border: 10 white solid;
+  padding: 43px;
+  margin-left: auto;
+  background-repeat: no-repeat;
+  margin-top: 18px;
+  border: 5px solid white;
+}
+/* end of background image */
+
+/* start why Donate */
+.whyDonate{
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+.head-whyDonate{
+font-weight: bold;
+font-size: 32px;
+line-height: 42px;
+text-align: center;
+padding-bottom: 30px;
+}
+.p-whyDonate{
+  text-align: center;
+  color: #7E7CA8;
+  font-size: 22px;
+  line-height: 31px;
+ text-align: center;
+}
+
+.heart-line{
+  display: flex;
+    justify-content: center;
+    margin-top: 75px;
+    align-items: center;
+  }
+.line{
+    height: 3px;
+    background-color:#f25b87;
+}
+/* End of why Donate */
+
+/* Start of  card quotes */
+
+.quotes{
+  border: 0;
+  background-color: #fff;
+  width: 65%;
+  text-align: center;
+}
+.saying{
+  border: 0;
+  background-color: #fff;
+}
+.card-title{
+font-size: 30px;
+line-height: 39px;
+padding-top: 75px;
+text-align: center;
+color: #000000
+}
+.para2{
+  font-size: 22px;
+  line-height: 31px;
+ 
+  text-align: center;
+  color: #F25B87;
+}
+.left-quotes{
+  opacity: .3;
+  color: #F25B87;
+  
+}
+.right-quotes{
+  opacity: .3;
+  color: #F25B87;
+} 
+.Source-Title{
+ 
+font-size: 20px;
+line-height: 31px;
+text-align: center;
+color: #000000;
+}
+/* end of card quotes */
+
+/* starting of footer */
+.container-fluid{
+  background-color: #F25B87;
+  color: #fff;
+}
+.footer-menu{
+ 
+}
+.footer-menu a{
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 30px;
+
+  align-items:center;
+  text-align: left;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  
+}
+  /* ending of footer */
+  

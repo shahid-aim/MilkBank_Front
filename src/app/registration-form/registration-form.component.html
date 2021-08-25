@@ -1,0 +1,76 @@
+
+<div class="row p-0 m-0">
+   <div class="col-sm-12 col-md-11 col-lg-4 p-0 m-0" >
+       <img class = "img-family" src="../../assets/mom-baby.jpg" alt="">
+    </div>
+
+    <div class="col-sm-0 col-md-1 col-lg-1 p-0 m-0" id ="col-img">
+        
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-7 shadow-effect">
+        <img class="leftarrowButton" src="../../../assets/leftarrow.svg" alt="Arrow Back" srcset="">
+       <div class="container" id = "form-container">        
+            <h1 class="login-head">Join Us</h1>
+            <form>
+                <p class="p-0 m-0">
+                    <mat-form-field appearance="outline" [color]="textFieldColor">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput placeholder="Placeholder" />
+                    </mat-form-field>
+                </p>
+    
+                <p class="p-0 m-0">
+                    <mat-form-field appearance="outline" [color]="textFieldColor">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Placeholder" type="email"/>
+                    </mat-form-field>
+                </p>
+
+                  <p class="p-0 m-0">
+                    <mat-form-field appearance="outline" [color]="textFieldColor">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput placeholder="Placeholder" />
+                    </mat-form-field>
+                </p>
+ 
+                 <p class="p-0 m-0">
+                 <mat-form-field appearance="outline" [color]="textFieldColor">
+                        <mat-label>Create Username</mat-label>
+                        <input matInput placeholder="Placeholder" />
+                    </mat-form-field>
+                </p>
+                  
+                   <p class="p-0 m-0">
+                     <mat-form-field appearance="outline" [color]="textFieldColor">
+                        <mat-label>Create Password</mat-label>
+                        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" required>
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </mat-form-field>
+
+                </p>
+
+                  <p class="p-0 m-0 ">
+                 <mat-form-field appearance="outline" [color]="textFieldColor">
+                        <mat-label>Conform Password</mat-label>
+                        <input matInput placeholder="Password" [type]="hide1 ? 'password' : 'text'" required>
+                        <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </mat-form-field>
+                </p>
+                 
+                <section class="example-section">
+                    <mat-checkbox class="example-margin">I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy policy</a></mat-checkbox>
+                </section>
+                <button type="button" class="btn-login mt-3 mb-5">Register</button>
+               <p class = "p-login-here" >Already have an account? <a class = "" href="#">Login</a></p>
+               
+          </form>
+            
+        </div>
+        
+    </div>
+</div>
+
+
+
+<!-- <input type="password" placeholder="password" class="form-control"/> -->

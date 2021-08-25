@@ -1,0 +1,40 @@
+<div class="row p-0 m-0">
+    <div class="col-sm-12 col-md-12 col-lg-6 p-0 m-0" id ="col-img">
+        <img class = "img-family" src="../../assets/family-img.jpg" alt="">
+    </div>
+    
+
+    <div class="col-sm-12 col-md-12 col-lg-6" id="effect-shadow">
+            <img class="leftarrowButton" src="../../../assets/leftarrow.svg" alt="Arrow Back" srcset="">
+        <div class="container" id = "form-container">
+          <h1 class="login-head">Login</h1>
+            <form>
+                <p class="p-0 m-0">
+                    <mat-form-field appearance="outline" [color]="textFieldColor">
+                        <mat-label>Create Username</mat-label>
+                        <input matInput placeholder="Placeholder" />
+                    </mat-form-field>
+                </p>
+    
+                <p class="p-0 m-0">
+                    <mat-form-field appearance="outline" [color]="textFieldColor">
+                        <mat-label>Create Password</mat-label>
+                        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" required>
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </mat-form-field>
+
+                </p>
+                <button type="button" class="btn-login mt-2 mb-5">Login</button>
+    
+                <p class = "p-register-here" >Don't have an account? <a class = "" href="#">Register here</a></p>
+    
+            </form>
+            
+        </div>
+        
+    </div>
+</div>
+
+
+
+<!-- <input type="password" placeholder="password" class="form-control"/> -->
