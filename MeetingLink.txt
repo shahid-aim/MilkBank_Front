@@ -1,0 +1,35 @@
+1. create dir of source code
+2. 'cd' to the dir
+3. git init
+4. git add .  (or include the 'file names' to publish)
+5. git commit -m "message with the commit"
+6. git clone 'project url'
+cd to the  folder
+7. git branch Mayuri
+8. git push -u origin Mayuri
+
+
+------------------------------
+git remote add origin 
+
+url: https://github.com/aimprohub/MilkBank_Front.git    -- url to  access
+
+
+Branch commit:
+git branch Mayuri    - creat branch
+git checkout Mayuri   - change to Mayuri branch
+git add .                 - add file names
+git commit -m "message for the new commit"        
+git push --set-upstream origin Mayuri      - files are pushed to github
+     This will update files on the Mayuri branch
+
+create folder, cd to the folder
+git init
+git clone 'project url'
+cd to the created folder
+create, save new files int this folder 
+git add .
+git  commit -m "msg for commit"
+git checkout Mayuri    (your branch name)
+git push ----set-upstream origin Mayuri
+    --will update files on  gitHub Mayuri branch
