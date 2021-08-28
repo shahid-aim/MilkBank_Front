@@ -1,0 +1,32 @@
+<div class="row p-0 m-0">
+    <div class="col-sm-12 col-md-12 col-lg-6 p-0 m-0" id ="col-img">
+        <img class = "img-family" src="../../assets/family-img.jpg" alt="">
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-6">
+
+        <div class="container" id = "form-container">
+            <h1 class="login-head">Login</h1>
+            <form #loginForm = "ngForm" ngSubmit>
+                <p class="p-0">
+                    <mat-form-field appearance="outline" [color]="textFieldColor">
+                        <mat-label>Create Username</mat-label>
+                        <input matInput placeholder="Placeholder" [(ngModel)] = "username" name = "username" />
+                    </mat-form-field>
+                </p>
+    
+                <p class="p-0">
+                    <mat-form-field appearance="outline" [color]="textFieldColor">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Placeholder" [(ngModel)] = "password" name = "password" />
+                    </mat-form-field>
+                </p>
+
+                <p class = "invalid-message" *ngIf = "invalidUsernamePassword">Invalid Username or Password</p>
+
+                <button type="button" class="btn-login mt-3 mb-5" (click) = "login()">Login</button>
+                <p class = "p-register-here" >Don't have an account? <a class = "" href="#">Register here</a></p>
+            </form>
+        </div>
+    </div>
+</div>
