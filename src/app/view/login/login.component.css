@@ -13,12 +13,18 @@
 .login-head {
   font-family: DM Sans;
   font-weight: 500;
+ 
 }
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
   width: 300px;
   position: relative;
   border-radius: 37px !important;
+}
+
+::ng-deep .mat-form-field  input, ::placeholder, .mat-form-field,::ng-deep .mat-form-field-label  {
+  color: #7E7CA8 !important;
+  font-size: 18px;
 }
 
 .invalid-message{
@@ -32,12 +38,31 @@
   border: none;
   border-radius: 4px;
   color: #fff;
+  font-size: 20px;
 }
 
 .p-register-here {
   color: #7E7CA8;
+  font-size: 18px;
 }
 
 .p-register-here a{
     color: #f25b87;
+    text-decoration: none;
+    
+}
+
+@media only screen and (max-width: 600px) {
+  .img-family{
+    height :60vh !important;
+}
+.leftarrowButton{
+  filter: invert(50%) sepia(40%) saturate(2329%) hue-rotate(310deg) brightness(98%) contrast(93%);
+  padding-top: 20px;
+}
+#form-container {
+  text-align: center;
+  top: 7%;
+  position: relative; 
+}
 }

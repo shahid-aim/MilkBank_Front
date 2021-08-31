@@ -1,5 +1,4 @@
 .navbar {
-    height: 112px;
     background-color: #fff;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
 }
@@ -43,7 +42,7 @@
 }
 
 .banner-parent-container {
-    height: 30vh;
+    height: 73vh;
     width: 100%;
     background-position: center;
     background-size: cover;
@@ -67,6 +66,7 @@
     font-size: 30px;
     color: #0A2463 !important;
     font-family: DM SansSce Medium;
+    line-height: 40px;
 }
 
 .moto-tagline .card-text {
@@ -115,7 +115,7 @@
 }
 
 .why-donate-heart {
-    height: 20px;
+    height: 25px;
 }
 
 .line {
@@ -177,6 +177,7 @@ footer {
 
 .footer-icon {
     height: 20px;
+    margin-right: 14px;
 }
 
 .footer-contact-icons {
@@ -184,7 +185,7 @@ footer {
 }
 
 .li-get-in-touch {
-    font-size: 16px;
+    font-size: 18px !important;
 }
 
 .footer-contact-icons {
@@ -192,12 +193,15 @@ footer {
 }
 
 .footer-misc-cpyrgt {
-    padding-top: 85px;
+    padding-top: 60px;
     justify-content: space-between;
     font-size: 18px;
 }
 
 @media (min-width:1025px) {
+    .navbar {
+        height: 112px;
+    }
     .banner-parent-container {
         height: 99vh;
         width: 100%;
@@ -237,12 +241,15 @@ footer {
 }
 
 @media only screen and (max-device-width: 480px) {
+    .show {
+        height: 100vh;
+    }
     .banner-parent-container {
         height: 51vh;
         width: 100%;
     }
     .line {
-        height: 0px;
+        height: 3px;
     }
     .whyDonate {
         padding-top: 60px;
@@ -259,5 +266,66 @@ footer {
     }
     .footer-list li {
         padding: 16px 0px;
+    }
+    .navbar-collapse {
+        height: 100vh;
+    }
+    .footer-misc {
+        padding-bottom: 20px;
+    }
+    .footer-misc-bord {
+        padding-bottom: 20px;
+    }
+    .footer-cpyrgt {
+        padding-top: 20px;
+    }
+    .footer-misc-cpyrgt {
+        padding-left: 33px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .toggle-button {
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-link {
+        /* color: #000 !important;
+        font-size: 20px;
+        padding-left: 20px;
+        font-family: DM SansSce Medium; */
+        padding: 20px;
+    }
+    .nav-link .loginButton {
+        margin: 5px;
+    }
+    .navbar {
+        background-color: #fff;
+        width: 100%;
+    }
+    .active .nav-link {
+        border-bottom: none;
+    }
+    .logo1 {
+        width: 200px;
+        height: 57px;
+    }
+    .footer-list {
+        padding: 25px;
+    }
+    .footer-list li {
+        padding: 10px;
+    }
+    .footer-misc {
+        padding-bottom: 20px;
+    }
+    .footer-misc-bord {
+        padding-bottom: 20px;
+    }
+    .footer-cpyrgt {
+        padding-top: 20px;
+    }
+    .footer-misc-cpyrgt {
+        padding-left: 33px;
     }
 }
