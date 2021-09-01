@@ -17,6 +17,7 @@ export class RegistrationComponent implements OnInit {
 
   formControls : any
   hide : boolean = true
+  hide1 :boolean =true
   textFieldColor = "#f25b87"
   message : string = ""
   invalidUsernamePassword : boolean = false

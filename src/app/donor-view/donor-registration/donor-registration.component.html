@@ -1,331 +1,328 @@
 <mat-stepper linear #stepper>
-  <!-- #docregion editable -->
-  <!--DONERS INFORMATION-->
-  <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+    <!-- #docregion editable -->
+    <!--DONERS INFORMATION-->
+    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
 
-    <div class="heading1">
-      <span>
+        <div class="heading1">
+            <span>
         <h4 style="font-size:21px; font-weight:500">DONOR'S INFORMATION</h4>
         <P>Please provide necessary information to register as a Donor.</P>
         <hr>
       </span>
-    </div>
+        </div>
 
-    <!-- #enddocregion editable -->
-    <form [formGroup]="firstFormGroup">
-      <!-- #docregion step-label -->
-      <ng-template matStepLabel>DONOR'S INFORMATION</ng-template>
-      <!-- #enddocregion step-label -->
-      <!-- <p class="para1">
+        <!-- #enddocregion editable -->
+        <form [formGroup]="firstFormGroup">
+            <!-- #docregion step-label -->
+            <ng-template matStepLabel>DONOR'S INFORMATION</ng-template>
+            <!-- #enddocregion step-label -->
+            <!-- <p class="para1">
         <label>Full Name*</label>
         <input type="text" placeholder="" formControlName="">
       </p> -->
-      <div class="d-flex justify-content-center">
-        <div class="w-50">
-          <div class="row row1">
-            <div class="col-4">
-              <label>Full Name*</label>
-            </div>
-            <div class="col-8">
-              <input type="text" placeholder="" formControlName="fullName">
-            </div>
-          </div>
+            <div class="d-flex justify-content-center">
+                <div class="">
+                    <div class="row row1">
+                        <div class="col-6">
+                            <label>Full Name*</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" placeholder="" formControlName="fullName">
+                        </div>
+                    </div>
 
 
-          <div class="row  row1">
-            <div class="col-4">
-              <label>Date of Birth*</label>
-            </div>
-            <div class="col-8">
-              <input placeholder="DD/MM/YY" class="textbox-n" type="text" onfocus="(this.type='date')" id="date"
-                formControlName="DOB">
-            </div>
-          </div>
+                    <div class="row  row1">
+                        <div class="col-6">
+                            <label>Date of Birth*</label>
+                        </div>
+                        <div class="col-6">
+                            <input placeholder="DD/MM/YY" class="textbox-n" type="text" onfocus="(this.type='date')" id="date" formControlName="DOB">
+                        </div>
+                    </div>
 
-          <div class="row  row1">
-            <div class="col-4">
-              <label>Type of Delivery*</label>
-            </div>
-            <div class="col-8">
-              <select id="Select1" class="input-large" aria-label="Default select example" formControlName="TOD">
+                    <div class="row  row1">
+                        <div class="col-6">
+                            <label>Type of Delivery*</label>
+                        </div>
+                        <div class="col-6">
+                            <select id="Select1" class="input-large" aria-label="Default select example" formControlName="TOD">
                 <option selected>Select Option</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
               </select>
-            </div>
-          </div>
+                        </div>
+                    </div>
 
-          <div class="row  row1">
-            <div class="col-4">
-              <label>Date of Delivery*</label>
-            </div>
-            <div class="col-8">
-              <input placeholder="DD/MM/YY" class="textbox-n" type="text" onfocus="(this.type='date')" id="date"
-                formControlName="DOD">
-            </div>
-          </div>
+                    <div class="row  row1">
+                        <div class="col-6">
+                            <label>Date of Delivery*</label>
+                        </div>
+                        <div class="col-6">
+                            <input placeholder="DD/MM/YY" class="textbox-n" type="text" onfocus="(this.type='date')" id="date" formControlName="DOD">
+                        </div>
+                    </div>
 
-          <div class="row  row1">
-            <div class="col-4">
-              <label>Contact Number*</label>
-            </div>
-            <div class="col-8">
-              <input type="text" placeholder="" formControlName="contactNumber">
-            </div>
-          </div>
+                    <div class="row  row1">
+                        <div class="col-6">
+                            <label>Contact Number*</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" placeholder="" formControlName="contactNumber">
+                        </div>
+                    </div>
 
-          <div class="row  row1">
-            <div class="col-4">
-              <label>Type of Document*</label>
-            </div>
-            <div class="col-8">
-              <select id="Select1" class="input-large" aria-label="Default select example"
-                formControlName="documentType">
+                    <div class="row  row1">
+                        <div class="col-6">
+                            <label>Type of Document*</label>
+                        </div>
+                        <div class="col-6">
+                            <select id="Select1" class="input-large" aria-label="Default select example" formControlName="documentType">
                 <option selected>Select Option</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
               </select>
-            </div>
-          </div>
+                        </div>
+                    </div>
 
-          <div class="row  row1">
-            <div class="col-4">
-              <label>Document Number</label>
-            </div>
-            <div class="col-8">
-              <input type="text" placeholder="" formControlName="documentNumber">
-            </div>
-          </div>
+                    <div class="row  row1">
+                        <div class="col-6">
+                            <label>Document Number</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" placeholder="" formControlName="documentNumber">
+                        </div>
+                    </div>
 
-        </div>
-        <!-- end of container -->
-      </div>
+                </div>
+                <!-- end of container -->
+            </div>
 
-      <div class="formsButton">
-        <button mat-button matStepperNext id="btnTrial2" (click)="submitDonorRegistration()">NEXT
+            <div class="formsButton">
+                <button mat-button matStepperNext id="btnTrial2" (click)="submitDonorRegistration()">NEXT
           <img class="rightarrowButton" src="../../../assets/arrow-left.svg" alt="Arrow Next" srcset="">
         </button>
-      </div>
-    </form>
-  </mat-step>
-  <!--END OF DONORS INFORMATION-->
+            </div>
+        </form>
+    </mat-step>
+    <!--END OF DONORS INFORMATION-->
 
-  <!--CONTACT INFO-->
-  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-    <div class="heading2">
-      <h4 style="font-size:21px; font-weight:500">CONTACT INFORMATION</h4>
-      <P>Please provide necessary information.</P>
-      <hr>
-    </div>
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>CONTACT INFORMATION</ng-template>
-
-      <div class="d-flex justify-content-center">
-        <div class="w-50">
-          <div class="row row1">
-            <div class="col-4">
-              <label>Contact number*</label>
-            </div>
-            <div class="col-8">
-              <input type="text" formControlName="contactNumber" name = "contactNumber" placeholder="" required>
-            </div>
-          </div>
-          <div class="row row1">
-            <div class="col-4">
-              <label>Address*</label>
-            </div>
-            <div class="col-8">
-              <input type="text" formControlName="address" name = "address" placeholder="" required>
-            </div>
-          </div>
-
-          <div class="row row1">
-            <div class="col-4">
-              <label>City*</label>
-            </div>
-            <div class="col-8">
-              <input type="text" formControlName="city" name = "city" placeholder="" required>
-            </div>
-          </div>
-
-          <div class="row row1">
-            <div class="col-4">
-              <label>Taluka*</label>
-            </div>
-            <div class="col-8">
-              <input type="text" formControlName="talkua" name = "talkua" placeholder="" required>
-            </div>
-          </div>
-
-          <div class="row row1">
-            <div class="col-4">
-              <label>District*</label>
-            </div>
-            <div class="col-8">
-              <input type="text" formControlName="district" name = "district" placeholder="" required>
-            </div>
-          </div>
-
-          <div class="row row1">
-            <div class="col-4">
-              <label>pincode*</label>
-            </div>
-            <div class="col-8">
-              <input type="text" formControlName="pincode" name = "pincode" placeholder="" required>
-            </div>
-          </div>
-
+    <!--CONTACT INFO-->
+    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+        <div class="heading2">
+            <h4 style="font-size:21px; font-weight:500">CONTACT INFORMATION</h4>
+            <P>Please provide necessary information.</P>
+            <hr>
         </div>
-      </div>
-      <div class="formsButton">
-        <button mat-button matStepperPrevious id="btnTrial">
+        <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>CONTACT INFORMATION</ng-template>
+
+            <div class="d-flex justify-content-center">
+                <div class="">
+                    <div class="row row1">
+                        <div class="col-6">
+                            <label>Contact number*</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" formControlName="contactNumber" name="contactNumber" placeholder="" required>
+                        </div>
+                    </div>
+                    <div class="row row1">
+                        <div class="col-6">
+                            <label>Address*</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" formControlName="address" name="address" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="row row1">
+                        <div class="col-6">
+                            <label>City*</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" formControlName="city" name="city" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="row row1">
+                        <div class="col-6">
+                            <label>Taluka*</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" formControlName="talkua" name="talkua" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="row row1">
+                        <div class="col-6">
+                            <label>District*</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" formControlName="district" name="district" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="row row1">
+                        <div class="col-6">
+                            <label>pincode*</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" formControlName="pincode" name="pincode" placeholder="" required>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="formsButton">
+                <button mat-button matStepperPrevious id="btnTrial">
           <img class="leftarrowButton" src="../../../assets/leftarrow.svg" alt="Arrow Back" srcset="">PREVIOUS
         </button>
-        <button mat-button matStepperNext id="btnTrial2" (click) = "saveContactInformation()">NEXT
+                <button mat-button matStepperNext id="btnTrial2" (click)="saveContactInformation()">NEXT
           <img class="rightarrowButton" src="../../../assets/arrow-left.svg" alt="Arrow Next" srcset="">
         </button>
-      </div>
-    </form>
-  </mat-step>
-  <!--END OF CONTACT INFO-->
+            </div>
+        </form>
+    </mat-step>
+    <!--END OF CONTACT INFO-->
 
-  <!--MEDICAL HISTORY-->
-  <mat-step [stepControl]="thirdFormGroup" [editable]="isEditable">
-    <div class="heading1">
-      <h4 style="font-size:21px; font-weight:500">MEDICAL HISTORY</h4>
-      <P>Please answer following questions.</P>
+    <!--MEDICAL HISTORY-->
+    <mat-step [stepControl]="thirdFormGroup" [editable]="isEditable">
+        <div class="heading1">
+            <h4 style="font-size:21px; font-weight:500">MEDICAL HISTORY</h4>
+            <P>Please answer following questions.</P>
 
-    </div>
+        </div>
 
-    <form [formGroup]="thirdFormGroup">
-      <ng-template matStepLabel>MEDICAL HISTORY</ng-template>
-      <div class="d-flex justify-content-center">
-        <div class="col-9">
-          <div class="row">
-            <div class="col-6">
-              <span>Cigarettes/tobacco/any form of nicotine/alcohol consumption in past 6*</span>
-            </div>
-            <div class="col-3">
-              <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name = "nicotineAlcohol" placeholder="" required>
-                <mat-radio-button value="yes">Yes</mat-radio-button>
-              </mat-radio-group>
-            </div>
-            <div class="col-3">
-              <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name = "nicotineAlcohol" placeholder="" required>
-                <mat-radio-button value="no">No</mat-radio-button>
-              </mat-radio-group>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <span>Received blood transfusion or transfusion of any component of blood ?*</span>
-            </div>
-            <div class="col-3">
-              <mat-radio-group aria-label="Select an option" formControlName="bloodTransfusion" name = "bloodTransfusion" placeholder="" required>
-                <mat-radio-button value="yes">Yes</mat-radio-button>
-              </mat-radio-group>
-            </div>
-            <div class="col-3">
-              <mat-radio-group aria-label="Select an option" formControlName="bloodTransfusion" name = "bloodTransfusion" placeholder="" required>
-                <mat-radio-button value="no">No</mat-radio-button>
-              </mat-radio-group>
-            </div>
-          </div>
+        <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>MEDICAL HISTORY</ng-template>
+            <div class="d-flex justify-content-center">
+                <div class="col-xsm-12 col-sm-12 col-md-8">
+                    <div class="row">
+                        <div class="col-6">
+                            <span>Cigarettes/tobacco/any form of nicotine/alcohol consumption in past 6*</span>
+                        </div>
+                        <div class="col-3">
+                            <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" placeholder="" required>
+                                <mat-radio-button value="yes">Yes</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div class="col-3">
+                            <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" placeholder="" required>
+                                <mat-radio-button value="no">No</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <span>Received blood transfusion or transfusion of any component of blood ?*</span>
+                        </div>
+                        <div class="col-3">
+                            <mat-radio-group aria-label="Select an option" formControlName="bloodTransfusion" name="bloodTransfusion" placeholder="" required>
+                                <mat-radio-button value="yes">Yes</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div class="col-3">
+                            <mat-radio-group aria-label="Select an option" formControlName="bloodTransfusion" name="bloodTransfusion" placeholder="" required>
+                                <mat-radio-button value="no">No</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
 
-          <div class="row">
-            <div class="col-6">
-              <span>Currently have fever or any rashes, especially around breast area ?*</span>
-            </div>
-            <div class="col-3">
-              <mat-radio-group aria-label="Select an option" formControlName="feverRashes" name = "feverRashes" placeholder="" required>
-                <mat-radio-button value="yes">Yes</mat-radio-button>
-              </mat-radio-group>
-            </div>
-            <div class="col-3">
-              <mat-radio-group aria-label="Select an option" formControlName="feverRashes" name = "feverRashes" placeholder="" required>
-                <mat-radio-button value="no">No</mat-radio-button>
-              </mat-radio-group>
-            </div>
-          </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <span>Currently have fever or any rashes, especially around breast area ?*</span>
+                        </div>
+                        <div class="col-3">
+                            <mat-radio-group aria-label="Select an option" formControlName="feverRashes" name="feverRashes" placeholder="" required>
+                                <mat-radio-button value="yes">Yes</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div class="col-3">
+                            <mat-radio-group aria-label="Select an option" formControlName="feverRashes" name="feverRashes" placeholder="" required>
+                                <mat-radio-button value="no">No</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
 
-          <div class="row">
-            <div class="col-6">
-              <span>Sufering from any other acute illness ?*</span>
-            </div>
-            <div class="col-3">
-              <mat-radio-group aria-label="Select an option" formControlName="acuteDisease" name = "acuteDisease" placeholder="" required>
-                <mat-radio-button value="yes">Yes</mat-radio-button>
-              </mat-radio-group>
-            </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <span>Sufering from any other acute illness ?*</span>
+                        </div>
+                        <div class="col-3">
+                            <mat-radio-group aria-label="Select an option" formControlName="acuteDisease" name="acuteDisease" placeholder="" required>
+                                <mat-radio-button value="yes">Yes</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
 
-            <div class="col-3">
-              <mat-radio-group aria-label="Select an option" formControlName="acuteDisease" name = "acuteDisease" placeholder="" required>
-                <mat-radio-button value="no">No</mat-radio-button>
-              </mat-radio-group>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <span>Test Reports within last 6 months for HIV, HBAg
+                        <div class="col-3">
+                            <mat-radio-group aria-label="Select an option" formControlName="acuteDisease" name="acuteDisease" placeholder="" required>
+                                <mat-radio-button value="no">No</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <span>Test Reports within last 6 months for HIV, HBAg
                 and VDRL available*</span>
-            </div>
-            <div class="col-3">
-              <mat-radio-group aria-label="Select an option" formControlName="hivHbagDisease" name = "hivHbagDisease" placeholder="" required>
-                <mat-radio-button value="yes">Yes</mat-radio-button>
-              </mat-radio-group>
-            </div>
-            <div class="col-3">
-              <mat-radio-group aria-label="Select an option" formControlName="hivHbagDisease" name = "hivHbagDisease" placeholder="" required>
-                <mat-radio-button value="no">No</mat-radio-button>
-              </mat-radio-group>
-            </div>
-            <span style="font-size: 20px;color:#7E7CA8;padding-top:35px">If yes. Please upload HIV, HBsAg and VDRL
+                        </div>
+                        <div class="col-3">
+                            <mat-radio-group aria-label="Select an option" formControlName="hivHbagDisease" name="hivHbagDisease" placeholder="" required>
+                                <mat-radio-button value="yes">Yes</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div class="col-3">
+                            <mat-radio-group aria-label="Select an option" formControlName="hivHbagDisease" name="hivHbagDisease" placeholder="" required>
+                                <mat-radio-button value="no">No</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <span style="font-size: 20px;color:#7E7CA8;padding-top:35px">If yes. Please upload HIV, HBsAg and VDRL
               reports*</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="d-flex justify-content-center">
-          <div class="col-10 uploadFile">
-            <div class="d-flex flex-column pt-3">
-              <input type="file" name="" id="">
-              <img class="uploadDocImg" src="../../../assets/cloud-computing-svgrepo-com (1).svg" alt="cloud-image">
-              <span class="dragFile">Drag files here to upload OR <span
-                  style="color: #f25b87;font-size:22px;letter-spacing:1px;padding-left: 5px;">Browse</span></span>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="formsButton">
-        <button mat-button matStepperPrevious id="btnTrial">
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <div class="col-10 uploadFile">
+                        <div class="d-flex flex-column pt-3">
+                            <input type="file" name="" id="">
+                            <img class="uploadDocImg" src="../../../assets/cloud-computing-svgrepo-com (1).svg" alt="cloud-image">
+                            <span class="dragFile">Drag files here to upload OR <span
+                  style="color: #f25b87;font-size:22px;letter-spacing:1px;padding-left: 5px;">Browse</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="formsButton">
+                <button mat-button matStepperPrevious id="btnTrial">
           <img class="leftarrowButton" src="../../../assets/leftarrow.svg" alt="Arrow Back" srcset="">PREVIOUS
         </button>
-        <button mat-button matStepperNext id="btnTrial2" (click) = "medicalHistory()">NEXT
+                <button mat-button matStepperNext id="btnTrial2" (click)="medicalHistory()">NEXT
           <img class="rightarrowButton" src="../../../assets/arrow-left.svg" alt="Arrow Next" srcset="">
         </button>
-      </div>
-    </form>
-  </mat-step>
-  <!--END OF MEDICAL HISTORY-->
+            </div>
+        </form>
+    </mat-step>
+    <!--END OF MEDICAL HISTORY-->
 
-  <!--FEEDBACK-->
-  <mat-step [stepControl]="fourthFormGroup">
-    <div class="heading2">
-      <h4 style="font-size:21px; font-weight:500">CONSENT FORM</h4>
-      <P>Please answer following questions.</P>
-      <hr>
-    </div>
-    <form [formGroup]="fourthFormGroup">
-      <ng-template matStepLabel>CONSENT FORM</ng-template>
-      <div class="container">
-        <div class="row">
-          <div class="d-flex justify-content-center">
-            <div class="col-8">
-              <span class="iagree">
+    <!--FEEDBACK-->
+    <mat-step [stepControl]="fourthFormGroup">
+        <div class="heading2">
+            <h4 style="font-size:21px; font-weight:500">CONSENT FORM</h4>
+            <P>Please answer following questions.</P>
+            <hr>
+        </div>
+        <form [formGroup]="fourthFormGroup">
+            <ng-template matStepLabel>CONSENT FORM</ng-template>
+            <div class="container">
+                <div class="row">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-8">
+                            <span class="iagree">
                 I donor name am voluntarily donating my excess breast milk to hospital name. I hereby agree that all the
                 medical reports I submitted are original. I hereby agree that all the medical reports I submitted are
                 original.
@@ -335,25 +332,24 @@
                 I donor name am voluntarily donating my excess breast milk to hospital name. I hereby agree that all the
                 medical reports.
               </span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <section class="example-section" style="padding-top:35px;">
-        <mat-checkbox class="example-margin" formControlName="fourthCtrl" placeholder="" required>I agree with the terms
-          and conditions</mat-checkbox>
-      </section>
-      <div class="formsButton">
-        <button mat-button matStepperPrevious id="btnTrial">
+            <section class="example-section" style="padding-top:35px;">
+                <mat-checkbox class="example-margin" formControlName="fourthCtrl" placeholder="" required>I agree with the terms and conditions</mat-checkbox>
+            </section>
+            <div class="formsButton">
+                <button mat-button matStepperPrevious id="btnTrial">
           <img class="leftarrowButton" src="../../../assets/leftarrow.svg" alt="Arrow Back" srcset="">PREVIOUS
         </button>
-        <button mat-button matStepperNext id="btnTrial2">NEXT
+                <button mat-button matStepperNext id="btnTrial2">NEXT
           <img class="rightarrowButton" src="../../../assets/arrow-left.svg" alt="Arrow Next" srcset="" (click) = "navigateToRegistrationComplete()">
         </button>
-      </div>
+            </div>
 
-    </form>
-  </mat-step>
-  <!--END OF FEEDBACK-->
+        </form>
+    </mat-step>
+    <!--END OF FEEDBACK-->
 </mat-stepper>

@@ -19,7 +19,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { CookieService } from 'ngx-cookie-service';
 import { DonorRegistrationComponent } from './donor-view/donor-registration/donor-registration.component';
 import { RegistrationComponent } from './view/registration/registration.component';
-import { LoginTrialComponent } from './login-trial/login-trial.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +28,7 @@ import { LoginTrialComponent } from './login-trial/login-trial.component';
     LoginComponent,
     DonorRegistrationComponent,
     RegistrationComponent,
-    LoginTrialComponent
+
   ],
   imports: [
     BrowserModule,
