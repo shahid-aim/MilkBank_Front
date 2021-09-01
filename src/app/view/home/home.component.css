@@ -39,6 +39,7 @@
     color: #f25b87 !important;
     border: 2px solid #f25b87;
     padding-left: 30px !important;
+    cursor: pointer;
 }
 
 .banner-parent-container {
@@ -196,6 +197,7 @@ footer {
     padding-top: 60px;
     justify-content: space-between;
     font-size: 18px;
+    text-align: center;
 }
 
 @media (min-width:1025px) {
@@ -290,10 +292,6 @@ footer {
         flex-direction: column;
     }
     .nav-link {
-        /* color: #000 !important;
-        font-size: 20px;
-        padding-left: 20px;
-        font-family: DM SansSce Medium; */
         padding: 20px;
     }
     .nav-link .loginButton {
@@ -326,6 +324,7 @@ footer {
         padding-top: 20px;
     }
     .footer-misc-cpyrgt {
+        text-align: left;
         padding-left: 33px;
     }
 }

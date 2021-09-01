@@ -23,7 +23,7 @@
                     <a class="nav-link" href="#">Success Stories</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link loginButton" href="#">Login/Register</a>
+                    <a (click)="navigateToLogin()" class="nav-link loginButton">Login/Register</a>
                 </li>
             </ul>
         </div>
@@ -38,7 +38,7 @@
         <p class="card-text">
             We’re advocating for the development of a local human breast milk bank in Saskatchewan, and we need your support. Please contact us if you can volunteer or advocate for this growing and valuable service.
         </p>
-        <button class="btn-moto-tagline">
+        <button class="btn-moto-tagline" (click)="navigateToLogin()">
             <img src="../../../assets/heart-svg.svg" alt="">
             Donate Milk
         </button>
@@ -145,7 +145,7 @@
         </div>
 
 
-        <div class="row footer-misc-cpyrgt text-center">
+        <div class="row footer-misc-cpyrgt">
             <div class="col-sm-12 col-md-1 col-lg-2 footer-misc">
                 Staff Login
             </div>

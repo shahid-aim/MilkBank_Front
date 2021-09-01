@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Login } from 'src/app/models/common';
 import { CommonService } from 'src/app/service/common/common.service';
+import { InternalUrlMappings } from 'src/app/shared/UrlMapping';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,13 @@ import { CommonService } from 'src/app/service/common/common.service';
 })
 export class LoginComponent implements OnInit {
 
+  hide : boolean = true
   username : string
   password : string
   invalidUsernamePassword = false
   loginModel : Login = new Login()
 
-  textFieldColor : "#f25b87"
+  textFieldColor : "accent"
 
   constructor(private _commonService : CommonService, private _cookieService : CookieService, private router: Router) { }
 
@@ -38,4 +40,9 @@ export class LoginComponent implements OnInit {
     }
     )
   }
+
+  navigateToRegistration(){
+    this.router.navigateByUrl(InternalUrlMappings.REGISTRATION)
+  }
+
 }

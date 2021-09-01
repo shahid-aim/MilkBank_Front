@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -18,6 +19,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { CookieService } from 'ngx-cookie-service';
 import { DonorRegistrationComponent } from './donor-view/donor-registration/donor-registration.component';
 import { RegistrationComponent } from './view/registration/registration.component';
+import { LoginTrialComponent } from './login-trial/login-trial.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { RegistrationComponent } from './view/registration/registration.componen
     HomeComponent,
     LoginComponent,
     DonorRegistrationComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginTrialComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { RegistrationComponent } from './view/registration/registration.componen
     MatInputModule,
     MatRadioModule,
     MatCheckboxModule,
+    MatIconModule,
     HttpClientModule,
     ModalModule,
 

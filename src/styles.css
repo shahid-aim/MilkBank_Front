@@ -5,10 +5,11 @@
     src: url(assets/DM_Sans/DMSans-Regular.ttf) format("truetype");
 }
 
-@font-face {
+
+/* @font-face {
     font-family: DM SansSce Bold;
     src: url(assets/DM_Sans/DMSans-Bold.ttf) format("truetype");
-}
+} */
 
 @font-face {
     font-family: DM SansSce Medium;
