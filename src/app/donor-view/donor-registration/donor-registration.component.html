@@ -69,7 +69,7 @@
                             <label>Contact Number*</label>
                         </div>
                         <div class="col-6">
-                            <input type="text" placeholder="" formControlName="contactNumber">
+                            <input type="number" placeholder="" formControlName="contactNumber">
                         </div>
                     </div>
 
@@ -199,24 +199,24 @@
         <form [formGroup]="thirdFormGroup">
             <ng-template matStepLabel>MEDICAL HISTORY</ng-template>
             <div class="d-flex justify-content-center">
-                <div class="col-xsm-12 col-sm-12 col-md-8">
+                <div class="col-xsm-12 col-sm-12 col-md-12 col-lg-9">
                     <div class="row">
-                        <div class="col-6">
-                            <span>Cigarettes/tobacco/any form of nicotine/alcohol consumption in past 6*</span>
+                        <div class="col-7">
+                            <span>Cigarettes/tobacco<br>/any form of nicotine/alcohol consumption in past 6*</span>
                         </div>
                         <div class="col-3">
                             <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" placeholder="" required>
                                 <mat-radio-button value="yes">Yes</mat-radio-button>
                             </mat-radio-group>
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" placeholder="" required>
                                 <mat-radio-button value="no">No</mat-radio-button>
                             </mat-radio-group>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-7">
                             <span>Received blood transfusion or transfusion of any component of blood ?*</span>
                         </div>
                         <div class="col-3">
@@ -224,7 +224,7 @@
                                 <mat-radio-button value="yes">Yes</mat-radio-button>
                             </mat-radio-group>
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <mat-radio-group aria-label="Select an option" formControlName="bloodTransfusion" name="bloodTransfusion" placeholder="" required>
                                 <mat-radio-button value="no">No</mat-radio-button>
                             </mat-radio-group>
@@ -232,7 +232,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-7">
                             <span>Currently have fever or any rashes, especially around breast area ?*</span>
                         </div>
                         <div class="col-3">
@@ -240,7 +240,7 @@
                                 <mat-radio-button value="yes">Yes</mat-radio-button>
                             </mat-radio-group>
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <mat-radio-group aria-label="Select an option" formControlName="feverRashes" name="feverRashes" placeholder="" required>
                                 <mat-radio-button value="no">No</mat-radio-button>
                             </mat-radio-group>
@@ -248,7 +248,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-7">
                             <span>Sufering from any other acute illness ?*</span>
                         </div>
                         <div class="col-3">
@@ -257,14 +257,14 @@
                             </mat-radio-group>
                         </div>
 
-                        <div class="col-3">
+                        <div class="col-2">
                             <mat-radio-group aria-label="Select an option" formControlName="acuteDisease" name="acuteDisease" placeholder="" required>
                                 <mat-radio-button value="no">No</mat-radio-button>
                             </mat-radio-group>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-7">
                             <span>Test Reports within last 6 months for HIV, HBAg
                 and VDRL available*</span>
                         </div>
@@ -273,13 +273,12 @@
                                 <mat-radio-button value="yes">Yes</mat-radio-button>
                             </mat-radio-group>
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <mat-radio-group aria-label="Select an option" formControlName="hivHbagDisease" name="hivHbagDisease" placeholder="" required>
                                 <mat-radio-button value="no">No</mat-radio-button>
                             </mat-radio-group>
                         </div>
-                        <span style="font-size: 20px;color:#7E7CA8;padding-top:35px">If yes. Please upload HIV, HBsAg and VDRL
-              reports*</span>
+                        <span style="font-size: 20px;color:#7E7CA8;padding-top:35px">If yes. Please upload HIV, HBsAg and VDR reports*</span>
                     </div>
                 </div>
             </div>
@@ -288,10 +287,8 @@
                 <div class="d-flex justify-content-center">
                     <div class="col-10 uploadFile">
                         <div class="d-flex flex-column pt-3">
-                            <input type="file" name="" id="">
                             <img class="uploadDocImg" src="../../../assets/cloud-computing-svgrepo-com (1).svg" alt="cloud-image">
-                            <span class="dragFile">Drag files here to upload OR <span
-                  style="color: #f25b87;font-size:22px;letter-spacing:1px;padding-left: 5px;">Browse</span></span>
+                            <app-drop-file></app-drop-file>
                         </div>
                     </div>
                 </div>
@@ -321,7 +318,7 @@
             <div class="container">
                 <div class="row">
                     <div class="d-flex justify-content-center">
-                        <div class="col-8">
+                        <div class="col-12">
                             <span class="iagree">
                 I donor name am voluntarily donating my excess breast milk to hospital name. I hereby agree that all the
                 medical reports I submitted are original. I hereby agree that all the medical reports I submitted are

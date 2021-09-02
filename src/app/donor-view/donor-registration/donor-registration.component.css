@@ -51,7 +51,7 @@
     font-weight: 400;
     font-size: 20px;
     width: 70vw;
-    /* margin-left: 80px; */
+    margin-left: 80px;
 }
 
 .heading2 {
@@ -119,17 +119,27 @@ input:focus-visible {
     padding: 20px;
 }
 
-.col-6 {
-    width: 48%;
+.col-7 {
+    /* width: 50%; */
     font-size: 20px;
     color: #7E7CA8;
 }
 
 .col-3 {
-    width: auto;
+    /* width: auto; */
     font-size: 20px;
     color: #7E7CA8;
-    padding-left: 60px;
+    /* padding-left: 50px; */
+}
+
+.col-2 {
+    font-size: 20px;
+    color: #7E7CA8;
+}
+
+.mat-horizontal-content-container {
+    overflow: hidden;
+    padding: 0 8px 25px 5px !important;
 }
 
 .formsButton {
@@ -229,5 +239,46 @@ input:focus-visible {
 @media only screen and (max-width: 992px) {
      ::ng-deep .mat-step-text-label {
         display: none;
+    }
+    .heading1 {
+        margin-left: 0px;
+    }
+    .heading2 {
+        margin-left: 0px;
+        width: auto;
+    }
+    #btnTrial {
+        background-color: #fff;
+        color: #f25b87;
+        font-size: 18px;
+        border: none;
+        float: left;
+    }
+    #btnTrial2 {
+        background-color: #fff;
+        color: #f25b87;
+        font-size: 18px;
+        border: none;
+        float: right;
+    }
+    .leftarrowButton {
+        height: 20px;
+        width: 20px;
+    }
+    .rightarrowButton {
+        height: 20px;
+        width: 20px;
+    }
+    .uploadFile {
+        /* width: 800px;
+ height: 150px;
+ left: 326px;
+ top: 771px; */
+        background: #FFFFFF;
+        border: 1px dashed #BBBFC8;
+        box-sizing: border-box;
+        border-radius: 15px;
+        width: 350px;
+        height: 150px;
     }
 }

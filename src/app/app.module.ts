@@ -19,6 +19,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { CookieService } from 'ngx-cookie-service';
 import { DonorRegistrationComponent } from './donor-view/donor-registration/donor-registration.component';
 import { RegistrationComponent } from './view/registration/registration.component';
+import { DragFileComponent } from './drag-file/drag-file.component';
+import { DropFileComponent } from './drop-file/drop-file.component';
+import { NgxFileDropModule } from 'ngx-file-drop';
+
+
 
 @NgModule({
   declarations: [
@@ -28,6 +33,8 @@ import { RegistrationComponent } from './view/registration/registration.componen
     LoginComponent,
     DonorRegistrationComponent,
     RegistrationComponent,
+    DragFileComponent,
+    DropFileComponent,
 
   ],
   imports: [
@@ -44,6 +51,7 @@ import { RegistrationComponent } from './view/registration/registration.componen
     MatIconModule,
     HttpClientModule,
     ModalModule,
+    NgxFileDropModule
 
   ],
   providers: [CookieService],

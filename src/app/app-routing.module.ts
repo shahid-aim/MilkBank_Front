@@ -6,6 +6,8 @@ import { LoginComponent } from './view/login/login.component';
 import { DonorRegistrationComponent } from './donor-view/donor-registration/donor-registration.component' 
 import { RegistrationComponent } from './view/registration/registration.component';
 import { ThankYouComponent } from './donor-view/thank-you/thank-you.component';
+import { DragFileComponent } from './drag-file/drag-file.component';
+import { DropFileComponent } from './drop-file/drop-file.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: InternalUrlMappings.REGISTRATION, component: RegistrationComponent },
   { path: InternalUrlMappings.DONOR_REGISTRATION, component: DonorRegistrationComponent},
   { path: InternalUrlMappings.THANK_YOU, component: ThankYouComponent},
+  {path:'drag-file',component:DragFileComponent},
+  {path:'drop-file',component:DropFileComponent}
 ];
 
 @NgModule({
