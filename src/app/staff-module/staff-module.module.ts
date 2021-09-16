@@ -6,17 +6,16 @@ import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { CollectionComponent } from './view/collection/collection.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule } from '@angular/forms';
-
-
-
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PoolingComponent } from './view/pooling/pooling.component';
+import { PasturisationComponent } from './view/pasturisation/pasturisation.component';
 @NgModule({
   declarations: [
     StaffModuleComponent,
     DashboardComponent,
     CollectionComponent,
     PoolingComponent,
+    PasturisationComponent,
   ],
   imports: [
     CommonModule,

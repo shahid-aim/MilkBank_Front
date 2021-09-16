@@ -12,7 +12,7 @@ export class CollectionComponent implements OnInit {
 
   @ViewChild("collectionForm") collectionForm: ModalDirective;
   @ViewChild("donorDetailModal") donorDetailModal: ModalDirective;
-  
+  term:any;
   date : Date
   time : any
 

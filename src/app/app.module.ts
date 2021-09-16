@@ -25,6 +25,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     RegistrationComponent,
     DragFileComponent,
     DropFileComponent,
+  
 
   ],
   imports: [

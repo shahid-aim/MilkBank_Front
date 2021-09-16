@@ -4,6 +4,7 @@ import { InternalUrlMappings } from './shared/UrlMapping';
 import { StaffModuleComponent } from './staff-module.component';
 import { CollectionComponent } from './view/collection/collection.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
+import { PasturisationComponent } from './view/pasturisation/pasturisation.component';
 import { PoolingComponent } from './view/pooling/pooling.component';
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
     children: [
       {path : InternalUrlMappings.DASHBOARD, component : DashboardComponent},
       {path : InternalUrlMappings.RAW_COLLECTION, component : CollectionComponent},
-      {path : InternalUrlMappings.POOLING, component : PoolingComponent}
+      {path : InternalUrlMappings.POOLING, component : PoolingComponent},
+      {path:"123",component:PasturisationComponent}
     ]
   },
 
