@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ExternalUrlMappings } from '../shared/UrlMapping';
-import { CreatePool, CreateRawCollection, TestResult } from '../models/phase';
+import { CreatePasturization, CreatePool, CreateRawCollection, TestResult } from '../models/phase';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +42,15 @@ export class DashboardService {
 
   setTestResult(testResult : TestResult) : Observable<any>{
     return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.SET_TEST_RESULT, testResult, {headers : new HttpHeaders().set("Authorization", this.token)})
+  }
+
+  createPasturization(createPasturization : CreatePasturization) : Observable<any> {
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.CREATE_PASTURIZATION, createPasturization, {headers : new HttpHeaders().set("Authorization", this.token)})
+  }
+
+
+  getPasturization(): Observable<any>{
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_PASTURIZATION, {headers : new HttpHeaders().set("Authorization", this.token)})
   }
 
 }

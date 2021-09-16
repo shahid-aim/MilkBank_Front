@@ -1,115 +1,69 @@
-<!-- <div class="container-fluid">
+<div class="container-fluid">
     <button (click)="openCollectionForm()">New Collection</button>
 
     <div class="collection-table">
         <table>
             <tr>
-                <th *ngFor="let header of rawCollectionHeader; index as i">
+                <th *ngFor="let header of pasturizationHeader; index as i">
                     {{header}}
                 </th>
             </tr>
-
-            <tr *ngFor="let data of rawCollectionData">
-                <td>{{data.donor_full_name}}</td>
-                <td>{{data.receiving_site}}</td>
-                <td>{{data.staff_name}}</td>
-                <td>{{data.volume_collected}}</td>
-                <td>{{data.collection_date | date:"dd/MM/yyyy"}}</td>
+            <tr *ngFor="let data of pasturizationData">
+                <td>{{data.pasturization_date}}</td>
+                <td>{{data.pre_result}}</td>
+                <td>{{data.post_result}}</td>
+                <td>{{data.pool_id}}</td>
             </tr>
         </table>
     </div>
 </div>
 
-<div class="modal fade" bsModal #collectionForm="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+<div class="modal fade" bsModal #pasturizationForm="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
     <div class="modal-dialog modal-fullscreen modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
+
                 <div class="container d-flex justify-content-center">
                     <form>
                         <div class="row row1">
                             <div class="col-6 col1">
-                                <label>Donor Unique ID</label>
+                                <label>Pasturization Date</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="donor" id="donor" [(ngModel)]="createRawCollectionModal.donor" (click)="showDonorDetailModal()">
+                                <input type="date" name="pasturization_date" id="pasturization_date" [(ngModel)]="createPasturizationModal.pasturization_date">
                             </div>
                         </div>
 
                         <div class="row row1">
                             <div class="col-6 col1">
-                                <label for="country">Executive Id</label>
+                                <label for="country">Pre Result</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="executive_id" placeholder="Excutive Id" [(ngModel)]="createRawCollectionModal.staff" (click)="showDonorDetailModal()">
+
+                                <select name="pre_result" id="pre_result" [(ngModel)]="createPasturizationModal.pre_result">
+                                    <option value=true>Pass</option>
+                                    <option value=false>Fail</option>
+                                  </select>
+
                             </div>
 
                         </div>
                         <div class="row row1">
                             <div class="col-6 col1">
-                                <label>Collection Date </label>
+                                <label>Pooling</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="date" name="collection_date_time" placeholder="Select Date" [(ngModel)]="date">
+                                <input type="text" name="pooling" placeholder="Select Pool" [(ngModel)]="createPasturizationModal.pooling">
                             </div>
                         </div>
-                        <div class="row row1">
-                            <div class="col-6 col1">
-                                <label>Collection time</label>
-                            </div>
-                            <div class="col-6 col1">
-                                <input type="time" name="collection_date_time" placeholder="Select Time" [(ngModel)]="time">
-                            </div>
-                        </div>
-                        <div class="row row1">
-                            <div class="col-6 col1">
-                                <label for="subject">Receiving Center</label>
-                            </div>
-                            <div class="col-6 col1">
-                                <input type="text" name="receiving_center" placeholder="Receiving Center" [(ngModel)]="createRawCollectionModal.recevingSite">
-                            </div>
-                        </div>
-
-                        <div class="row row1">
-                            <div class="col-6 col1">
-                                <label for="subject">Breast Pump type</label>
-                            </div>
-                            <div class="col-6 col1">
-                                <input type="text" name="breast_pump_type" placeholder="Breast Pump Type" [(ngModel)]="createRawCollectionModal.breastPumpType">
-                            </div>
-                        </div>
-                        <div class="row row1">
-                            <div class="col-6 col1">
-                                <label for="subject">Volume</label>
-                            </div>
-                            <div class="col-6 col1">
-                                <input type="text" name="volume" placeholder="Volume" [(ngModel)]="createRawCollectionModal.volumeCollected">
-                            </div>
-                        </div>
-                        <div class="row row1">
-                            <div class="col-6 col1">
-                                <label for="subject">Number of Units</label>
-                            </div>
-                            <div class="col-6 col1">
-                                <input type="text" name="number_of_units" placeholder="Units" [(ngModel)]="createRawCollectionModal.units">
-                            </div>
-                        </div>
-                        <div class="row row1">
-                            <div class="col-6 col1">
-                                <label for="subject">Total Volume</label>
-                            </div>
-                            <div class="col-6 col1">
-                                <input type="text" name="total_volume" placeholder="Volume" [(ngModel)]="createRawCollectionModal.volumeCollected">
-                            </div>
-                        </div>
-
                     </form>
                 </div>
 
 
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="collectionForm.hide()">Close</button>
-                    <button type="button" class="btn btn-primary" (click)="createRawCollection()">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="pasturizationForm.hide()">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="createPasturization()">Save changes</button>
                 </div>
 
             </div>
@@ -117,46 +71,6 @@
     </div>
 
 
-    <div class="modal fade" bsModal #donorDetailModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
-        <div class="modal-dialog modal-fullscreen modal-dialog-centered">
-            <div class="modal-content text-center">
-                <div class="modal-body">
-                    <div class="col-sm">
-                        <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
-                    </div>
-
-                    <table class="table table-hover table-striped ">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th *ngFor="let header of donorHeader; index as i">{{header}}</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-                            <tr *ngFor="let p of donorData | filter : searchString">
-                                <td>
-                                    <input type="radio" id="html" name="rdo_id" value={{p.id}} [(ngModel)]="selectedDonor">
-                                </td>
-                                <td>{{p.id}}</td>
-                                <td>{{p.full_name}}</td>
-                                <td>{{p.address}}</td>
-                                <td>{{p.phone_number}}</td>
-                                <td>{{p.email}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="donorDetailModal.hide()">Close</button>
-                    <button type="button" class="btn btn-primary" (click)="selectIdAndClose()">Save changes</button>
-                </div>
-
-            </div>
-        </div>
-    </div> -->
 
 
 
@@ -166,9 +80,7 @@
 
 
 
-
-
-
+    <!-- 
 <div class="container d-flex justify-content-center">
     <form>
         <div class="row row1">
@@ -176,15 +88,10 @@
                 <label>Pasturization Date</label>
             </div>
             <div class="col-6 col1">
-                <input type="text" name="donor" id="donor" (click)="showSu()">
-                <!-- <select id="Select1" class="form-control" (click)="showSu()">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                   </select> -->
+                <input type="text" name="donor" id="donor" (click)="pasturizationForm()">
 
-                <div class="modal fade" bsModal #success="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+
+                <div class="modal fade" bsModal #pasturizationForm="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
                     <div class="modal-dialog modal-fullscreen modal-dialog-centered">
                         <div class="modal-content text-center">
                             <div class="modal-body">
@@ -195,110 +102,112 @@
                                     <table class="table table-hover table-striped">
                                         <thead>
                                             <tr>
+
+                                                <th *ngFor="let header of pasturizationHeader; index as i">
+                                                    {{header}}
+                                                </th>
                                                 <th></th>
-                                                <th>Id</th>
-                                                <th>Name</th>
-                                                <th>Address</th>
-                                                <th>Mobile No</th>
-                                                <th>Email</th>
-                                            </tr>
-                                        </thead>
+                                                <th>Pasturization Date</th>
+                                                <th>Pre Result</th>
+                                                <th>Post Result</th>
+                                                <th>Pooling</th> -->
+    <!-- </tr>
+    </thead>
 
-                                        <tbody>
-                                            <tr *ngfor="let p of Donor |filter:term">
-                                                <td>
-                                                    <input type="radio" id="html" name="id" value="id">
-                                                </td>
-                                                <td>{{p.id}}</td>
-                                                <td>{{p.name}}</td>
-                                                <td>{{p.address}}</td>
-                                                <td>{{p.mobile_no}}</td>
-                                                <td>{{p.email}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" (click)="hide()" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
+    <tbody>
+        <tr *ngFor="let data of pasturizationData|filter:term">
+            <td>
+                <input type="radio" id="html" name="id" value="id">
+            </td>
+            <td>{{data.pasturization_date}}</td>
+            <td>{{data.pre_result}}</td>
+            <td>{{data.pooling}}</td>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row row1">
-            <div class="col-6 col1">
-                <label>Pre Result</label>
-            </div>
-            <div class="col-6 col1">
-                <input type="text" name="donor" id="donor" (click)="showSu()">
-                <div class="modal fade" bsModal #success="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
-                    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
-                        <div class="modal-content text-center">
-                            <div class="modal-body">
-                                <div class="col-sm">
-                                    <input type="text" name="search" placeholder="search here" [(ngModel)]="term">
-                                </div>
-
-                                <table class="table table-hover table-striped ">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Address</th>
-                                            <th>Mobile No</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        <tr *ngfor="let p of Donor |filter:term">
-                                            <td>
-                                                <input type="radio" id="html" name="id" value="id">
-                                            </td>
-                                            <td>{{p.pasturization_date}}</td>
-                                            <td>{{p.pre_result}}</td>
-                                            <td>{{p.post_result}}</td>
-                                            <td>{{p.pooling}}</td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" (click)="hide()" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row row1">
-            <div class="col-6 col1">
-                <label>Post Result </label>
-            </div>
-            <div class="col-6 col1">
-                <input type="text" name="post_result" placeholder="post result">
-            </div>
-        </div>
-        <div class="row row1">
-            <div class="col-6 col1">
-                <label>Pooling</label>
-            </div>
-            <div class="col-6 col1">
-                <input type="text" name="pooling" placeholder="pooling">
-            </div>
-        </div>
-
-
-    </form>
+        </tr>
+    </tbody>
+    </table>
 </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="pasturizationForm.hide()" data-bs-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row row1">
+    <div class="col-6 col1">
+        <label>Pre Result</label>
+    </div>
+    <div class="col-6 col1">
+        <input type="text" name="donor" id="donor" (click)="donorDetailModal.show()">
+        <div class="modal fade" bsModal #pasturizationForm="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+            <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+                <div class="modal-content text-center">
+                    <div class="modal-body">
+                        <div class="col-sm">
+                            <input type="text" name="search" placeholder="search here" [(ngModel)]="term">
+                        </div>
+
+                        <table class="table table-hover table-striped ">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Pasturization Date</th>
+                                    <th>Pre Result</th>
+                                    <th>Post Result</th>
+                                    <th>Pooling</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr *ngfor="let p of Donor |filter:term">
+                                    <td>
+                                        <input type="radio" id="html" name="id" value="id">
+                                    </td>
+                                    <td>{{p.pasturization_date}}</td>
+                                    <td>{{p.pre_result}}</td>
+                                    <td>{{p.post_result}}</td>
+                                    <td>{{p.pooling}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="donorDetailModal.hide()" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row row1">
+    <div class="col-6 col1">
+        <label>Post Result </label>
+    </div>
+    <div class="col-6 col1">
+        <input type="text" name="post_result" placeholder="post result">
+    </div>
+</div>
+<div class="row row1">
+    <div class="col-6 col1">
+        <label>Pooling</label>
+    </div>
+    <div class="col-6 col1">
+        <input type="text" name="pooling" placeholder="pooling">
+    </div>
+</div>
+
+
+</form>
+</div> -->

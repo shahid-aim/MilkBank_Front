@@ -1,3 +1,65 @@
-.side-nav a {
-    color: black;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.tophead {
+    width: 100%;
+    height: 65px;
+    background: #F25B87;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brandlogo {
+    color: #fff;
+    font: size 2.1rem;
+    padding-left: 50px;
+}
+
+.menulines {
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 50px;
+    color: #fff;
+}
+
+.mainpart {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: #272634;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: all 0.5s;
+}
+
+.sidenav a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    display: block;
+    padding: 20px 0 20px 10px;
+}
+
+.sidenav a:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 40px!important;
 }

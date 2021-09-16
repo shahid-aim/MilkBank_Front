@@ -5,11 +5,14 @@ export const  ExternalUrlMappings = {
     GET_DONOR_INFO : "donor/get-donor-info",
     GET_POOL : "phase/get-pool",
     CREATE_POOL : "phase/create-pool",
-    SET_TEST_RESULT : "phase/set-test-result"
+    SET_TEST_RESULT : "phase/set-test-result",
+    CREATE_PASTURIZATION : "phase/create-pasturization",
+    GET_PASTURIZATION: "phase/get-pasturization"
 }
 
 export const  InternalUrlMappings = {
     DASHBOARD : "dashboard",
     RAW_COLLECTION : "raw-collection",
     POOLING : "pooling",
+    PASTURIZATION : "pasturization",
 }

@@ -13,7 +13,7 @@ const routes: Routes = [
       {path : InternalUrlMappings.DASHBOARD, component : DashboardComponent},
       {path : InternalUrlMappings.RAW_COLLECTION, component : CollectionComponent},
       {path : InternalUrlMappings.POOLING, component : PoolingComponent},
-      {path:"123",component:PasturisationComponent}
+      {path: InternalUrlMappings.PASTURIZATION,component:PasturisationComponent}
     ]
   },
 

@@ -1,28 +1,22 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-auto bg-light sticky-top side-nav ">
-            <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light sticky-top">
-
-                <a class="navbar-brand logo1" href="#">LOGO</a>
-
-                <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
-                            <i class="fa fa-home"></i> Dashboard
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
-                            <i class="fa fa-user"></i> Client
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
+<header>
+    <div class="tophead">
+        <div class="brandlogo">
+            Lacto
         </div>
-        <div class="col-sm min-vh-100 p-0 m-0">
-            <router-outlet></router-outlet>
+        <div>
+            <span class="menulines" (click)="openNav()">&#9776;</span>
         </div>
+
     </div>
+</header>
+<div class="sidenav" id="mySidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">
+        &times;
+    </a>
+    <a routerLink="raw-collection">Raw Collection</a>
+    <a routerLink="pooling">Pooling</a>
+    <a routerLink="pasturization">Pasturization</a>
 </div>
+<section class="mainpart">
+    <router-outlet></router-outlet>
+</section>

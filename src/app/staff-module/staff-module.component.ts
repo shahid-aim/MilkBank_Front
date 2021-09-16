@@ -12,4 +12,13 @@ export class StaffModuleComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openNav(){
+    document.getElementById("mySidenav").style.width = "250px"
+  }
+
+  
+  closeNav(){
+    document.getElementById("mySidenav").style.width = "0px"
+  }
+
 }

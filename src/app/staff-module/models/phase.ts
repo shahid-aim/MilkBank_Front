@@ -27,3 +27,8 @@ export class TestResult{
     test_result : boolean
     test_remarks : string
 }
+export class CreatePasturization{
+    pasturization_date:Date;
+    pre_result:boolean;
+    pooling:number;
+}
