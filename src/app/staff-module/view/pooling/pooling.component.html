@@ -1,0 +1,182 @@
+<div class="row">
+    <div class="col-sm-9">
+        <button type="button" class="btn btn-primary btn-md mb-2" (click)="openNewPoolModal()"><i class="fa fa-plus"
+                aria-hidden="true"></i>Add New Pool</button>
+    </div>
+    <div class="col-sm-3">
+        <input type="text" name="search" placeholder="search here" [(ngModel)]="searchTerm">
+        <button type="button"><i class="fa fa-search"></i></button>
+
+    </div>
+</div>
+
+
+<table class="table table-hover table-striped ">
+    <thead>
+        <tr>
+
+            <th *ngFor="let header of poolHeader">
+                {{header}}
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor="let p of poolData |filter:searchTerm" (dblclick)="doubleClicked(p.id)">
+            <td>{{p.mixing_date | date:"dd/MM/yyyy"}}</td>
+            <td>{{p.total_volume}}</td>
+            <td>{{p.testing_lab}}</td>
+            <td>{{p.test_sample_sent_date| date:"dd/MM/yyyy"}}</td>
+            <td>{{p.test_result}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div class="modal fade" bsModal #newPool="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form #productdata="ngForm">
+                    <div class="form-group">
+                        <label>Mixing Date</label>
+                        <div class="col-sm-10">
+                            <input type="date" name="name" class="form-control" [(ngModel)]="createPoolModel.mixing_date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Total Units</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="address" class="form-control" [(ngModel)]="createPoolModel.total_units">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Total Volume</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="mobile_no" class="form-control" [(ngModel)]="createPoolModel.total_volume">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Test Sample Quantity</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="email" class="form-control" [(ngModel)]="createPoolModel.test_sample_qty">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Test Sample Send Date</label>
+                        <div class="col-sm-10">
+                            <input type="date" name="email" class="form-control" [(ngModel)]="createPoolModel.test_sample_sent_date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Staff Id</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="email" class="form-control" [(ngModel)]="createPoolModel.staff_id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Testing Lab Id</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="email" class="form-control" [(ngModel)]="createPoolModel.testing_lab_id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Raw Collection Id</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" (click)="openRawCollection()" name="collectionCheckBoxString" [(ngModel)]="collectionCheckBoxString">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="newPool.hide()">Close</button>
+                <button type="button" class="btn btn-primary" (click)="createPool()">Save changes</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" bsModal #testResult="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form #productdata="ngForm">
+                    <div class="form-group">
+                        <label>Test Certificate Number</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="test_cert_no" class="form-control" [(ngModel)]="testResultModel.test_cert_no">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Test Result Date</label>
+                        <div class="col-sm-10">
+                            <input type="date" name="test_result_date" class="form-control" [(ngModel)]="testResultModel.test_result_date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Test Result</label>
+                        <div class="col-sm-10">
+                            <select name="test_result" id="test_result" [(ngModel)]="testResultModel.test_result">
+                                <option value=true>Pass</option>
+                                <option value=false>Fail</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Test Remarks</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="test_remarks" class="form-control" [(ngModel)]="testResultModel.test_remarks">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="testResult.hide()">Close</button>
+                <button type="button" class="btn btn-primary" (click)="setTestResult()">Save changes</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" bsModal #rawCollectionModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <div class="col-lg-12">
+                    <input type="text" name="search" placeholder="search here" [(ngModel)]="searchTerm">
+                </div>
+
+                <table>
+                    <tr>
+                        <th></th>
+                        <th *ngFor="let header of rawCollectionHeader; index as i">
+                            {{header}}
+                        </th>
+                    </tr>
+
+                    <tr *ngFor="let data of rawCollectionData">
+                        <td>
+                            <input type="checkbox" name="collectionCheckBox" id={{data.id}} (click)="makeRawSelection(data.id)">
+                        </td>
+                        <td>{{data.donor_full_name}}</td>
+                        <td>{{data.receiving_site}}</td>
+                        <td>{{data.staff_name}}</td>
+                        <td>{{data.volume_collected}}</td>
+                        <td>{{data.collection_date | date:"dd/MM/yyyy"}}</td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="cancelRawSelection()" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="rawCollectionModal.hide()">Add</button>
+            </div>
+
+        </div>
+    </div>
+</div>

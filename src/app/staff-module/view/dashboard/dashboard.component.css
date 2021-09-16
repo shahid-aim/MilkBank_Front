@@ -1,0 +1,68 @@
+.parent-container {
+    /* background-color: #f2f5fa; */
+    padding: 2rem;
+}
+
+.title {
+    font-family: DM SansSce Medium;
+    font-size: 20px;
+    width: 100vw;
+    display: table-cell;
+    padding: 10px;
+    color: #fff;
+    background: linear-gradient( 90deg, #f25b87, #f3628c, #f47499, #f68dac, #f9abc2, #fbc9d8, #fde4eb, #fef8fa, #ffffff);
+}
+
+.data-row {
+    margin: 3rem 0px 0px;
+}
+
+.fa-plus {
+    color: #f25b87 !important;
+}
+
+.list-ul {
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgb(0 0 0 / 25%);
+}
+
+.data-parent {
+    border-bottom: 1px solid #f25b87;
+}
+
+.gp-head div {
+    font-size: 20px;
+    justify-content: space-between;
+    font-family: DM SansSce Medium;
+    padding: 5px 0px 0px;
+}
+
+.gp-item div {
+    font-family: DM SansSce Regular;
+    font-size: 15px;
+    justify-content: space-between;
+    padding: 4px 5px;
+    border-radius: 20px;
+}
+
+.detail-table {
+    box-shadow: 0px 1px 5px rgb(0 0 0 / 25%);
+    padding: 12px;
+    border-radius: 12px;
+}
+
+@media only screen and (max-device-width: 480px) {
+    .parent-container {
+        padding: 1rem !important;
+    }
+    .data-row {
+        margin: 1rem 0px 0px !important;
+    }
+}
+
+
+/* Overide */
+
+.list-group-item {
+    border: none;
+}

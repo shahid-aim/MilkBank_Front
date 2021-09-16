@@ -1,0 +1,113 @@
+<div class="container-fluid parent-container m-0">
+
+    <span class="title">
+        Here whats happening today
+    </span>
+
+    <div class="row data-row">
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            <ul class="list-ul p-0">
+                <li class="list-group-item gp-head">
+                    <div class="d-flex">
+                        <div>Collection</div>
+                        <div><i class="fa fa-plus" aria-hidden="true"></i></div>
+                    </div>
+                </li>
+                <li class="list-group-item gp-item">
+                    <div class="d-flex data-parent">
+                        <div>Sujata</div>
+                        <div>10:00 Am</div>
+                    </div>
+                </li>
+                <li class="list-group-item gp-item">
+                    <div class="d-flex data-parent">
+                        <div>Sujata</div>
+                        <div>10:00 Am</div>
+                    </div>
+                </li>
+                <li class="list-group-item gp-item">
+                    <div class="d-flex data-parent">
+                        <div>Sujata</div>
+                        <div>10:00 Am</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            <ul class="list-ul p-0">
+                <li class="list-group-item gp-head">
+                    <div class="d-flex">
+                        <div>Donation</div>
+                        <div><i class="fa fa-plus" aria-hidden="true"></i></div>
+                    </div>
+                </li>
+                <li class="list-group-item gp-item ">
+                    <div class="d-flex data-parent">
+                        <div>Sujata</div>
+                        <div>10:00 Am</div>
+                    </div>
+                </li>
+                <li class="list-group-item gp-item ">
+                    <div class="d-flex data-parent">
+                        <div>Sujata</div>
+                        <div>10:00 Am</div>
+                    </div>
+                </li>
+                <li class="list-group-item gp-item ">
+                    <div class="d-flex data-parent">
+                        <div>Sujata</div>
+                        <div>10:00 Am</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            <ul class="list-ul p-0">
+                <li class="list-group-item gp-head">
+                    <div class="d-flex">
+                        <div>Pending Approval</div>
+                        <div><i class="fa fa-plus" aria-hidden="true"></i></div>
+                    </div>
+                </li>
+                <li class="list-group-item gp-item">
+                    <div class="d-flex data-parent">
+                        <div>Sujata</div>
+                        <div>10:00 Am</div>
+                    </div>
+                </li>
+                <li class="list-group-item gp-item">
+                    <div class="d-flex data-parent">
+                        <div>Sujata</div>
+                        <div>10:00 Am</div>
+                    </div>
+                </li>
+                <li class="list-group-item gp-item">
+                    <div class="d-flex data-parent">
+                        <div>Sujata</div>
+                        <div>10:00 Am</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container detail-table">
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th *ngFor="let headers of tableHeaders; index as i">{{tableHeaders[i]}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let appointment of donorAppointmentNative">
+                    <td>{{appointment.donor_full_name}}</td>
+                    <td>{{appointment.staff_name}}</td>
+                    <td>{{appointment.donation_date | date:'fullDate'}}</td>
+                    <td>{{appointment.donation_date | date:'shortTime'}}</td>
+                    <td>{{appointment.receiving_site}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

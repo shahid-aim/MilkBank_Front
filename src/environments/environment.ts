@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  ASSET_URL : "lacto/",
   BASE_URL : "http://localhost:8000/"
 };
 

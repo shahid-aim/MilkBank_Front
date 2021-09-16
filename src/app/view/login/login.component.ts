@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
     this.loginModel.username= this.username
     this.loginModel.password= this.password
     this._commonService.login(this.loginModel).subscribe(response => {
+      console.log(response)
       let expiry = new Date()
       expiry.setMinutes(expiry.getMinutes() + 60)
       this._cookieService.set("token", response.token, {expires : expiry, sameSite : 'Lax'})

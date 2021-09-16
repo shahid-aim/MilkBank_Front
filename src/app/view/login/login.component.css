@@ -6,7 +6,7 @@
         height: 100vh;
         background-position: center;
         background-size: cover;
-        background-image: url(../../../assets/family-img.jpg);
+        /* background-image: url(/assets/family-img.jpg); */
     }
     
     .img-gradient {

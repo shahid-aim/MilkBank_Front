@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InternalUrlMappings } from 'src/app/shared/UrlMapping';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,11 @@ import { InternalUrlMappings } from 'src/app/shared/UrlMapping';
 })
 export class HomeComponent implements OnInit {
 
+  ASSET_URL = environment.ASSET_URL 
+
+
   constructor(private _router : Router) { }
+
 
   ngOnInit(): void {
   }

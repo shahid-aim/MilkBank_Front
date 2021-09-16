@@ -1,0 +1,154 @@
+<div class="container-fluid">
+    <button (click)="openCollectionForm()">New Collection</button>
+
+    <div class="collection-table">
+        <table>
+            <tr>
+                <th *ngFor="let header of rawCollectionHeader; index as i">
+                    {{header}}
+                </th>
+            </tr>
+
+            <tr *ngFor="let data of rawCollectionData">
+                <td>{{data.donor_full_name}}</td>
+                <td>{{data.receiving_site}}</td>
+                <td>{{data.staff_name}}</td>
+                <td>{{data.volume_collected}}</td>
+                <td>{{data.collection_date | date:"dd/MM/yyyy"}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" bsModal #collectionForm="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-3">
+                            <label>Donor Unique ID</label>
+                        </div>
+                        <div class="col-7 mb-2">
+                            <input type="text" name="donor" id="donor" [(ngModel)]="createRawCollectionModal.donor" (click)="showDonorDetailModal()">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="country">Executive Id</label>
+                        </div>
+                        <div class="col-7">
+                            <input type="text" name="executive_id" placeholder="Excutive Id" [(ngModel)]="createRawCollectionModal.staff">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Collection Date </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="date" name="collection_date_time" placeholder="Select Date" [(ngModel)]="date">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Collection time</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="time" name="collection_date_time" placeholder="Select Time" [(ngModel)]="time">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="subject">Receiving Center</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="receiving_center" placeholder="Receiving Center" [(ngModel)]="createRawCollectionModal.recevingSite">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="subject">Breast Pump type</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="breast_pump_type" placeholder="Breast Pump Type" [(ngModel)]="createRawCollectionModal.breastPumpType">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="subject">Volume</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="volume" placeholder="Volume" [(ngModel)]="createRawCollectionModal.volumeCollected">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="subject">Number of Units</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="number_of_units" placeholder="Units" [(ngModel)]="createRawCollectionModal.units">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="subject">Total Volume</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="total_volume" placeholder="Volume" [(ngModel)]="createRawCollectionModal.volumeCollected">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="collectionForm.hide()">Close</button>
+                <button type="button" class="btn btn-primary" (click)="createRawCollection()">Save changes</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" bsModal #donorDetailModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <div class="col-sm">
+                    <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
+                </div>
+
+                <table class="table table-hover table-striped ">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th *ngFor="let header of donorHeader; index as i">{{header}}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr *ngFor="let p of donorData | filter : searchString">
+                            <td>
+                                <input type="radio" id="html" name="rdo_id" value={{p.id}} [(ngModel)]="selectedDonor">
+                            </td>
+                            <td>{{p.id}}</td>
+                            <td>{{p.full_name}}</td>
+                            <td>{{p.address}}</td>
+                            <td>{{p.phone_number}}</td>
+                            <td>{{p.email}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="donorDetailModal.hide()">Close</button>
+                <button type="button" class="btn btn-primary" (click)="selectIdAndClose()">Save changes</button>
+            </div>
+
+        </div>
+    </div>
+</div>

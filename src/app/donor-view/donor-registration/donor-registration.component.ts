@@ -11,6 +11,9 @@ import { DonorRegistrationService } from 'src/app/service/donor-registration/don
 })
 export class DonorRegistrationComponent implements OnInit {
 
+  fullName : string = ""
+  contactNumber : number = 0 
+
   isEditable = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -23,12 +26,21 @@ export class DonorRegistrationComponent implements OnInit {
   contactInformationModel: ContactInformation =  new ContactInformation()
   medicalHistoryModel : MedicalHistory = new MedicalHistory()
   constructor(private _formBuilder: FormBuilder, private _donorRegistration : DonorRegistrationService, private _router : Router) {
+    
+    this._donorRegistration.getDonorRegisteredInitial().subscribe(response => {
+      this.fullName = response.full_name
+      this.contactNumber = response.phone_number
+      this.firstFormGroup.controls.fullName.setValue(this.fullName)
+      this.firstFormGroup.controls.contactNumber.setValue(this.contactNumber)
+      this.secondFormGroup.controls.contactNumber.setValue(this.contactNumber)
+    })
+    
     this.firstFormGroup = this._formBuilder.group({
-      fullName: ['', Validators.required],
+      fullName: [{ value: '', disabled: true }, Validators.required],
       DOB: ['', Validators.required],
       TOD: ['', Validators.required],
       DOD: ['', Validators.required],
-      contactNumber: ['', Validators.required],
+      contactNumber: [{ value: '', disabled: true }, Validators.required],
       documentType: ['', Validators.required],
       documentNumber: ['', Validators.required],
     });
@@ -51,8 +63,10 @@ export class DonorRegistrationComponent implements OnInit {
       fourthCtrl: ['', Validators.required]
     });
   }
+  
 
   ngOnInit(): void {
+    
   }
 
   submitDonorRegistration() {

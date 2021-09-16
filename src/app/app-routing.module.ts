@@ -10,13 +10,14 @@ import { DragFileComponent } from './drag-file/drag-file.component';
 import { DropFileComponent } from './drop-file/drop-file.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
+  { path: "lacto", component: HomeComponent },
   { path: InternalUrlMappings.LOGIN, component: LoginComponent },
   { path: InternalUrlMappings.REGISTRATION, component: RegistrationComponent },
   { path: InternalUrlMappings.DONOR_REGISTRATION, component: DonorRegistrationComponent},
   { path: InternalUrlMappings.THANK_YOU, component: ThankYouComponent},
   {path:'drag-file',component:DragFileComponent},
-  {path:'drop-file',component:DropFileComponent}
+  {path:'drop-file',component:DropFileComponent},
+  { path: 'staff', loadChildren: () => import('./staff-module/staff-module.module').then(m => m.StaffModuleModule) }
 ];
 
 @NgModule({

@@ -43,15 +43,16 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
+    ModalModule,
+    NgxFileDropModule,
+
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
     MatCheckboxModule,
     MatIconModule,
-    HttpClientModule,
-    ModalModule,
-    NgxFileDropModule
 
   ],
   providers: [CookieService],

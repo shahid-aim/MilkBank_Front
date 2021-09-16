@@ -12,6 +12,10 @@ export class DonorRegistrationService {
 
   constructor(private _httpClient : HttpClient) { }
 
+  getDonorRegisteredInitial(): Observable<any>{
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_DONOR_REGISTERED_INITIAL, {withCredentials : true})
+  }
+
   donorRegistration(donorRegistrationModel : DonorRegistration): Observable<any>{
     return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.DONOR_REGISTRATION, donorRegistrationModel, {withCredentials : true})
   }

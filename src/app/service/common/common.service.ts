@@ -19,7 +19,6 @@ export class CommonService {
   public login(loginModel : Login) : Observable<any>{
     return this._httpClient.post(environment.BASE_URL +  ExternalUrlMappings.LOGIN, loginModel)
   }
-  
 
   
 }
