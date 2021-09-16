@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
       console.log(response)
       let expiry = new Date()
       expiry.setMinutes(expiry.getMinutes() + 60)
-      this._cookieService.set("token", response.token, {expires : expiry, sameSite : 'Lax'})
+      localStorage.setItem("token", response.token)
+      // this._cookieService.set("token", response.token, {expires : expiry, sameSite : 'Lax', secure : false})
       this.router.navigateByUrl("/donor-registration")
     },
     error => {
