@@ -19,6 +19,10 @@ export class CollectionComponent implements OnInit {
 
   rawCollectionHeader : any
   rawCollectionData : any
+
+  staffHeader : any
+  staffData : any
+
   searchString : any
 
   donorHeader : any
@@ -32,10 +36,18 @@ export class CollectionComponent implements OnInit {
   ngOnInit(): void {
     this.getRawCollection()
     this.getDonorInfo()
+    this.getStaff()
     
   }
 
   // Api Call
+
+  getStaff(){
+    this._dashboardService.getStaff().subscribe(response => {
+      console.log("staf", response);
+      
+    })
+  }
 
   getRawCollection(){
     this._dashboardService.getRawCollection().subscribe(response => {
@@ -46,7 +58,6 @@ export class CollectionComponent implements OnInit {
 
   getDonorInfo(){
     this._dashboardService.getDonorInfo().subscribe(response => {
-      console.log("Donor info", response)
       this.donorHeader = response.table_header
       this.donorData = response.donor
     })
@@ -59,7 +70,6 @@ export class CollectionComponent implements OnInit {
   }
 
   showDonorDetailModal(){
-    console.log("Firided");
     this.donorDetailModal.show()
   }
 
@@ -71,12 +81,11 @@ export class CollectionComponent implements OnInit {
   createRawCollection(){
     this.createRawCollectionModal.createdDateTime = new Date(this.date + "T"  + this.time)
 
-    console.log(this.createRawCollectionModal)
     this._dashboardService.createRawCollection(this.createRawCollectionModal).subscribe(response => {
       this.collectionForm.hide()
     }, 
     error => {
-      console.log()
+      console.log(error)
     }
     )
   }

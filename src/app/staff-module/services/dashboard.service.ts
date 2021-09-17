@@ -14,6 +14,10 @@ export class DashboardService {
     this.token = localStorage.getItem("token")
    }
 
+  getStaff(): Observable<any>{
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_STAFF, {headers : new HttpHeaders().set("Authorization", this.token)})
+  }  
+
   getLatestDonorAppointment() : Observable<any>{
     return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_LATEST_DONOR_APPOINTMENT, {headers : new HttpHeaders().set("Authorization", this.token)})
   }

@@ -7,7 +7,8 @@ export const  ExternalUrlMappings = {
     CREATE_POOL : "phase/create-pool",
     SET_TEST_RESULT : "phase/set-test-result",
     CREATE_PASTURIZATION : "phase/create-pasturization",
-    GET_PASTURIZATION: "phase/get-pasturization"
+    GET_PASTURIZATION: "phase/get-pasturization",
+    GET_STAFF : "staff/get-staff"
 }
 
 export const  InternalUrlMappings = {
