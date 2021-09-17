@@ -45,7 +45,8 @@ export class CollectionComponent implements OnInit {
   getStaff(){
     this._dashboardService.getStaff().subscribe(response => {
       console.log("staf", response);
-      
+      this.staffHeader = response.table_headers
+      this.staffData = response.staff_obj
     })
   }
 
