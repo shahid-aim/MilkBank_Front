@@ -12,7 +12,7 @@ export class PoolingComponent implements OnInit {
   @ViewChild("newPool") newPool: ModalDirective;
   @ViewChild("rawCollectionModal") rawCollectionModal: ModalDirective;
   @ViewChild("testResult") testResult: ModalDirective;
-  
+  @ViewChild("staffDetailModal") staffDetailModal: ModalDirective;
   
   constructor(private _dashboardService : DashboardService) { }
   
@@ -27,13 +27,20 @@ export class PoolingComponent implements OnInit {
   poolHeader : any
   poolData : any
 
+  staffHeader : any
+  staffData : any
+
   selectedPool : number
+  selectedStaff : number
+
+  searchString:string
 
   createPoolModel : CreatePool = new CreatePool()
   testResultModel : TestResult = new TestResult()
   ngOnInit(): void {
     this.getPool()
     this.getRawCollection()
+    this.getStaff()
   }
 
   // API 
@@ -49,8 +56,10 @@ export class PoolingComponent implements OnInit {
 
   createPool(){
     this.createPoolModel.raw_collection_id = this.collectionCheckBox
+    console.log(this.createPoolModel)
     this._dashboardService.createPool(this.createPoolModel).subscribe(response => {
       console.log(response)
+      this.getPool()
       this.newPool.hide()
     })
   }
@@ -62,11 +71,20 @@ export class PoolingComponent implements OnInit {
     })
   }
 
+  getStaff(){
+    this._dashboardService.getStaff().subscribe(response => {
+      console.log("staf", response);
+      this.staffHeader = response.table_headers
+      this.staffData = response.staff_obj
+    })
+  }
+
   setTestResult(){
     this.testResultModel.pool_id = this.selectedPool
     console.log(this.testResultModel);
     
     this._dashboardService.setTestResult(this.testResultModel).subscribe(response => {
+      this.getPool()
       console.log(response)
       this.testResult.hide()
     })
@@ -93,6 +111,15 @@ export class PoolingComponent implements OnInit {
     }
     this.collectionCheckBoxString = this.collectionCheckBox.toString()
     console.log(this.collectionCheckBoxString)
+  }
+
+  selectIdAndCloseStaffModal(){
+    this.createPoolModel.staff_id = Number(this.selectedStaff)
+    this.staffDetailModal.hide()
+  }
+
+  showDonorStaffModal(){
+    this.staffDetailModal.show()
   }
 
   cancelRawSelection(){

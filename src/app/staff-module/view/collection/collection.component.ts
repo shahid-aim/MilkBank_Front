@@ -96,6 +96,7 @@ export class CollectionComponent implements OnInit {
 
     this._dashboardService.createRawCollection(this.createRawCollectionModal).subscribe(response => {
       this.collectionForm.hide()
+      this.getRawCollection()
     }, 
     error => {
       console.log(error)
