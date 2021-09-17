@@ -1,9 +1,16 @@
 <div class="container-fluid">
-    <button class="btn btn-primary" (click)="openCollectionForm()">New Collection</button>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-primary" (click)="openCollectionForm()">New Collection</button>
+        </div>
+
+        <div class="col-6">
+            <input style="width: 80%;" type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
+        </div>
+    </div>
     <div class="collection-table">
         <table class="table table-striped table-hover">
             <thead>
-
                 <tr>
                     <th *ngFor="let header of pasturizationHeader; index as i">
                         {{header}}
