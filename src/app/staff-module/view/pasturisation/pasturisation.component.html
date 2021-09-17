@@ -1,19 +1,24 @@
 <div class="container-fluid">
-    <button (click)="openCollectionForm()">New Collection</button>
-
+    <button class="btn btn-primary" (click)="openCollectionForm()">New Collection</button>
     <div class="collection-table">
-        <table>
-            <tr>
-                <th *ngFor="let header of pasturizationHeader; index as i">
-                    {{header}}
-                </th>
-            </tr>
-            <tr *ngFor="let data of pasturizationData">
-                <td>{{data.pasturization_date}}</td>
-                <td>{{data.pre_result}}</td>
-                <td>{{data.post_result}}</td>
-                <td>{{data.pool_id}}</td>
-            </tr>
+        <table class="table table-striped table-hover">
+            <thead>
+
+                <tr>
+                    <th *ngFor="let header of pasturizationHeader; index as i">
+                        {{header}}
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let data of pasturizationData | filter:searchString">
+                    <td>{{data.pasturization_date}}</td>
+                    <td>{{data.pre_result}}</td>
+                    <td>{{data.post_result}}</td>
+                    <td>{{data.pool_id}}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>
@@ -43,7 +48,7 @@
                                 <select name="pre_result" id="pre_result" [(ngModel)]="createPasturizationModal.pre_result">
                                     <option value=true>Pass</option>
                                     <option value=false>Fail</option>
-                                  </select>
+                                </select>
 
                             </div>
 
