@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: InternalUrlMappings.THANK_YOU, component: ThankYouComponent},
   {path:'drag-file',component:DragFileComponent},
   {path:'drop-file',component:DropFileComponent},
-  { path: 'staff', loadChildren: () => import('./staff-module/staff-module.module').then(m => m.StaffModuleModule) }
+  { path: InternalUrlMappings.STAFF, loadChildren: () => import('./staff-module/staff-module.module').then(m => m.StaffModuleModule) }
 ];
 
 @NgModule({

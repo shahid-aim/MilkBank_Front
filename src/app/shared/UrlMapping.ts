@@ -12,5 +12,6 @@ export const  InternalUrlMappings = {
     THANK_YOU : "registration-complete",
     REGISTRATION : "registration",
     DONOR_REGISTRATION : "donor-registration",
-    LOGIN : "login"
+    LOGIN : "login",
+    STAFF : "staff"
 }

@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Login } from 'src/app/models/common';
 import { CommonService } from 'src/app/service/common/common.service';
 import { InternalUrlMappings } from 'src/app/shared/UrlMapping';
+import { InternalUrlMappings as StaffInternalUrlMappings} from 'src/app/staff-module/shared/UrlMapping';
 
 @Component({
   selector: 'app-login',
@@ -30,21 +31,29 @@ export class LoginComponent implements OnInit {
     this.loginModel.username= this.username
     this.loginModel.password= this.password
     this._commonService.login(this.loginModel).subscribe(response => {
-      console.log(response)
+      console.log(response.user_group)
       let expiry = new Date()
       expiry.setMinutes(expiry.getMinutes() + 60)
       localStorage.setItem("token", response.token)
-      // this._cookieService.set("token", response.token, {expires : expiry, sameSite : 'Lax', secure : false})
-      this.router.navigateByUrl("/donor-registration")
+      if(response.user_group == "Donor"){
+        console.log("Donor")
+        this.router.navigateByUrl(InternalUrlMappings.DONOR_REGISTRATION)
+      }
+      else{
+        console.log("Staff")
+        this.router.navigateByUrl(InternalUrlMappings.STAFF + "/" + StaffInternalUrlMappings.DASHBOARD)
+      }
     },
     error => {
       this.invalidUsernamePassword = true
     }
     )
   }
-
+  
   navigateToRegistration(){
     this.router.navigateByUrl(InternalUrlMappings.REGISTRATION)
   }
-
+  
 }
+
+// this._cookieService.set("token", response.token, {expires : expiry, sameSite : 'Lax', secure : false})

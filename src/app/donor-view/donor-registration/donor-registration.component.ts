@@ -111,6 +111,7 @@ export class DonorRegistrationComponent implements OnInit {
     
     this._donorRegistration.medicalHistory(this.medicalHistoryModel).subscribe(response => {
       console.log(response)
+      this.navigateToRegistrationComplete()
     })
   }
 
