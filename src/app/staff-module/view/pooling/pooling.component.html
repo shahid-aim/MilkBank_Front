@@ -184,24 +184,27 @@
                     <input type="text" name="search" placeholder="search here" [(ngModel)]="searchTerm">
                 </div>
 
-                <table>
-                    <tr>
-                        <th></th>
-                        <th *ngFor="let header of rawCollectionHeader; index as i">
-                            {{header}}
-                        </th>
-                    </tr>
-
-                    <tr *ngFor="let data of rawCollectionData">
-                        <td>
-                            <input type="checkbox" name="collectionCheckBox" id={{data.id}} (click)="makeRawSelection(data.id)">
-                        </td>
-                        <td>{{data.donor_full_name}}</td>
-                        <td>{{data.receiving_site}}</td>
-                        <td>{{data.staff_name}}</td>
-                        <td>{{data.volume_collected}}</td>
-                        <td>{{data.collection_date | date:"dd/MM/yyyy"}}</td>
-                    </tr>
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th *ngFor="let header of rawCollectionHeader; index as i">
+                                {{header}}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of rawCollectionData">
+                            <td>
+                                <input type="checkbox" name="collectionCheckBox" id={{data.id}} (click)="makeRawSelection(data.id)">
+                            </td>
+                            <td>{{data.donor_full_name}}</td>
+                            <td>{{data.receiving_site}}</td>
+                            <td>{{data.staff_name}}</td>
+                            <td>{{data.volume_collected}}</td>
+                            <td>{{data.collection_date | date:"dd/MM/yyyy"}}</td>
+                        </tr>
+                    </tbody>
                 </table>
 
             </div>
