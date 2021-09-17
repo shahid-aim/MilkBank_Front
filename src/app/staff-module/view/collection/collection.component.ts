@@ -12,6 +12,8 @@ export class CollectionComponent implements OnInit {
 
   @ViewChild("collectionForm") collectionForm: ModalDirective;
   @ViewChild("donorDetailModal") donorDetailModal: ModalDirective;
+  @ViewChild("staffDetailModal") staffDetailModal: ModalDirective;
+  
   term:any;
   date : Date
   time : any
@@ -28,6 +30,7 @@ export class CollectionComponent implements OnInit {
   donorHeader : any
   donorData : any
   selectedDonor : string
+  selectedStaff : string
 
 
   createRawCollectionModal : CreateRawCollection = new CreateRawCollection()
@@ -74,9 +77,18 @@ export class CollectionComponent implements OnInit {
     this.donorDetailModal.show()
   }
 
+  showDonorStaffModal(){
+    this.staffDetailModal.show()
+  }
+
   selectIdAndClose(){
     this.createRawCollectionModal.donor = Number(this.selectedDonor)
     this.donorDetailModal.hide()
+  }
+
+  selectIdAndCloseStaffModal(){
+    this.createRawCollectionModal.staff = Number(this.selectedStaff)
+    this.staffDetailModal.hide()
   }
 
   createRawCollection(){

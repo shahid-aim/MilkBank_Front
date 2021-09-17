@@ -44,7 +44,7 @@
                                 <label for="country">Executive Id</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="executive_id" placeholder="Excutive Id" [(ngModel)]="createRawCollectionModal.staff" (click)="showDonorDetailModal()">
+                                <input type="text" name="executive_id" placeholder="Excutive Id" [(ngModel)]="createRawCollectionModal.staff" (click)="showDonorStaffModal()">
                             </div>
 
                         </div>
@@ -120,7 +120,7 @@
         </div>
     </div>
 
-
+    <!-- Donor -->
     <div class="modal fade" bsModal #donorDetailModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
         <div class="modal-dialog modal-fullscreen modal-dialog-centered">
             <div class="modal-content text-center">
@@ -162,7 +162,7 @@
         </div>
     </div>
 
-
+    <!-- STAFF MODAL -->
     <div class="modal fade" bsModal #staffDetailModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
         <div class="modal-dialog modal-fullscreen modal-dialog-centered">
             <div class="modal-content text-center">
@@ -175,29 +175,27 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th *ngFor="let header of donorHeader; index as i">{{header}}</th>
+                                <th *ngFor="let header of staffHeader; index as i">{{header}}</th>
                             </tr>
                         </thead>
 
                         <tbody>
 
-                            <tr *ngFor="let p of donorData | filter : searchString">
+                            <tr *ngFor="let p of staffData | filter : searchString">
                                 <td>
-                                    <input type="radio" id="html" name="rdo_id" value={{p.id}} [(ngModel)]="selectedDonor">
+                                    <input type="radio" id="html" name="rdo_id" value={{p.id}} [(ngModel)]="selectedStaff">
                                 </td>
-                                <td>{{p.id}}</td>
-                                <td>{{p.full_name}}</td>
-                                <td>{{p.address}}</td>
-                                <td>{{p.phone_number}}</td>
-                                <td>{{p.email}}</td>
+                                <td>{{p.hosp_id}}</td>
+                                <td>{{p.staff_full_name}}</td>
+                                <td>{{p.staff_contact}}</td>
                             </tr>
                         </tbody>
                     </table>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="donorDetailModal.hide()">Close</button>
-                    <button type="button" class="btn btn-primary" (click)="selectIdAndClose()">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="staffDetailModal.hide()">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="selectIdAndCloseStaffModal()">Save changes</button>
                 </div>
 
             </div>
