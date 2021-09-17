@@ -1,21 +1,25 @@
 <div class="container-fluid">
-    <button (click)="openCollectionForm()">New Collection</button>
+    <button class="btn btn-primary" (click)="openCollectionForm()">New Collection</button>
 
     <div class="collection-table">
-        <table>
-            <tr>
-                <th *ngFor="let header of rawCollectionHeader; index as i">
-                    {{header}}
-                </th>
-            </tr>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th *ngFor="let header of rawCollectionHeader; index as i">
+                        {{header}}
+                    </th>
+                </tr>
+            </thead>
 
-            <tr *ngFor="let data of rawCollectionData">
-                <td>{{data.donor_full_name}}</td>
-                <td>{{data.receiving_site}}</td>
-                <td>{{data.staff_name}}</td>
-                <td>{{data.volume_collected}}</td>
-                <td>{{data.collection_date | date:"dd/MM/yyyy"}}</td>
-            </tr>
+            <tbody>
+                <tr *ngFor="let data of rawCollectionData">
+                    <td>{{data.donor_full_name}}</td>
+                    <td>{{data.receiving_site}}</td>
+                    <td>{{data.staff_name}}</td>
+                    <td>{{data.volume_collected}}</td>
+                    <td>{{data.collection_date | date:"dd/MM/yyyy"}}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>
