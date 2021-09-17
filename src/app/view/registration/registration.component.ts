@@ -45,7 +45,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   createUser(){
-    console.log(this.registrationFormGroup.status)
     this.formControls = this.registrationFormGroup.controls
     if(this.formControls.password.value == this.formControls.confirmPassword.value && this.registrationFormGroup.status == "VALID"){
       
@@ -73,8 +72,10 @@ export class RegistrationComponent implements OnInit {
       }
       
      
+    }else{
+      this.message = "Password and Confirm Password does not match"
+      this.invalidUsernamePassword = true
     }
-
   }
 
 }
