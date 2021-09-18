@@ -14,9 +14,11 @@
     <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">
         &times;
     </a>
-    <a routerLink="raw-collection">Raw Collection</a>
-    <a routerLink="pooling">Pooling</a>
-    <a routerLink="pasturization">Pasturization</a>
+    <a (click)="routeAndClose('dashboard')">Dashboard</a>
+    <a (click)="routeAndClose('raw-collection')">Raw Collection</a>
+    <a (click)="routeAndClose('pooling')">Pooling</a>
+    <a (click)="routeAndClose('pasturization')">Pasturization</a>
+    <a (click)="routeAndClose('logout')">Logout</a>
 </div>
 
 <section class="mainpart">

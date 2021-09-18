@@ -138,10 +138,9 @@
                         </thead>
 
                         <tbody>
-
                             <tr *ngFor="let p of donorData | filter : searchString">
                                 <td>
-                                    <input type="radio" id="html" name="rdo_id" value={{p.id}} [(ngModel)]="selectedDonor">
+                                    <input type="radio" id={{p.id}} name="rdo_id" [value]=p.id [(ngModel)]="selectedDonor">
                                 </td>
                                 <td>{{p.id}}</td>
                                 <td>{{p.full_name}}</td>
