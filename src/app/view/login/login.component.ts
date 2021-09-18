@@ -13,7 +13,6 @@ import { InternalUrlMappings as StaffInternalUrlMappings} from 'src/app/staff-mo
   providers : [CommonService, CookieService]
 })
 export class LoginComponent implements OnInit {
-
   hide : boolean = true
   username : string
   password : string
@@ -36,11 +35,9 @@ export class LoginComponent implements OnInit {
       expiry.setMinutes(expiry.getMinutes() + 60)
       localStorage.setItem("token", response.token)
       if(response.user_group == "Donor"){
-        console.log("Donor")
         this.router.navigateByUrl(InternalUrlMappings.DONOR_REGISTRATION)
       }
       else{
-        console.log("Staff")
         this.router.navigateByUrl(InternalUrlMappings.STAFF + "/" + StaffInternalUrlMappings.DASHBOARD)
       }
     },
