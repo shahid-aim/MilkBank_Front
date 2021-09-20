@@ -11,7 +11,7 @@ label {
 form {
     text-align: start;
     background-color: #fff;
-    padding-top: 20px;
+    padding-top: 120px;
 }
 
 input[type=text],
@@ -34,6 +34,29 @@ select {
     justify-content: left;
 }
 
+.openCollectionBtn {
+    background-color: #f25b87;
+    color: #fff;
+    font-size: 20px;
+}
+
+.saveChange {
+    background-color: #f25b87;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+}
+
+.modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: .75rem;
+    border-top: 1px solid #dee2e6;
+}
+
 @media screen and (max-width: 600px) {
     .col1,
     input[type=text],
@@ -43,6 +66,31 @@ select {
     select {
         width: 100%;
         margin-top: 0;
+        display: flex;
+        justify-content: left;
+    }
+    label {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .col1 {
+        width: 100%;
+        margin-top: 0;
+    }
+    input[type=text],
+    input[type=date],
+    input[type=time],
+    input[type=submit],
+    select {
+        width: 80VW;
+        padding: 8px;
+        border: 1px solid #7E7CA8;
+        border-radius: 20px;
+        color: #7E7CA8;
+        font-size: 20px;
+        outline: 0;
     }
     label {
         margin-bottom: 10px;

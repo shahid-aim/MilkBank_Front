@@ -21,13 +21,6 @@
     border: 2px solid #f25b87 !important;
 }
 
-
-/* ::ng-deep .mat-stepper-horizontal-line-selected {
-   border-top-width: 1px !important;
-   color: #f25b87 !important;
-   background-color: #f25b87 !important;
- }     */
-
  ::ng-deep .mat-step-header .mat-step-icon {
     background-color: #fff;
     color: #fff;
@@ -64,12 +57,9 @@
 
 label {
     font-size: 20px;
-    /* padding: 10px; */
-    /* width: 240px; */
     text-align: left;
     color: #7E7CA8;
     letter-spacing: 1px;
-    /* margin: 8px; */
 }
 
 form {
@@ -100,11 +90,6 @@ input {
     outline: 0;
 }
 
-
-/* .selectlabel{
-   margin-right: 87px;
- } */
-
 input:focus-visible {
     outline: 0;
 }
@@ -119,20 +104,7 @@ input:focus-visible {
     padding: 20px;
 }
 
-.col-7 {
-    /* width: 50%; */
-    font-size: 20px;
-    color: #7E7CA8;
-}
-
-.col-3 {
-    /* width: auto; */
-    font-size: 20px;
-    color: #7E7CA8;
-    /* padding-left: 50px; */
-}
-
-.col-2 {
+.medicalHistory {
     font-size: 20px;
     color: #7E7CA8;
 }
@@ -195,12 +167,6 @@ input:focus-visible {
 
 /*end i agree checkbox */
 
-
-/* upload file */
-
-
-/* end upload file */
-
 .row1 {
     text-align: start;
     padding: 10px;
@@ -252,3 +218,100 @@ input:focus-visible {
         padding-top: 106px;
     }
 }
+
+
+/* 
+@media only screen and (max-width: 320px) {
+     ::ng-deep .mat-step-text-label {
+        display: none;
+    }
+    .heading1 {
+        margin-left: 0px;
+    }
+    .heading2 {
+        margin-left: 0px;
+        width: auto;
+    }
+    #btnTrial {
+        background-color: #fff;
+        color: #f25b87;
+        font-size: 18px;
+        border: none;
+        float: left;
+    }
+    #btnTrial2 {
+        background-color: #fff;
+        color: #f25b87;
+        font-size: 18px;
+        border: none;
+        float: right;
+    }
+    .leftarrowButton {
+        height: 20px;
+        width: 20px;
+    }
+    .rightarrowButton {
+        height: 20px;
+        width: 20px;
+    }
+     ::ng-deep.ngx-file-drop__drop-zone {
+        border-radius: 30px;
+        height: 180px !important;
+        border: 2px dashed #BBBFC8 !important;
+        width: 285px !important;
+        background: #FFFFFF;
+        border: 2px dashed #BBBFC8 !important;
+        place-items: end;
+    }
+    .dragFile {
+        padding-top: 106px;
+    }
+    label {
+        font-size: 20px;
+        text-align: left;
+        color: #7E7CA8;
+        letter-spacing: 1px;
+    }
+    form {
+        text-align: center;
+        background-color: #fff;
+        height: 600px;
+        padding-top: 20px;
+    }
+    input,
+    #Select1 {
+        width: 140%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #7E7CA8;
+        border-radius: 20px;
+        color: #7E7CA8;
+        font-size: 20px;
+        outline: 0;
+    }
+    .col-6 {
+        width: 100%;
+        margin-top: 0;
+    }
+    input[type=text],
+    input[type=date],
+    input[type=time],
+    input[type=submit],
+    #Select1 {
+        width: 80VW;
+        padding: 8px;
+        border: 1px solid #7E7CA8;
+        border-radius: 20px;
+        color: #7E7CA8;
+        font-size: 20px;
+        outline: 0;
+    }
+    label {
+        margin-bottom: 10px;
+    }
+    .medicalHistory {
+        font-size: 20px;
+        color: #7E7CA8;
+        width: 100%;
+    }
+} */
