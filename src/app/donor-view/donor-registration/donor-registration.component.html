@@ -12,14 +12,9 @@
         </div>
 
         <!-- #enddocregion editable -->
-        <form [formGroup]="firstFormGroup">
+        <form [formGroup]="firstFormGroup" (ngSubmit)="submitDonorRegistration()">
             <!-- #docregion step-label -->
             <ng-template matStepLabel>DONOR'S INFORMATION</ng-template>
-            <!-- #enddocregion step-label -->
-            <!-- <p class="para1">
-        <label>Full Name*</label>
-        <input type="text" placeholder="" formControlName="">
-      </p> -->
             <div class="d-flex justify-content-center">
                 <div class="">
                     <div class="row row1">
@@ -37,7 +32,10 @@
                             <label>Date of Birth*</label>
                         </div>
                         <div class="col-6">
-                            <input placeholder="DD/MM/YY" class="textbox-n" type="text" onfocus="(this.type='date')" id="date" formControlName="DOB">
+                            <input placeholder="DD/MM/YY" class="textbox-n" type="text" onfocus="(this.type='date')" id="date" formControlName="DOB" [ngClass]="{ 'is-invalid': firstFormGroupSubmitted && f.DOB.errors }">
+                            <div *ngIf="f.DOB.errors" class="invalid-feedback">
+                                <div *ngIf="f.DOB.errors.required">Date Of Birth required</div>
+                            </div>
                         </div>
                     </div>
 
@@ -46,12 +44,19 @@
                             <label>Type of Delivery*</label>
                         </div>
                         <div class="col-6">
-                            <select id="Select1" class="input-large" aria-label="Default select example" formControlName="TOD">
-                                <option selected>Select Option</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select id="Select1" class="input-large" aria-label="Default select example" formControlName="TOD" [ngClass]="{ 'is-invalid': firstFormGroupSubmitted && f.TOD.errors }">
+                                
+                                <option value="1">Normal</option>
+                                <option value="2">C-Section</option>
+                                <option value="3">Water Delivery</option>
+                                <option value="3">Lamaze Technique</option>
+                                <option value="3">Bradley Method</option>
+                                <option value="3">Hypnosis</option>
                             </select>
+
+                            <div *ngIf="f.TOD.errors" class="invalid-feedback">
+                                <div *ngIf="f.TOD.errors.required">Select Type Of Delivery</div>
+                            </div>
                         </div>
                     </div>
 
@@ -60,7 +65,10 @@
                             <label>Date of Delivery*</label>
                         </div>
                         <div class="col-6">
-                            <input placeholder="DD/MM/YY" class="textbox-n" type="text" onfocus="(this.type='date')" id="date" formControlName="DOD">
+                            <input placeholder="DD/MM/YY" class="textbox-n" type="text" onfocus="(this.type='date')" id="date" formControlName="DOD" [ngClass]="{ 'is-invalid': firstFormGroupSubmitted && f.DOD.errors }">
+                            <div *ngIf="f.DOB.errors" class="invalid-feedback">
+                                <div *ngIf="f.DOB.errors.required">Select Date of Delivery</div>
+                            </div>
                         </div>
                     </div>
 
@@ -69,7 +77,10 @@
                             <label>Contact Number*</label>
                         </div>
                         <div class="col-6">
-                            <input type="number" placeholder="" formControlName="contactNumber">
+                            <input type="number" placeholder="" formControlName="contactNumber" [ngClass]="{ 'is-invalid': firstFormGroupSubmitted && f.contactNumber.errors }">
+                            <div *ngIf="f.contactNumber.errors" class="invalid-feedback">
+                                <div *ngIf="f.contactNumber.errors.required">Contact number required</div>
+                            </div>
                         </div>
                     </div>
 
@@ -78,12 +89,15 @@
                             <label>Type of Document*</label>
                         </div>
                         <div class="col-6">
-                            <select id="Select1" class="input-large" aria-label="Default select example" formControlName="documentType">
-                                <option selected>Select Option</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select id="Select1" class="input-large" aria-label="Default select example" formControlName="documentType" [ngClass]="{ 'is-invalid': firstFormGroupSubmitted && f.documentType.errors }">
+                                
+                                <option value="1">Type 1</option>
+                                <option value="2">Type 2</option>
+                                <option value="3">Type 3</option>
                             </select>
+                            <div *ngIf="f.documentType.errors" class="invalid-feedback">
+                                <div *ngIf="f.documentType.errors.required">Document Type required</div>
+                            </div>
                         </div>
                     </div>
 
@@ -92,7 +106,10 @@
                             <label>Document Number</label>
                         </div>
                         <div class="col-6">
-                            <input type="text" placeholder="" formControlName="documentNumber">
+                            <input type="text" placeholder="" formControlName="documentNumber" [ngClass]="{ 'is-invalid': firstFormGroupSubmitted && f.documentNumber.errors }">
+                            <div *ngIf="f.documentNumber.errors" class="invalid-feedback">
+                                <div *ngIf="f.documentNumber.errors.required">Document number required</div>
+                            </div>
                         </div>
                     </div>
 
@@ -101,7 +118,7 @@
             </div>
 
             <div class="formsButton">
-                <button mat-button matStepperNext id="btnTrial2" (click)="submitDonorRegistration()">NEXT
+                <button mat-button matStepperNext id="btnTrial2" type="submit">NEXT
                     <img class="rightarrowButton" src="assets/arrow-left.svg" alt="Arrow Next" srcset="">
                 </button>
             </div>
@@ -116,9 +133,8 @@
             <P>Please provide necessary information.</P>
             <hr>
         </div>
-        <form [formGroup]="secondFormGroup">
+        <form [formGroup]="secondFormGroup" (ngSubmit)="saveContactInformation()">
             <ng-template matStepLabel>CONTACT INFORMATION</ng-template>
-
             <div class="d-flex justify-content-center">
                 <div class="">
                     <div class="row row1">
@@ -126,7 +142,10 @@
                             <label>Contact number*</label>
                         </div>
                         <div class="col-6">
-                            <input type="text" formControlName="contactNumber" name="contactNumber" placeholder="" required>
+                            <input type="text" formControlName="contactNumber" name="contactNumber" [ngClass]="{ 'is-invalid': secondFormGroupSubmitted && s.contactNumber.errors }" required>
+                            <div *ngIf="s.contactNumber.errors" class="invalid-feedback">
+                                <div *ngIf="s.contactNumber.errors.required">Contact number required</div>
+                            </div>
                         </div>
                     </div>
                     <div class="row row1">
@@ -134,7 +153,10 @@
                             <label>Address*</label>
                         </div>
                         <div class="col-6">
-                            <input type="text" formControlName="address" name="address" placeholder="" required>
+                            <input type="text" formControlName="address" name="address" [ngClass]="{ 'is-invalid': secondFormGroupSubmitted && s.address.errors }" required>
+                            <div *ngIf="s.address.errors" class="invalid-feedback">
+                                <div *ngIf="s.address.errors.required">Address required</div>
+                            </div>
                         </div>
                     </div>
 
@@ -143,7 +165,10 @@
                             <label>City*</label>
                         </div>
                         <div class="col-6">
-                            <input type="text" formControlName="city" name="city" placeholder="" required>
+                            <input type="text" formControlName="city" name="city" [ngClass]="{ 'is-invalid': secondFormGroupSubmitted && s.city.errors }" required>
+                            <div *ngIf="s.city.errors" class="invalid-feedback">
+                                <div *ngIf="s.city.errors.required">City required</div>
+                            </div>
                         </div>
                     </div>
 
@@ -152,7 +177,10 @@
                             <label>Taluka*</label>
                         </div>
                         <div class="col-6">
-                            <input type="text" formControlName="talkua" name="talkua" placeholder="" required>
+                            <input type="text" formControlName="talkua" name="talkua" [ngClass]="{ 'is-invalid': secondFormGroupSubmitted && s.talkua.errors }" required>
+                            <div *ngIf="s.talkua.errors" class="invalid-feedback">
+                                <div *ngIf="s.talkua.errors.required">Talkua required</div>
+                            </div>
                         </div>
                     </div>
 
@@ -161,7 +189,10 @@
                             <label>District*</label>
                         </div>
                         <div class="col-6">
-                            <input type="text" formControlName="district" name="district" placeholder="" required>
+                            <input type="text" formControlName="district" name="district" [ngClass]="{ 'is-invalid': secondFormGroupSubmitted && s.district.errors }" required>
+                            <div *ngIf="s.district.errors" class="invalid-feedback">
+                                <div *ngIf="s.district.errors.required">District required</div>
+                            </div>
                         </div>
                     </div>
 
@@ -170,7 +201,10 @@
                             <label>pincode*</label>
                         </div>
                         <div class="col-6">
-                            <input type="text" formControlName="pincode" name="pincode" placeholder="" required>
+                            <input type="text" formControlName="pincode" name="pincode" [ngClass]="{ 'is-invalid': secondFormGroupSubmitted && s.pincode.errors }" required>
+                            <div *ngIf="s.pincode.errors" class="invalid-feedback">
+                                <div *ngIf="s.pincode.errors.required">Pincode required</div>
+                            </div>
                         </div>
                     </div>
 
@@ -180,7 +214,7 @@
                 <button mat-button matStepperPrevious id="btnTrial">
                     <img class="leftarrowButton" src="assets/leftarrow.svg" alt="Arrow Back" srcset="">PREVIOUS
                 </button>
-                <button mat-button matStepperNext id="btnTrial2" (click)="saveContactInformation()">NEXT
+                <button mat-button matStepperNext id="btnTrial2" type="submit">NEXT
                     <img class="rightarrowButton" src="assets/arrow-left.svg" alt="Arrow Next" srcset="">
                 </button>
             </div>
@@ -196,7 +230,7 @@
 
         </div>
 
-        <form [formGroup]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup" (ngSubmit)="medicalHistory()">
             <ng-template matStepLabel>MEDICAL HISTORY</ng-template>
             <div class="d-flex justify-content-center">
                 <div class="col-xsm-12 col-sm-12 col-md-12 col-lg-9">
@@ -205,15 +239,16 @@
                             <span>Cigarettes/tobacco/any form of nicotine/alcohol consumption in past 6*</span>
                         </div>
                         <div class="col-3">
-                            <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" placeholder="" required>
+                            <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" required>
                                 <mat-radio-button value="yes">Yes</mat-radio-button>
                             </mat-radio-group>
                         </div>
                         <div class="col-2">
-                            <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" placeholder="" required>
+                            <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" required>
                                 <mat-radio-button value="no">No</mat-radio-button>
                             </mat-radio-group>
                         </div>
+
                     </div>
                     <div class="row">
                         <div class="col-7">
@@ -295,14 +330,22 @@
                 </div>
             </div>
 
+            <div *ngIf="thirdFormGroupInvalidStatus" style="font-weight: 500;font-size: 20px;
+            color: red;">
+                Please Select all Fields
+            </div>
+
             <div class="formsButton">
                 <button mat-button matStepperPrevious id="btnTrial">
                     <img class="leftarrowButton" src="assets/leftarrow.svg" alt="Arrow Back" srcset="">PREVIOUS
                 </button>
-                <button mat-button matStepperNext id="btnTrial2" (click)="medicalHistory()">NEXT
+                <button mat-button matStepperNext id="btnTrial2" type="submit">NEXT
                     <img class="rightarrowButton" src="assets/arrow-left.svg" alt="Arrow Next" srcset="">
                 </button>
             </div>
+
+
+
         </form>
     </mat-step>
     <!--END OF MEDICAL HISTORY-->
@@ -323,13 +366,13 @@
                             <span class="iagree">
                                 I donor name am voluntarily donating my excess breast milk to hospital name. I hereby
                                 agree that all the
-                                medical reports I submitted are original. I hereby agree that all the medical reports I
-                                submitted are
+                                medical reports I firstFormGroupSubmitted are original. I hereby agree that all the medical reports I
+                                firstFormGroupSubmitted are
                                 original.
                                 I donor name am voluntarily donating my excess breast milk to hospital name. I hereby
                                 agree that all the
-                                medical reports I submitted are original. I hereby agree that all the medical reports I
-                                submitted are
+                                medical reports I firstFormGroupSubmitted are original. I hereby agree that all the medical reports I
+                                firstFormGroupSubmitted are
                                 original.
                                 I donor name am voluntarily donating my excess breast milk to hospital name. I hereby
                                 agree that all the

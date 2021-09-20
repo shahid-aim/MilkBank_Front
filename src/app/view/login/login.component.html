@@ -4,10 +4,10 @@
     </div>
 
     <div class="col-sm-12 col-md-12 col-lg-7">
-        <i class="fa fa-chevron-left fa-3x" aria-hidden="true"></i>
+        <i class="fa fa-chevron-left fa-3x" aria-hidden="true" (click)="navigateToHome()"></i>
         <div class="container" id="form-container">
             <h1 class="login-head">Sign In</h1>
-            <form #loginForm="ngForm" ngSubmit>
+            <form #loginForm="ngForm" (ngSubmit)="login()">
                 <p class="p-0">
                     <mat-form-field appearance="outline" [color]="textFieldColor">
                         <mat-label>Username</mat-label>
@@ -25,7 +25,7 @@
 
                 <p class="invalid-message" *ngIf="invalidUsernamePassword">Invalid Username or Password</p>
 
-                <button type="button" class="btn-login mt-3 mb-5" (click)="login()">Login</button>
+                <button type="submit" class="btn-login mt-3 mb-5">Login</button>
                 <p class="p-register-here">Don't have an Account? <a class="" (click)="navigateToRegistration()">Register here</a></p>
             </form>
         </div>

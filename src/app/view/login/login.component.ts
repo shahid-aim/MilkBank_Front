@@ -47,6 +47,10 @@ export class LoginComponent implements OnInit {
     )
   }
   
+  navigateToHome(){
+    this.router.navigateByUrl("")
+  }
+
   navigateToRegistration(){
     this.router.navigateByUrl(InternalUrlMappings.REGISTRATION)
   }
