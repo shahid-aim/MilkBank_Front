@@ -238,26 +238,16 @@
                         <div class="col-7 medicalHistory">
                             <span>Cigarettes/tobacco form of nicotine/alcohol consumption in past 6*</span>
                         </div>
-                        <<<<<<< HEAD <div class="col-3">
-                            <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" required>
+                        <div class="col-3 medicalHistory">
+                            <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" placeholder="" required>
                                 <mat-radio-button value="yes">Yes</mat-radio-button>
                             </mat-radio-group>
-                    </div>
-                    <div class="col-2">
-                        <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" required>
-                            =======
-                            <div class="col-3 medicalHistory">
-                                <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" placeholder="" required>
-                                    <mat-radio-button value="yes">Yes</mat-radio-button>
-                                </mat-radio-group>
-                            </div>
-                            <div class="col-2 medicalHistory">
-                                <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" placeholder="" required>
-                                    >>>>>>> 0d2924b01696afad507f139ece1c641c5952c8c1
-                                    <mat-radio-button value="no">No</mat-radio-button>
-                                </mat-radio-group>
-                            </div>
-
+                        </div>
+                        <div class="col-2 medicalHistory">
+                            <mat-radio-group aria-label="Select an option" formControlName="nicotineAlcohol" name="nicotineAlcohol" placeholder="" required>
+                                <mat-radio-button value="no">No</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-7  medicalHistory">
@@ -339,22 +329,14 @@
                 </div>
             </div>
 
-            <div *ngIf="thirdFormGroupInvalidStatus" style="font-weight: 500;font-size: 20px;
-            color: red;">
-                Please Select all Fields
-            </div>
-
             <div class="formsButton">
                 <button mat-button matStepperPrevious id="btnTrial">
                     <img class="leftarrowButton" src="assets/leftarrow.svg" alt="Arrow Back" srcset="">PREVIOUS
                 </button>
-                <button mat-button matStepperNext id="btnTrial2" type="submit">NEXT
+                <button mat-button matStepperNext id="btnTrial2">NEXT
                     <img class="rightarrowButton" src="assets/arrow-left.svg" alt="Arrow Next" srcset="">
                 </button>
             </div>
-
-
-
         </form>
     </mat-step>
     <!--END OF MEDICAL HISTORY-->
