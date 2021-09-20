@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <button class="btn btn-primary" (click)="openCollectionForm()">New Collection</button>
+    <button class="btn newCollection" (click)="openCollectionForm()">New Collection</button>
 
     <div class="collection-table">
         <table class="table table-striped table-hover">
@@ -113,7 +113,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="collectionForm.hide()">Close</button>
-                    <button type="button" class="btn btn-primary" (click)="createRawCollection()">Save changes</button>
+                    <button type="button" class="btn saveChange" (click)="createRawCollection()">Save changes</button>
                 </div>
 
             </div>
@@ -154,7 +154,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="donorDetailModal.hide()">Close</button>
-                    <button type="button" class="btn btn-primary" (click)="selectIdAndClose()">Save changes</button>
+                    <button type="button" class="btn" (click)="selectIdAndClose()">Save changes</button>
                 </div>
 
             </div>

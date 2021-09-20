@@ -1,59 +1,104 @@
-.row1 {
-    padding: 10px;
-}
-
-label {
-    font-size: 20px;
-    color: #7E7CA8;
-    letter-spacing: 1px;
-}
-
-form {
-    text-align: start;
-    background-color: #fff;
-    padding-top: 20px;
-}
-
-input[type=text],
-input[type=date],
-input[type=time],
-input[type=submit],
-select {
-    width: 30VW;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #7E7CA8;
-    border-radius: 20px;
-    color: #7E7CA8;
-    font-size: 20px;
-    outline: 0;
-}
-
-.col1 {
-    display: flex;
-    justify-content: left;
-}
-
-@media screen and (max-width: 600px) {
-    .col1,
-    input[type=submit] {
-        width: 100%;
-        margin-top: 0;
+    .row1 {
+        padding: 10px;
     }
+    
+    label {
+        font-size: 20px;
+        color: #7E7CA8;
+        letter-spacing: 1px;
+    }
+    
+    form {
+        text-align: start;
+        background-color: #fff;
+        padding-top: 20px;
+    }
+    
     input[type=text],
     input[type=date],
     input[type=time],
     input[type=submit],
     select {
-        width: 85VW;
+        width: 30VW;
         padding: 8px;
+        box-sizing: border-box;
         border: 1px solid #7E7CA8;
         border-radius: 20px;
         color: #7E7CA8;
         font-size: 20px;
         outline: 0;
     }
-    label {
-        margin-bottom: 10px;
+    
+    .col1 {
+        display: flex;
+        justify-content: left;
     }
-}
+    
+    .newCollection {
+        background-color: #f25b87;
+        color: #fff;
+        font-size: 20px;
+    }
+    
+    .saveChange {
+        background-color: #f25b87;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+    }
+    
+    .modal-footer {
+        display: flex;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        padding: .75rem;
+        border-top: 1px solid #dee2e6;
+    }
+    
+    @media screen and (max-width: 600px) {
+        .col1 {
+            width: 100%;
+            margin-top: 0;
+        }
+        input[type=text],
+        input[type=date],
+        input[type=time],
+        input[type=submit],
+        select {
+            width: 85VW;
+            padding: 8px;
+            border: 1px solid #7E7CA8;
+            border-radius: 20px;
+            color: #7E7CA8;
+            font-size: 20px;
+            outline: 0;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+    }
+    
+    @media screen and (max-width: 320px) {
+        .col1 {
+            width: 100%;
+            margin-top: 0;
+        }
+        input[type=text],
+        input[type=date],
+        input[type=time],
+        input[type=submit],
+        select {
+            width: 80VW;
+            padding: 8px;
+            border: 1px solid #7E7CA8;
+            border-radius: 20px;
+            color: #7E7CA8;
+            font-size: 20px;
+            outline: 0;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+    }

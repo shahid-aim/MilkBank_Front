@@ -22,6 +22,8 @@ import { RegistrationComponent } from './view/registration/registration.componen
 import { DragFileComponent } from './drag-file/drag-file.component';
 import { DropFileComponent } from './drop-file/drop-file.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { DonorProfileComponent } from './donor-view/donor-profile/donor-profile.component';
+
 
 
 
@@ -36,6 +38,8 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     RegistrationComponent,
     DragFileComponent,
     DropFileComponent,
+    DonorProfileComponent,
+    
   
 
   ],

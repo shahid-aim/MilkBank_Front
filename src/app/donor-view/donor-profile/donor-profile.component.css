@@ -1,0 +1,62 @@
+.ProfileText {
+    font-size: 25px;
+    color: #7E7CA8;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #f25b87;
+}
+
+.profile-button {
+    background: #f25b87;
+    box-shadow: none;
+    border: none;
+    font-size: 20px;
+}
+
+.profile-button:hover {
+    background: #f25b87;
+}
+
+.profile-button:focus {
+    background: #f25b87;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #f25b87;
+    ;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #f25b87;
+    ;
+    cursor: pointer;
+}
+
+.add-experience:hover {
+    background: #f25b87;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #f25b87;
+}
+
+label,
+::placeholder {
+    font-size: 20px;
+    text-align: left;
+    color: #7E7CA8;
+    letter-spacing: 1px;
+}
+
+input {
+    width: 100%;
+    padding: 7px;
+    box-sizing: border-box;
+    border: 1px solid #7E7CA8;
+    border-radius: 20px;
+    color: #7E7CA8;
+    font-size: 20px;
+}
