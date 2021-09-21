@@ -40,11 +40,18 @@
         font-size: 20px;
     }
     
-    .saveChange {
+    .modalBtn1 {
+        background: none;
+        border: 1px solid #f25b87;
+        font-size: 20px;
+    }
+    
+    .modalBtn2 {
         background-color: #f25b87;
         border: none;
         color: #fff;
         font-size: 20px;
+        margin-left: 30px;
     }
     
     .modal-footer {
