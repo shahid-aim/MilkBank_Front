@@ -91,9 +91,10 @@
                         <div class="col-6">
                             <select id="Select1" class="input-large" aria-label="Default select example" formControlName="documentType" [ngClass]="{ 'is-invalid': firstFormGroupSubmitted && f.documentType.errors }">
                                 
-                                <option value="1">Type 1</option>
-                                <option value="2">Type 2</option>
-                                <option value="3">Type 3</option>
+                                <option value="1">Aadhar Card</option>
+                                <option value="2">Voter Card</option>
+                                <option value="3">Passport</option>
+                                <option value="4">Pan Card</option>
                             </select>
                             <div *ngIf="f.documentType.errors" class="invalid-feedback">
                                 <div *ngIf="f.documentType.errors.required">Document Type required</div>
@@ -381,10 +382,40 @@
                 <button mat-button matStepperPrevious id="btnTrial">
                     <img class="leftarrowButton" src="assets/leftarrow.svg" alt="Arrow Back" srcset="">PREVIOUS
                 </button>
-                <button mat-button matStepperNext id="btnTrial2">NEXT
+                <button mat-button matStepperNext id="btnTrial2" data-bs-toggle="modal" data-bs-target="#exampleModal">NEXT
                     <img class="rightarrowButton" src="assets/arrow-left.svg" alt="Arrow Next" srcset=""
                         (click)="navigateToRegistrationComplete()">
                 </button>
+
+
+                <!-- Button trigger modal -->
+                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-md modal-dialog-centered">
+                        <div class="modal-content">
+
+                            <div class="modal-body">
+                                <div class="ThankYouDiv">
+                                    <img class="checkImg" src="assets/check-mark.svg" alt="Tick Mark Green">
+                                    <h1 class="ThankYou-head">Thank You !</h1>
+                                    <p class="ThankYou-para">Thank for your collabration.We have receive your submitted details.Please wait for approval.You will received mail regarding approval.</p>
+                                    <button type="button" class="backToHome">Back To Home</button>
+                                    <p class="thankyou-para2">if you have any issues<a href="#" class="contactUs">Contact us</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
             </div>
 
         </form>

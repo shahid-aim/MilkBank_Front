@@ -220,6 +220,72 @@ input:focus-visible {
 }
 
 
+/* css of thank you  */
+
+.checkImg {
+    width: 80px;
+    height: 120px;
+}
+
+.ThankYou-head {
+    color: #f25b87;
+}
+
+.ThankYou-para {
+    color: #7E7CA8;
+    font-size: 16px;
+}
+
+.thankyou-para2 {
+    color: #7E7CA8;
+    font-size: 16px;
+}
+
+.backToHome {
+    background-color: #f25b87;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin: 20px 0px 20px 0px;
+}
+
+.contactUs {
+    color: #f25b87;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 5px;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 320px) {
+    .contactUs {
+        color: #f25b87;
+        text-decoration: none;
+        font-size: 20px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        white-space: nowrap;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contactUs {
+        color: #f25b87;
+        text-decoration: none;
+        font-size: 20px;
+        white-space: nowrap;
+    }
+}
+
+
+/* end of thank you css */
+
+
 /* 
 @media only screen and (max-width: 320px) {
      ::ng-deep .mat-step-text-label {
