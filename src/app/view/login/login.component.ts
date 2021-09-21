@@ -4,57 +4,61 @@ import { CookieService } from 'ngx-cookie-service';
 import { Login } from 'src/app/models/common';
 import { CommonService } from 'src/app/service/common/common.service';
 import { InternalUrlMappings } from 'src/app/shared/UrlMapping';
-import { InternalUrlMappings as StaffInternalUrlMappings} from 'src/app/staff-module/shared/UrlMapping';
+import { InternalUrlMappings as StaffInternalUrlMappings } from 'src/app/staff-module/shared/UrlMapping';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers : [CommonService, CookieService]
+  providers: [CommonService, CookieService]
 })
 export class LoginComponent implements OnInit {
-  hide : boolean = true
-  username : string
-  password : string
+  hide: boolean = true
+  username: string
+  password: string
   invalidUsernamePassword = false
-  loginModel : Login = new Login()
+  loginModel: Login = new Login()
 
-  textFieldColor : "accent"
+  textFieldColor: "accent"
 
-  constructor(private _commonService : CommonService, private router: Router) { }
+  constructor(private _commonService: CommonService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  login(){
-    this.loginModel.username= this.username
-    this.loginModel.password= this.password
-    this._commonService.login(this.loginModel).subscribe(response => {
-      console.log(response.user_group)
-      let expiry = new Date()
-      expiry.setMinutes(expiry.getMinutes() + 60)
-      localStorage.setItem("token", response.token)
-      if(response.user_group == "Donor"){
-        this.router.navigateByUrl(InternalUrlMappings.DONOR_REGISTRATION)
-      }
-      else{
-        this.router.navigateByUrl(InternalUrlMappings.STAFF + "/" + StaffInternalUrlMappings.DASHBOARD)
-      }
-    },
-    error => {
-      this.invalidUsernamePassword = true
+  login() {
+
+    if (this.username != null && this.password != null) {
+      this.loginModel.username = this.username
+      this.loginModel.password = this.password
+
+      this._commonService.login(this.loginModel).subscribe(response => {
+        console.log(response.user_group)
+        let expiry = new Date()
+        expiry.setMinutes(expiry.getMinutes() + 60)
+        localStorage.setItem("token", response.token)
+        if (response.user_group == "Donor") {
+          this.router.navigateByUrl(InternalUrlMappings.DONOR_REGISTRATION)
+        }
+        else {
+          this.router.navigateByUrl(InternalUrlMappings.STAFF + "/" + StaffInternalUrlMappings.DASHBOARD)
+        }
+      },
+        error => {
+          this.invalidUsernamePassword = true
+        }
+      )
     }
-    )
   }
-  
-  navigateToHome(){
+
+  navigateToHome() {
     this.router.navigateByUrl("")
   }
 
-  navigateToRegistration(){
+  navigateToRegistration() {
     this.router.navigateByUrl(InternalUrlMappings.REGISTRATION)
   }
-  
+
 }
 
 // this._cookieService.set("token", response.token, {expires : expiry, sameSite : 'Lax', secure : false})

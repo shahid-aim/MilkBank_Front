@@ -10,11 +10,13 @@ export class DashboardComponent implements OnInit {
 
   tableHeaders : any
   donorAppointmentNative : any
+  token : string
 
   constructor(private _dashboardService : DashboardService) { }
 
   ngOnInit(): void {
-    this._dashboardService.getLatestDonorAppointment().subscribe(response => {
+    this.token = localStorage.getItem("token")
+    this._dashboardService.getLatestDonorAppointment(this.token).subscribe(response => {
       this.donorAppointmentNative = response.donor_appointment
       this.tableHeaders = response.table_headers
       console.log(this.tableHeaders)

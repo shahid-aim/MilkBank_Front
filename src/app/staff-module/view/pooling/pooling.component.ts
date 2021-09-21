@@ -35,9 +35,12 @@ export class PoolingComponent implements OnInit {
 
   searchString:string
 
+  token : string = ""
+
   createPoolModel : CreatePool = new CreatePool()
   testResultModel : TestResult = new TestResult()
   ngOnInit(): void {
+    this.token = localStorage.getItem("token")
     this.getPool()
     this.getRawCollection()
     this.getStaff()
@@ -46,7 +49,7 @@ export class PoolingComponent implements OnInit {
   // API 
 
   getPool(){
-    this._dashboardService.getPool().subscribe(resp => {
+    this._dashboardService.getPool(this.token).subscribe(resp => {
       this.poolHeader = resp.table_header
       this.poolData = resp.pool_obj
       console.log(this.poolData);
@@ -57,7 +60,7 @@ export class PoolingComponent implements OnInit {
   createPool(){
     this.createPoolModel.raw_collection_id = this.collectionCheckBox
     console.log(this.createPoolModel)
-    this._dashboardService.createPool(this.createPoolModel).subscribe(response => {
+    this._dashboardService.createPool(this.token, this.createPoolModel).subscribe(response => {
       console.log(response)
       this.getPool()
       this.newPool.hide()
@@ -65,14 +68,14 @@ export class PoolingComponent implements OnInit {
   }
 
   getRawCollection(){
-    this._dashboardService.getRawCollection().subscribe(response => {
+    this._dashboardService.getRawCollection(this.token).subscribe(response => {
       this.rawCollectionHeader = response.table_headers
       this.rawCollectionData = response.raw_collection_obj
     })
   }
 
   getStaff(){
-    this._dashboardService.getStaff().subscribe(response => {
+    this._dashboardService.getStaff(this.token).subscribe(response => {
       console.log("staf", response);
       this.staffHeader = response.table_headers
       this.staffData = response.staff_obj
@@ -83,7 +86,7 @@ export class PoolingComponent implements OnInit {
     this.testResultModel.pool_id = this.selectedPool
     console.log(this.testResultModel);
     
-    this._dashboardService.setTestResult(this.testResultModel).subscribe(response => {
+    this._dashboardService.setTestResult(this.token, this.testResultModel).subscribe(response => {
       this.getPool()
       console.log(response)
       this.testResult.hide()
