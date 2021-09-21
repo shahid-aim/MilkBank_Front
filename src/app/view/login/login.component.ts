@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   textFieldColor : "accent"
 
-  constructor(private _commonService : CommonService, private _cookieService : CookieService, private router: Router) { }
+  constructor(private _commonService : CommonService, private router: Router) { }
 
   ngOnInit(): void {
   }
