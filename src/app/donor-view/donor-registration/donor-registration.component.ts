@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import { ContactInformation, DonorRegistration, MedicalHistory } from 'src/app/models/donor-registraion';
 import { DonorRegistrationService } from 'src/app/service/donor-registration/donor-registration.service';
 @Component({
@@ -10,6 +11,7 @@ import { DonorRegistrationService } from 'src/app/service/donor-registration/don
   providers: [FormBuilder, DonorRegistrationService]
 })
 export class DonorRegistrationComponent implements OnInit {
+  @ViewChild("donorDetailModal") donorDetailModal: ModalDirective;
 
   fullName: string = ""
   contactNumber: number = 0
@@ -140,5 +142,12 @@ export class DonorRegistrationComponent implements OnInit {
 
   navigateToRegistrationComplete() {
     this._router.navigateByUrl("registration-complete")
+  }
+
+
+
+  
+  showModel(){
+    this.donorDetailModal .show()
   }
 }
