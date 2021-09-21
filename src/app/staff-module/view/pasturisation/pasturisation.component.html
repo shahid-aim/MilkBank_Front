@@ -5,7 +5,7 @@
         </div>
 
         <div class="col-6 col1">
-            <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
+            <input type="text" name="search" style="height: 55px;" placeholder="search here" [(ngModel)]="searchString">
         </div>
     </div>
     <div class="collection-table">
@@ -76,8 +76,8 @@ after container -->
 
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="pasturizationForm.hide()">Close</button>
-                    <button type="button" class="btn saveChange" (click)="createPasturization()">Save changes</button>
+                    <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="pasturizationForm.hide()">Close</button>
+                    <button type="button" class="btn btn-lg modalBtn2" (click)="createPasturization()">Select</button>
                 </div>
 
             </div>

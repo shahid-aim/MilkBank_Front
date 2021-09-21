@@ -7,7 +7,7 @@
                 aria-hidden="true"></i>Add New Pool</button>
         </div>
         <div class="col-6 col1">
-            <input type="text" name="search" placeholder="search here" [(ngModel)]="searchTerm">
+            <input type="text" name="search" style="height: 55px;" placeholder="search here" [(ngModel)]="searchTerm">
         </div>
     </div>
 
@@ -127,8 +127,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="newPool.hide()">Close</button>
-                <button type="button" class="btn saveChange" (click)="createPool()">Save changes</button>
+                <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="newPool.hide()">Close</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="createPool()">Select</button>
             </div>
 
         </div>
@@ -171,8 +171,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="testResult.hide()">Close</button>
-                <button type="button" class="btn btn-primary" (click)="setTestResult()">Save changes</button>
+                <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="testResult.hide()">Close</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="setTestResult()">Select</button>
             </div>
 
         </div>
@@ -213,8 +213,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" (click)="cancelRawSelection()" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" (click)="rawCollectionModal.hide()">Add</button>
+                <button type="button" class="btn btn-lg modalBtn1" (click)="cancelRawSelection()" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="rawCollectionModal.hide()">Add</button>
             </div>
 
         </div>
@@ -254,8 +254,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="staffDetailModal.hide()">Close</button>
-                <button type="button" class="btn btn-primary" (click)="selectIdAndCloseStaffModal()">Save changes</button>
+                <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="staffDetailModal.hide()">Close</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="selectIdAndCloseStaffModal()">Select</button>
             </div>
 
         </div>
