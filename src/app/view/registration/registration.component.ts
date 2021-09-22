@@ -46,9 +46,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   createUser() {
-
-    console.log(this.registrationFormGroup);
-
     this.message = ""
     this.invalidUsernamePassword = false
 
@@ -66,16 +63,12 @@ export class RegistrationComponent implements OnInit {
             this.createUserModel.phone_number = this.formControls.phoneNumber.value
             this.createUserModel.username = this.formControls.username.value
             this.createUserModel.password = this.formControls.password.value
-            console.log(this.createUserModel)
-
             this._commonService.createUser(this.createUserModel).subscribe(response => {
-              console.log(response)
               if (response == "User Created") {
                 this.success.show()
               }
             },
               error => {
-                console.log(error)
                 this.message = error.error
                 this.invalidUsernamePassword = true
               })

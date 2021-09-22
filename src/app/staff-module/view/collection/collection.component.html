@@ -1,5 +1,7 @@
 <div class="container-fluid">
-    <button class="btn newCollection" (click)="openCollectionForm()">New Collection</button>
+    <h2 class="rawHead">Raw Collection</h2>
+    <button class="btn newCollection" (click)="openCollectionForm()"><i class="fa fa-plus"
+        aria-hidden="true"></i> New Collection</button>
 
     <div class="collection-table">
         <table class="table table-striped table-hover">
@@ -69,7 +71,7 @@
                                 <label for="subject">Receiving Center</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="receiving_center" placeholder="Receiving Center" [(ngModel)]="createRawCollectionModal.recevingSite">
+                                <input type="text" name="receiving_center" [(ngModel)]="createRawCollectionModal.recevingSite">
                             </div>
                         </div>
 

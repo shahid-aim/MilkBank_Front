@@ -31,5 +31,9 @@ export class DonorRegistrationService {
   medicalHistory(medicalHistoryModel : MedicalHistory){
     return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.MEDICAL_HISTORY, medicalHistoryModel, {headers : new HttpHeaders().set("Authorization", this.token)})
   }
+
+  getDonorProfile(token : string) : Observable<any>{
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_DONOR_PROFILE, {headers : new HttpHeaders().set("Authorization", this.token)})
+  }
  
 }
