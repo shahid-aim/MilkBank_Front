@@ -35,7 +35,7 @@
                                 <label>Donor Unique ID</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="donor" id="donor" [(ngModel)]="createRawCollectionModal.donor" (click)="showDonorDetailModal()">
+                                <input type="text" name="donor" id="donor" [(ngModel)]="selectedDonorName" (click)="showDonorDetailModal()">
                             </div>
                         </div>
 
@@ -44,7 +44,7 @@
                                 <label for="country">Executive Id</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="executive_id" placeholder="Excutive Id" [(ngModel)]="createRawCollectionModal.staff" (click)="showDonorStaffModal()">
+                                <input type="text" name="executive_id" [(ngModel)]="selectedStaffName" (click)="showDonorStaffModal()">
                             </div>
 
                         </div>
@@ -53,7 +53,7 @@
                                 <label>Collection Date </label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="date" name="collection_date_time" placeholder="Select Date" [(ngModel)]="date">
+                                <input type="date" name="collection_date_time" placeholder="Click to select date" [(ngModel)]="date">
                             </div>
                         </div>
                         <div class="row row1">
@@ -61,7 +61,7 @@
                                 <label>Collection time</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="time" name="collection_date_time" placeholder="Select Time" [(ngModel)]="time">
+                                <input type="time" name="collection_date_time" placeholder="Click to select time" [(ngModel)]="time">
                             </div>
                         </div>
                         <div class="row row1">
@@ -69,7 +69,7 @@
                                 <label for="subject">Receiving Center</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="receiving_center" placeholder="Receiving Center" [(ngModel)]="createRawCollectionModal.recevingSite">
+                                <input type="text" name="receiving_center" placeholder="" [(ngModel)]="createRawCollectionModal.recevingSite">
                             </div>
                         </div>
 
@@ -78,7 +78,7 @@
                                 <label for="subject">Breast Pump type</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="breast_pump_type" placeholder="Breast Pump Type" [(ngModel)]="createRawCollectionModal.breastPumpType">
+                                <input type="text" name="breast_pump_type" [(ngModel)]="createRawCollectionModal.breastPumpType">
                             </div>
                         </div>
                         <div class="row row1">
@@ -86,7 +86,7 @@
                                 <label for="subject">Volume</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="volume" placeholder="Volume" [(ngModel)]="createRawCollectionModal.volumeCollected">
+                                <input type="text" name="volume" [(ngModel)]="createRawCollectionModal.volumeCollected">
                             </div>
                         </div>
                         <div class="row row1">
@@ -94,7 +94,7 @@
                                 <label for="subject">Number of Units</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="number_of_units" placeholder="Units" [(ngModel)]="createRawCollectionModal.units">
+                                <input type="text" name="number_of_units" [(ngModel)]="createRawCollectionModal.units">
                             </div>
                         </div>
                         <div class="row row1">
@@ -102,7 +102,7 @@
                                 <label for="subject">Total Volume</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="total_volume" placeholder="Volume" [(ngModel)]="createRawCollectionModal.volumeCollected">
+                                <input type="text" name="total_volume" [(ngModel)]="createRawCollectionModal.volumeCollected">
                             </div>
                         </div>
 

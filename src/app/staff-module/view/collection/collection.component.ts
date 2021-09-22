@@ -35,6 +35,9 @@ export class CollectionComponent implements OnInit {
   selectedDonor: string
   selectedStaff: string
 
+  selectedDonorName: string
+  selectedStaffName : string
+
 
   createRawCollectionModal: CreateRawCollection = new CreateRawCollection()
   constructor(private _dashboardService: DashboardService) { }
@@ -102,11 +105,26 @@ export class CollectionComponent implements OnInit {
 
   selectIdAndClose() {
     this.createRawCollectionModal.donor = Number(this.selectedDonor)
+    for(let d of this.donorData){
+      if(d.id == this.selectedDonor){
+        this.selectedDonorName = d.full_name
+        break
+      }
+    }
+
     this.donorDetailModal.hide()
   }
 
   selectIdAndCloseStaffModal() {
     this.createRawCollectionModal.staff = Number(this.selectedStaff)
+
+    for(let s of this.staffData){
+      if(s.id == this.selectedStaff){
+        this.selectedStaffName = s.staff_full_name
+        break
+      }
+    }
+
     this.staffDetailModal.hide()
   }
 
