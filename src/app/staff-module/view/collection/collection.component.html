@@ -25,11 +25,11 @@
 
             <tbody>
                 <tr *ngFor="let data of rawCollectionData">
-                    <td>{{data.donor_full_name}}</td>
-                    <td>{{data.receiving_site}}</td>
-                    <td>{{data.staff_name}}</td>
-                    <td>{{data.volume_collected}}</td>
-                    <td>{{data.collection_date | date:"dd/MM/yyyy"}}</td>
+                    <td class="px-4">{{data.donor_full_name}}</td>
+                    <td class="px-4">{{data.receiving_site}}</td>
+                    <td class="px-4">{{data.staff_name}}</td>
+                    <td class="px-4">{{data.volume_collected}}</td>
+                    <td class="px-4">{{data.collection_date | date:"dd/MM/yyyy"}}</td>
                 </tr>
             </tbody>
         </table>
@@ -111,9 +111,9 @@
                         </div>
 
                         <div class="error-msg" *ngIf="isErrorMsgVisible">
-                            <h4>
+                            <h2>
                                 {{errorMsg}}
-                            </h4>
+                            </h2>
                         </div>
 
                         <div class="p-2 text-center">

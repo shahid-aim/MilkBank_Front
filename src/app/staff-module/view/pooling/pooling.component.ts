@@ -1,5 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { CreatePool, TestResult } from '../../models/phase';
 import { DashboardService } from '../../services/dashboard.service';
@@ -14,6 +15,7 @@ export class PoolingComponent implements OnInit {
   @ViewChild("rawCollectionModal") rawCollectionModal: ModalDirective;
   @ViewChild("testResult") testResult: ModalDirective;
   @ViewChild("staffDetailModal") staffDetailModal: ModalDirective;
+  @ViewChild("productdata") productdata: NgForm;
  
   
   constructor(private _dashboardService : DashboardService) { }
@@ -68,6 +70,8 @@ export class PoolingComponent implements OnInit {
 
 
   createPool(){
+
+    console.log(this.productdata)
     this.isErrorMsgVisible = false
     this.errorMsg = ""
 
@@ -85,6 +89,11 @@ export class PoolingComponent implements OnInit {
     if(this.createPoolModel.total_volume < 1){
       this.isErrorMsgVisible = true
       this.errorMsg = "Total volumne cannot be less than 1"
+    }
+
+    if(this.productdata.form.status == "INVALID"){
+      this.isErrorMsgVisible = true
+      this.errorMsg = "All fields are mandatory"
     }
 
     if(!this.isErrorMsgVisible){

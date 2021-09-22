@@ -26,11 +26,16 @@
             <tbody>
 
                 <tr *ngFor="let p of poolData |filter:searchTerm" (dblclick)="doubleClicked(p.id)">
-                    <td>{{p.mixing_date | date:"dd/MM/yyyy"}}</td>
-                    <td>{{p.total_volume}}</td>
-                    <td>{{p.testing_lab}}</td>
-                    <td>{{p.test_sample_sent_date| date:"dd/MM/yyyy"}}</td>
-                    <td>{{p.test_result}}</td>
+                    <td class="px-4">{{p.mixing_date | date:"dd/MM/yyyy"}}</td>
+                    <td class="px-4">{{p.total_volume}}</td>
+                    <td class="px-4">{{p.testing_lab}}</td>
+                    <td class="px-4">{{p.test_sample_sent_date| date:"dd/MM/yyyy"}}</td>
+                    <td class="px-4">{{p.test_result}}</td>
+                    <td class="px-4" (click)="doubleClicked(p.id)">
+                        <button>
+                            Add Result
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -53,7 +58,7 @@
                                 </div>
 
                                 <div class="col-6 col1">
-                                    <input type="date" name="mixing_date" class="form-control" [(ngModel)]="createPoolModel.mixing_date">
+                                    <input type="date" name="mixing_date" class="form-control" [(ngModel)]="createPoolModel.mixing_date" required>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +68,7 @@
                                     <label>Total Units</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="number" min="1" name="total_units" class="form-control" [(ngModel)]="createPoolModel.total_units">
+                                    <input type="number" min="1" name="total_units" class="form-control" [(ngModel)]="createPoolModel.total_units" required>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +78,7 @@
                                     <label>Total Volume</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="number" min="1" name="total_volume" class="form-control" [(ngModel)]="createPoolModel.total_volume">
+                                    <input type="number" min="1" name="total_volume" class="form-control" [(ngModel)]="createPoolModel.total_volume" required>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +88,7 @@
                                     <label>Test Sample Quantity</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="number" min="1" name="test_sample_qty" class="form-control" [(ngModel)]="createPoolModel.test_sample_qty">
+                                    <input type="number" min="1" name="test_sample_qty" class="form-control" [(ngModel)]="createPoolModel.test_sample_qty" required>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +98,7 @@
                                     <label>Test Sample Send Date</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="date" name="test_sample_sent_date" class="form-control" [(ngModel)]="createPoolModel.test_sample_sent_date">
+                                    <input type="date" name="test_sample_sent_date" class="form-control" [(ngModel)]="createPoolModel.test_sample_sent_date" required>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +108,7 @@
                                     <label>Staff</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="text" name="staff_id" class="form-control" [(ngModel)]="selectedStaffName" (click)="showDonorStaffModal()">
+                                    <input type="text" name="staff_id" class="form-control" [(ngModel)]="selectedStaffName" (click)="showDonorStaffModal()" required>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +119,7 @@
                                 </div>
                                 <div class="col-6 col1">
 
-                                    <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]="createPoolModel.testing_lab_id">
+                                    <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]="createPoolModel.testing_lab_id" required>
                                         <option value="" selected ></option>
                                         
                                         <option *ngFor = "let labs of testingLabs" value={{labs.id}}>{{labs.name}}</option>
@@ -130,15 +135,15 @@
                                     <label>Raw Collection Id</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="text" class="form-control" (click)="openRawCollection()" name="collectionCheckBoxString" [(ngModel)]="collectionCheckBoxString">
+                                    <input type="text" class="form-control" (click)="openRawCollection()" name="collectionCheckBoxString" [(ngModel)]="collectionCheckBoxString" required>
                                 </div>
                             </div>
                         </div>
 
                         <div class="error-msg" *ngIf="isErrorMsgVisible">
-                            <h4>
+                            <h2>
                                 {{errorMsg}}
-                            </h4>
+                            </h2>
                         </div>
 
                     </form>

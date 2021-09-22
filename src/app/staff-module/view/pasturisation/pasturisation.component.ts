@@ -20,8 +20,9 @@ export class PasturisationComponent implements OnInit {
   pasturizationData:any;
   searchString:string;
   token : string = "";
-  poolData : any;
   searchTerm : string;
+  
+  poolData : any;
   poolHeader :any;
   
   selectedPool : number
@@ -33,6 +34,7 @@ export class PasturisationComponent implements OnInit {
   ngOnInit(): void {
     this.token = localStorage.getItem("token")
     this.getPasturization()
+    this.getPool()
   }
 
   // Api Call
@@ -44,12 +46,16 @@ export class PasturisationComponent implements OnInit {
     })
   }
 
+  getPool(){
+    this._dashboardService.getPool(this.token).subscribe(resp => {
+      this.poolHeader = resp.table_header
+      this.poolData = resp.pool_obj
+    })
+  }
+
   createPasturization(){
-    console.log(this.createPasturizationModal)
-  
     this._dashboardService.createPasturization(this.token, this.createPasturizationModal).subscribe(response => {
-      console.log("Pasturi", response)
-      this.pasturizationForm.show()
+      this.pasturizationForm.hide()
     })
   }
 
@@ -62,9 +68,14 @@ export class PasturisationComponent implements OnInit {
     console.log("Firided");
     this.donorDetailModal.show()
   }
+
   showPoolModal(){
     this.poolModal.show()
   }
- 
+
+  seleceHidePool(){
+    this.createPasturizationModal.pooling = this.selectedPool
+    this.poolModal.hide()
+  }
 
 }

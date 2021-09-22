@@ -23,10 +23,10 @@
 
                 <tbody>
                     <tr *ngFor="let data of pasturizationData | filter:searchString">
-                        <td>{{data.pasturization_date}}</td>
-                        <td>{{data.pre_result}}</td>
-                        <td>{{data.post_result}}</td>
-                        <td>{{data.pool_id}}</td>
+                        <td class="px-4">{{data.pasturization_date}}</td>
+                        <td class="px-4">{{data.pre_result}}</td>
+                        <td class="px-4">{{data.post_result}}</td>
+                        <td class="px-4">{{data.pool_id}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -113,7 +113,7 @@ after container -->
 
                                 <tr *ngFor="let p of poolData |filter:searchTerm">
                                     <td>
-                                        <input type="radio" id="rdo" name="rdo">
+                                        <input type="radio" name="rdo" id={{p.id}} [value]=p.id [(ngModel)]="selectedPool">
                                     </td>
                                     <td>{{p.mixing_date | date:"dd/MM/yyyy"}}</td>
                                     <td>{{p.total_volume}}</td>
@@ -128,7 +128,7 @@ after container -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-lg modalBtn1" (click)="poolModal.hide()">Close</button>
-                        <button type="button" class="btn btn-lg modalBtn2">Select</button>
+                        <button type="button" class="btn btn-lg modalBtn2" (click)="seleceHidePool()">Select</button>
                     </div>
 
                 </div>

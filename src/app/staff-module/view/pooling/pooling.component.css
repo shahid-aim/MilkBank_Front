@@ -71,6 +71,12 @@ select {
     /* border-top: 1px solid; */
 }
 
+.error-msg {
+    color: red;
+    text-align: center;
+    font-size: 20px;
+}
+
 @media screen and (max-width: 600px) {
     .col1 {
         width: 100%;
