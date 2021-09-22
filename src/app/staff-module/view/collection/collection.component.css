@@ -34,6 +34,12 @@
         justify-content: left;
     }
     
+    .rawHead {
+        font-size: 25px;
+        color: #f25b87;
+        margin-bottom: 33px;
+    }
+    
     .newCollection {
         background-color: #f25b87;
         color: #fff;

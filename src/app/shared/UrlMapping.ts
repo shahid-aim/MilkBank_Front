@@ -6,12 +6,14 @@ export const  ExternalUrlMappings = {
     MEDICAL_HISTORY : "registration/save-medical-history",
 
     GET_DONOR_REGISTERED_INITIAL : "donor/get-donor-registered-initial",
+    GET_DONOR_PROFILE : "donor/get-profile",
 }
 
 export const  InternalUrlMappings = {
-    THANK_YOU : "registration-complete",
-    REGISTRATION : "registration",
-    DONOR_REGISTRATION : "donor-registration",
     LOGIN : "login",
-    STAFF : "staff"
+    STAFF : "staff",
+    REGISTRATION : "registration",
+    DONOR_PROFILE : "donor-profile",
+    THANK_YOU : "registration-complete",
+    DONOR_REGISTRATION : "donor-registration",
 }

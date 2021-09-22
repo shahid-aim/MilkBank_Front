@@ -34,6 +34,11 @@ select {
     justify-content: left;
 }
 
+.pastuHead {
+    font-size: 25px;
+    color: #f25b87;
+}
+
 .openCollectionBtn {
     background-color: #f25b87;
     color: #fff;
