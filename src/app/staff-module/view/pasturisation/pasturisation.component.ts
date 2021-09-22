@@ -13,13 +13,18 @@ export class PasturisationComponent implements OnInit {
  
   @ViewChild("pasturizationForm") pasturizationForm: ModalDirective;
   @ViewChild("donorDetailModal") donorDetailModal: ModalDirective;
-
+  @ViewChild("poolModal") poolModal:ModalDirective
+ 
   term:any='';
   pasturizationHeader:any;
   pasturizationData:any;
   searchString:string;
-  token : string = ""
+  token : string = "";
+  poolData : any;
+  searchTerm : string;
+  poolHeader :any;
   
+  selectedPool : number
   createPasturizationModal : CreatePasturization = new CreatePasturization()
  
   constructor(private _dashboardService : DashboardService) { }
@@ -57,8 +62,9 @@ export class PasturisationComponent implements OnInit {
     console.log("Firided");
     this.donorDetailModal.show()
   }
-
-
+  showPoolModal(){
+    this.poolModal.show()
+  }
  
 
 }

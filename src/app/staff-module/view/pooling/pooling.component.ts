@@ -13,6 +13,7 @@ export class PoolingComponent implements OnInit {
   @ViewChild("rawCollectionModal") rawCollectionModal: ModalDirective;
   @ViewChild("testResult") testResult: ModalDirective;
   @ViewChild("staffDetailModal") staffDetailModal: ModalDirective;
+ 
   
   constructor(private _dashboardService : DashboardService) { }
   
@@ -57,6 +58,7 @@ export class PoolingComponent implements OnInit {
     })
   }
 
+
   createPool(){
     this.createPoolModel.raw_collection_id = this.collectionCheckBox
     console.log(this.createPoolModel)
@@ -64,6 +66,7 @@ export class PoolingComponent implements OnInit {
       console.log(response)
       this.getPool()
       this.newPool.hide()
+    
     })
   }
 
@@ -124,6 +127,7 @@ export class PoolingComponent implements OnInit {
   showDonorStaffModal(){
     this.staffDetailModal.show()
   }
+ 
 
   cancelRawSelection(){
     this.collectionCheckBox = []
