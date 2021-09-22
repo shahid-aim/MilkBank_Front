@@ -13,96 +13,115 @@ export class CollectionComponent implements OnInit {
   @ViewChild("collectionForm") collectionForm: ModalDirective;
   @ViewChild("donorDetailModal") donorDetailModal: ModalDirective;
   @ViewChild("staffDetailModal") staffDetailModal: ModalDirective;
-  
-  term:any;
-  date : Date
-  time : any
 
 
-  rawCollectionHeader : any
-  rawCollectionData : any
+  token: string = ""
 
-  staffHeader : any
-  staffData : any
-
-  searchString : any
-
-  donorHeader : any
-  donorData : any
-  selectedDonor : string
-  selectedStaff : string
+  term: any;
+  date: Date
+  time: any
 
 
-  createRawCollectionModal : CreateRawCollection = new CreateRawCollection()
-  constructor(private _dashboardService : DashboardService) { }
+  rawCollectionHeader: any
+  rawCollectionData: any
+
+  staffHeader: any
+  staffData: any
+
+  searchString: any
+
+  donorHeader: any
+  donorData: any
+  selectedDonor: string
+  selectedStaff: string
+
+
+  createRawCollectionModal: CreateRawCollection = new CreateRawCollection()
+  constructor(private _dashboardService: DashboardService) { }
 
   ngOnInit(): void {
+    this.token = localStorage.getItem("token")
     this.getRawCollection()
     this.getDonorInfo()
     this.getStaff()
-    
+
   }
 
   // Api Call
 
-  getStaff(){
-    this._dashboardService.getStaff().subscribe(response => {
+  getStaff() {
+    this._dashboardService.getStaff(this.token).subscribe(response => {
       console.log("staf", response);
       this.staffHeader = response.table_headers
       this.staffData = response.staff_obj
-    })
+    },
+      error => {
+        if (error.status == 401) {
+          this._dashboardService.logoutUser()
+        }
+      })
   }
 
-  getRawCollection(){
-    this._dashboardService.getRawCollection().subscribe(response => {
+  getRawCollection() {
+    this._dashboardService.getRawCollection(this.token).subscribe(response => {
       this.rawCollectionHeader = response.table_headers
       this.rawCollectionData = response.raw_collection_obj
+    },
+    error => {
+      if (error.status == 401) {
+        this._dashboardService.logoutUser()
+      }
     })
   }
 
-  getDonorInfo(){
-    this._dashboardService.getDonorInfo().subscribe(response => {
+  getDonorInfo() {
+    this._dashboardService.getDonorInfo(this.token).subscribe(response => {
       this.donorHeader = response.table_header
       this.donorData = response.donor
-    })
+    },
+      error => {
+        if (error.status == 401) {
+          this._dashboardService.logoutUser()
+        }
+      })
   }
 
   // End 
 
-  openCollectionForm(){
+  openCollectionForm() {
     this.collectionForm.show()
   }
 
-  showDonorDetailModal(){
+  showDonorDetailModal() {
     this.donorDetailModal.show()
   }
 
-  showDonorStaffModal(){
+  showDonorStaffModal() {
     this.staffDetailModal.show()
   }
 
-  selectIdAndClose(){
+  selectIdAndClose() {
     this.createRawCollectionModal.donor = Number(this.selectedDonor)
     this.donorDetailModal.hide()
   }
 
-  selectIdAndCloseStaffModal(){
+  selectIdAndCloseStaffModal() {
     this.createRawCollectionModal.staff = Number(this.selectedStaff)
     this.staffDetailModal.hide()
   }
 
-  createRawCollection(){
-    this.createRawCollectionModal.createdDateTime = new Date(this.date + "T"  + this.time)
+  createRawCollection() {
+    this.createRawCollectionModal.createdDateTime = new Date(this.date + "T" + this.time)
 
-    this._dashboardService.createRawCollection(this.createRawCollectionModal).subscribe(response => {
+    this._dashboardService.createRawCollection(this.token, this.createRawCollectionModal).subscribe(response => {
       this.collectionForm.hide()
       this.getRawCollection()
-    }, 
-    error => {
-      console.log(error)
-    }
+    },
+      error => {
+        if (error.status == 401) {
+          this._dashboardService.logoutUser()
+        }
+      }
     )
   }
-
-
 }

@@ -18,6 +18,7 @@ export class PasturisationComponent implements OnInit {
   pasturizationHeader:any;
   pasturizationData:any;
   searchString:string;
+  token : string = ""
   
   createPasturizationModal : CreatePasturization = new CreatePasturization()
  
@@ -25,14 +26,14 @@ export class PasturisationComponent implements OnInit {
 
   
   ngOnInit(): void {
+    this.token = localStorage.getItem("token")
     this.getPasturization()
   }
 
   // Api Call
 
   getPasturization(){
-    this._dashboardService.getPasturization().subscribe(response => {
-      console.log("PAST", response)
+    this._dashboardService.getPasturization(this.token).subscribe(response => {
       this.pasturizationHeader = response.table_headers
       this.pasturizationData = response.pasturization_obj
     })
@@ -41,7 +42,7 @@ export class PasturisationComponent implements OnInit {
   createPasturization(){
     console.log(this.createPasturizationModal)
   
-    this._dashboardService.createPasturization(this.createPasturizationModal).subscribe(response => {
+    this._dashboardService.createPasturization(this.token, this.createPasturizationModal).subscribe(response => {
       console.log("Pasturi", response)
       this.pasturizationForm.show()
     })

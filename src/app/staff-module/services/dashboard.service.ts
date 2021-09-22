@@ -10,57 +10,55 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class DashboardService {
-  token: any
-  constructor(private _httpClient: HttpClient, private _router : Router) {
-    this.token = localStorage.getItem("token")
-  }
+  
+  constructor(private _httpClient: HttpClient, private _router: Router) {}
 
-  logoutUser(){
+  logoutUser() {
     localStorage.removeItem("token")
     this._router.navigateByUrl("/login")
   }
 
-  getStaff(): Observable<any> {
-    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_STAFF, { headers: new HttpHeaders().set("Authorization", this.token) })
+  getStaff(token: string): Observable<any> {
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_STAFF, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
-  getLatestDonorAppointment(): Observable<any> {
-    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_LATEST_DONOR_APPOINTMENT, { headers: new HttpHeaders().set("Authorization", this.token) })
+  getLatestDonorAppointment(token : string): Observable<any> {
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_LATEST_DONOR_APPOINTMENT, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
-  getRawCollection(): Observable<any> {
-    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_RAW_COLLECTION, { headers: new HttpHeaders().set("Authorization", this.token) })
+  getRawCollection(token: string): Observable<any> {
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_RAW_COLLECTION, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
-  createRawCollection(createRawCollection: CreateRawCollection): Observable<any> {
-    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.CREATE_RAW_COLLECTION, createRawCollection, { headers: new HttpHeaders().set("Authorization", this.token) })
+  createRawCollection(token: string, createRawCollection: CreateRawCollection): Observable<any> {
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.CREATE_RAW_COLLECTION, createRawCollection, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
-  getDonorInfo(): Observable<any> {
-    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_DONOR_INFO, { headers: new HttpHeaders().set("Authorization", this.token) })
-  }
-
-
-  getPool(): Observable<any> {
-    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_POOL, { headers: new HttpHeaders().set("Authorization", this.token) })
-  }
-
-  createPool(createPool: CreatePool): Observable<any> {
-    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.CREATE_POOL, createPool, { headers: new HttpHeaders().set("Authorization", this.token) })
+  getDonorInfo(token: string): Observable<any> {
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_DONOR_INFO, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
 
-  setTestResult(testResult: TestResult): Observable<any> {
-    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.SET_TEST_RESULT, testResult, { headers: new HttpHeaders().set("Authorization", this.token) })
+  getPool(token : string): Observable<any> {
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_POOL, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
-  createPasturization(createPasturization: CreatePasturization): Observable<any> {
-    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.CREATE_PASTURIZATION, createPasturization, { headers: new HttpHeaders().set("Authorization", this.token) })
+  createPool(token : string, createPool: CreatePool): Observable<any> {
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.CREATE_POOL, createPool, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
 
-  getPasturization(): Observable<any> {
-    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_PASTURIZATION, { headers: new HttpHeaders().set("Authorization", this.token) })
+  setTestResult(token : string, testResult: TestResult): Observable<any> {
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.SET_TEST_RESULT, testResult, { headers: new HttpHeaders().set("Authorization", token) })
+  }
+
+  createPasturization(token: string, createPasturization: CreatePasturization): Observable<any> {
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.CREATE_PASTURIZATION, createPasturization, { headers: new HttpHeaders().set("Authorization", token) })
+  }
+
+
+  getPasturization(token: string): Observable<any> {
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_PASTURIZATION, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
 }
