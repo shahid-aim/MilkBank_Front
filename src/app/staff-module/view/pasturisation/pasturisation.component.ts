@@ -44,6 +44,11 @@ export class PasturisationComponent implements OnInit {
     this._dashboardService.getPool(this.token).subscribe(resp => {
       this.poolHeader = resp.table_header
       this.poolData = resp.pool_obj
+    },
+    error => {
+      if (error.status == 401) {
+        this._dashboardService.logoutUser()
+      }
     })
   }
 
@@ -52,6 +57,11 @@ export class PasturisationComponent implements OnInit {
     this._dashboardService.getPasturization(this.token).subscribe(response => {
       this.pasturizationHeader = response.table_headers
       this.pasturizationData = response.pasturization_obj
+    },
+    error => {
+      if (error.status == 401) {
+        this._dashboardService.logoutUser()
+      }
     })
   }
 
@@ -59,6 +69,11 @@ export class PasturisationComponent implements OnInit {
   createPasturization(){
     this._dashboardService.createPasturization(this.token, this.createPasturizationModal).subscribe(response => {
       this.pasturizationForm.hide()
+    },
+    error => {
+      if (error.status == 401) {
+        this._dashboardService.logoutUser()
+      }
     })
   }
 

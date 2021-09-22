@@ -65,6 +65,11 @@ export class PoolingComponent implements OnInit {
     this._dashboardService.getPool(this.token).subscribe(resp => {
       this.poolHeader = resp.table_header
       this.poolData = resp.pool_obj
+    },
+    error => {
+      if (error.status == 401) {
+        this._dashboardService.logoutUser()
+      }
     })
   }
 
@@ -111,6 +116,11 @@ export class PoolingComponent implements OnInit {
         })
 
         this.collectionCheckBox = []
+      },
+      error => {
+        if (error.status == 401) {
+          this._dashboardService.logoutUser()
+        }
       })
     }
   }
@@ -118,6 +128,11 @@ export class PoolingComponent implements OnInit {
   getTestingLabName(){
     this._dashboardService.getTestingLabsName(this.token).subscribe(resp => {
       this.testingLabs = resp
+    },
+    error => {
+      if (error.status == 401) {
+        this._dashboardService.logoutUser()
+      }
     })
   }
 
@@ -125,6 +140,11 @@ export class PoolingComponent implements OnInit {
     this._dashboardService.getRawCollection(this.token).subscribe(response => {
       this.rawCollectionHeader = response.table_headers
       this.rawCollectionData = response.raw_collection_obj
+    },
+    error => {
+      if (error.status == 401) {
+        this._dashboardService.logoutUser()
+      }
     })
   }
 
@@ -132,6 +152,11 @@ export class PoolingComponent implements OnInit {
     this._dashboardService.getStaff(this.token).subscribe(response => {
       this.staffHeader = response.table_headers
       this.staffData = response.staff_obj
+    },
+    error => {
+      if (error.status == 401) {
+        this._dashboardService.logoutUser()
+      }
     })
   }
 
@@ -141,6 +166,11 @@ export class PoolingComponent implements OnInit {
       this.getPool()
       this.testResult.hide()
       this.testResultModel = new TestResult()
+    },
+    error => {
+      if (error.status == 401) {
+        this._dashboardService.logoutUser()
+      }
     })
   }
 
