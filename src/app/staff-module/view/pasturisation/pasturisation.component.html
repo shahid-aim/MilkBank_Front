@@ -111,14 +111,14 @@ after container -->
 
                             <tbody>
 
-                                <tr *ngFor="let p of poolData |filter:searchTerm">
+                                <tr *ngFor="let p of poolData |filter:searchTerm" (dblclick)="doubleClicked(p.id)">
                                     <td>
-                                        <input type="radio" id="rdo" name="rdo">
+                                        <input type=" radio " id="rdo " name="rdo ">
                                     </td>
-                                    <td>{{p.mixing_date | date:"dd/MM/yyyy"}}</td>
+                                    <td>{{p.mixing_date | date:"dd/MM/yyyy "}}</td>
                                     <td>{{p.total_volume}}</td>
                                     <td>{{p.testing_lab}}</td>
-                                    <td>{{p.test_sample_sent_date| date:"dd/MM/yyyy"}}</td>
+                                    <td>{{p.test_sample_sent_date| date:"dd/MM/yyyy "}}</td>
                                     <td>{{p.test_result}}</td>
 
                                 </tr>
@@ -126,9 +126,9 @@ after container -->
                         </table>
 
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-lg modalBtn1" (click)="poolModal.hide()">Close</button>
-                        <button type="button" class="btn btn-lg modalBtn2">Select</button>
+                    <div class="modal-footer ">
+                        <button type="button " class="btn btn-lg modalBtn1 " (click)="poolModal.hide() ">Close</button>
+                        <button type="button " class="btn btn-lg modalBtn2 ">Select</button>
                     </div>
 
                 </div>

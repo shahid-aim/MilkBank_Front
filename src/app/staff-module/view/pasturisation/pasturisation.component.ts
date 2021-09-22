@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { CreatePasturization } from '../../models/phase';
+import { CreatePasturization, TestResult } from '../../models/phase';
 import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { DashboardService } from '../../services/dashboard.service';
   styleUrls: ['./pasturisation.component.css']
 })
 export class PasturisationComponent implements OnInit {
+  [x: string]: any;
  
   @ViewChild("pasturizationForm") pasturizationForm: ModalDirective;
   @ViewChild("donorDetailModal") donorDetailModal: ModalDirective;
@@ -24,7 +25,7 @@ export class PasturisationComponent implements OnInit {
   searchTerm : string;
   poolHeader :any;
   
-  selectedPool : number
+  
   createPasturizationModal : CreatePasturization = new CreatePasturization()
  
   constructor(private _dashboardService : DashboardService) { }
@@ -36,6 +37,14 @@ export class PasturisationComponent implements OnInit {
   }
 
   // Api Call
+
+  getPool(){
+    this._dashboardService.getPool(this.token).subscribe(resp => {
+      this.poolHeader = resp.table_header
+      this.poolData = resp.pool_obj
+    })
+  }
+
 
   getPasturization(){
     this._dashboardService.getPasturization(this.token).subscribe(response => {
@@ -66,5 +75,5 @@ export class PasturisationComponent implements OnInit {
     this.poolModal.show()
   }
  
-
+ 
 }
