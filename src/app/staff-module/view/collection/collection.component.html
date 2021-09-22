@@ -31,22 +31,22 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="container d-flex justify-content-center">
-                    <form>
+                    <form #nativeCollectionForm="ngForm" (ngSubmit)="createRawCollection()">
                         <div class="row row1">
                             <div class="col-6 col1">
-                                <label>Donor Unique ID</label>
+                                <label>Donor</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="donor" id="donor" [(ngModel)]="selectedDonorName" (click)="showDonorDetailModal()">
+                                <input type="text" name="donor" id="donor" [(ngModel)]="selectedDonorName" (click)="showDonorDetailModal()" required>
                             </div>
                         </div>
 
                         <div class="row row1">
                             <div class="col-6 col1">
-                                <label for="country">Executive Id</label>
+                                <label for="country">Executive</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="executive_id" [(ngModel)]="selectedStaffName" (click)="showDonorStaffModal()">
+                                <input type="text" name="executive_id" [(ngModel)]="selectedStaffName" (click)="showDonorStaffModal()" required>
                             </div>
 
                         </div>
@@ -55,7 +55,7 @@
                                 <label>Collection Date </label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="date" name="collection_date_time" placeholder="Click to select date" [(ngModel)]="date">
+                                <input type="date" name="collection_date_time" placeholder="Click to select date" [(ngModel)]="date" required>
                             </div>
                         </div>
                         <div class="row row1">
@@ -63,7 +63,7 @@
                                 <label>Collection time</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="time" name="collection_date_time" placeholder="Click to select time" [(ngModel)]="time">
+                                <input type="time" name="collection_date_time" placeholder="Click to select time" [(ngModel)]="time" required>
                             </div>
                         </div>
                         <div class="row row1">
@@ -71,7 +71,7 @@
                                 <label for="subject">Receiving Center</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="receiving_center" [(ngModel)]="createRawCollectionModal.recevingSite">
+                                <input type="text" name="receiving_center" [(ngModel)]="createRawCollectionModal.recevingSite" required>
                             </div>
                         </div>
 
@@ -80,15 +80,7 @@
                                 <label for="subject">Breast Pump type</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="breast_pump_type" [(ngModel)]="createRawCollectionModal.breastPumpType">
-                            </div>
-                        </div>
-                        <div class="row row1">
-                            <div class="col-6 col1">
-                                <label for="subject">Volume</label>
-                            </div>
-                            <div class="col-6 col1">
-                                <input type="text" name="volume" [(ngModel)]="createRawCollectionModal.volumeCollected">
+                                <input type="text" name="breast_pump_type" [(ngModel)]="createRawCollectionModal.breastPumpType" required>
                             </div>
                         </div>
                         <div class="row row1">
@@ -96,7 +88,7 @@
                                 <label for="subject">Number of Units</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="number_of_units" [(ngModel)]="createRawCollectionModal.units">
+                                <input type="number" min="1" name="number_of_units" [(ngModel)]="createRawCollectionModal.units" required>
                             </div>
                         </div>
                         <div class="row row1">
@@ -104,20 +96,22 @@
                                 <label for="subject">Total Volume</label>
                             </div>
                             <div class="col-6 col1">
-                                <input type="text" name="total_volume" [(ngModel)]="createRawCollectionModal.volumeCollected">
+                                <input type="number" min="1" name="total_volume" [(ngModel)]="createRawCollectionModal.volumeCollected" required>
                             </div>
                         </div>
 
+                        <div class="error-msg" *ngIf="isErrorMsgVisible">
+                            <h4>
+                                {{errorMsg}}
+                            </h4>
+                        </div>
+
+                        <div class="p-2 text-center">
+                            <button type="button" class="btn btn-lg modalBtn1" (click)="collectionForm.hide()" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-lg modalBtn2">Save</button>
+                        </div>
                     </form>
                 </div>
-
-
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="collectionForm.hide()">Close</button>
-                    <button type="button" class="btn btn-lg modalBtn2" (click)="createRawCollection()">Select</button>
-                </div>
-
             </div>
         </div>
     </div>

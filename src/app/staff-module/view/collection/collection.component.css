@@ -3,7 +3,7 @@
     }
     
     label {
-        font-size: 20px;
+        font-size: 18px;
         color: #7E7CA8;
         letter-spacing: 1px;
     }
@@ -15,6 +15,7 @@
     }
     
     input[type=text],
+    input[type=number],
     input[type=date],
     input[type=time],
     input[type=submit],
@@ -25,8 +26,7 @@
         border: 1px solid #7E7CA8;
         border-radius: 20px;
         color: #7E7CA8;
-        font-size: 20px;
-        outline: 0;
+        font-size: 18px;
     }
     
     .col1 {
@@ -68,6 +68,12 @@
         justify-content: center;
         padding: .75rem;
         border-top: 1px solid #dee2e6;
+    }
+    
+    .error-msg {
+        color: red;
+        text-align: center;
+        font-size: 20px;
     }
     
     @media screen and (max-width: 600px) {

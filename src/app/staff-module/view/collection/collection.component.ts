@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { CreateRawCollection } from '../../models/phase';
 import { DashboardService } from '../../services/dashboard.service';
@@ -13,6 +14,7 @@ export class CollectionComponent implements OnInit {
   @ViewChild("collectionForm") collectionForm: ModalDirective;
   @ViewChild("donorDetailModal") donorDetailModal: ModalDirective;
   @ViewChild("staffDetailModal") staffDetailModal: ModalDirective;
+  @ViewChild("nativeCollectionForm") nativeCollectionForm: NgForm;
 
 
   token: string = ""
@@ -36,8 +38,10 @@ export class CollectionComponent implements OnInit {
   selectedStaff: string
 
   selectedDonorName: string
-  selectedStaffName : string
+  selectedStaffName: string
 
+  errorMsg: string = ""
+  isErrorMsgVisible: boolean = false
 
   createRawCollectionModal: CreateRawCollection = new CreateRawCollection()
   constructor(private _dashboardService: DashboardService) { }
@@ -70,11 +74,11 @@ export class CollectionComponent implements OnInit {
       this.rawCollectionHeader = response.table_headers
       this.rawCollectionData = response.raw_collection_obj
     },
-    error => {
-      if (error.status == 401) {
-        this._dashboardService.logoutUser()
-      }
-    })
+      error => {
+        if (error.status == 401) {
+          this._dashboardService.logoutUser()
+        }
+      })
   }
 
   getDonorInfo() {
@@ -89,8 +93,7 @@ export class CollectionComponent implements OnInit {
       })
   }
 
-  // End 
-
+  // End
   openCollectionForm() {
     this.collectionForm.show()
   }
@@ -105,8 +108,8 @@ export class CollectionComponent implements OnInit {
 
   selectIdAndClose() {
     this.createRawCollectionModal.donor = Number(this.selectedDonor)
-    for(let d of this.donorData){
-      if(d.id == this.selectedDonor){
+    for (let d of this.donorData) {
+      if (d.id == this.selectedDonor) {
         this.selectedDonorName = d.full_name
         break
       }
@@ -118,28 +121,54 @@ export class CollectionComponent implements OnInit {
   selectIdAndCloseStaffModal() {
     this.createRawCollectionModal.staff = Number(this.selectedStaff)
 
-    for(let s of this.staffData){
-      if(s.id == this.selectedStaff){
+    for (let s of this.staffData) {
+      if (s.id == this.selectedStaff) {
         this.selectedStaffName = s.staff_full_name
         break
       }
     }
-
     this.staffDetailModal.hide()
   }
 
   createRawCollection() {
-    this.createRawCollectionModal.createdDateTime = new Date(this.date + "T" + this.time)
 
-    this._dashboardService.createRawCollection(this.token, this.createRawCollectionModal).subscribe(response => {
-      this.collectionForm.hide()
-      this.getRawCollection()
-    },
-      error => {
-        if (error.status == 401) {
-          this._dashboardService.logoutUser()
+    console.log()
+
+    this.isErrorMsgVisible = false
+    this.errorMsg = ""
+
+    if(this.nativeCollectionForm.status == "INVALID"){
+      this.isErrorMsgVisible = true
+      this.errorMsg = "All fields are compulsory"
+    }
+
+    
+
+    if (this.createRawCollectionModal.volumeCollected < 1) {
+      this.isErrorMsgVisible = true
+      this.errorMsg = "Total volume cannot be less than 1"
+    }
+
+
+    if (this.createRawCollectionModal.units < 1) {
+      this.isErrorMsgVisible = true
+      this.errorMsg = "Number of units cannot be less than 1"
+    }
+
+
+    if (!this.isErrorMsgVisible) {
+      this.createRawCollectionModal.createdDateTime = new Date(this.date + "T" + this.time)
+      this._dashboardService.createRawCollection(this.token, this.createRawCollectionModal).subscribe(response => {
+        this.collectionForm.hide()
+        this.getRawCollection()
+      },
+        error => {
+          if (error.status == 401) {
+            this._dashboardService.logoutUser()
+          }
         }
-      }
-    )
+      )
+    }
+
   }
 }

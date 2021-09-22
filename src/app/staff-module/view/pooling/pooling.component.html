@@ -60,7 +60,7 @@
                                     <label>Total Units</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="text" name="total_units" class="form-control" [(ngModel)]="createPoolModel.total_units">
+                                    <input type="number" min="1" name="total_units" class="form-control" [(ngModel)]="createPoolModel.total_units">
                                 </div>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                                     <label>Total Volume</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="text" name="total_volume" class="form-control" [(ngModel)]="createPoolModel.total_volume">
+                                    <input type="number" min="1" name="total_volume" class="form-control" [(ngModel)]="createPoolModel.total_volume">
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                                     <label>Test Sample Quantity</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="text" name="test_sample_qty" class="form-control" [(ngModel)]="createPoolModel.test_sample_qty">
+                                    <input type="number" min="1" name="test_sample_qty" class="form-control" [(ngModel)]="createPoolModel.test_sample_qty">
                                 </div>
                             </div>
                         </div>
@@ -97,20 +97,27 @@
                         <div class="form-group">
                             <div class="row row1">
                                 <div class="col-6 col1">
-                                    <label>Staff Id</label>
+                                    <label>Staff</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="text" name="staff_id" class="form-control" [(ngModel)]="createPoolModel.staff_id" (click)="showDonorStaffModal()">
+                                    <input type="text" name="staff_id" class="form-control" [(ngModel)]="selectedStaffName" (click)="showDonorStaffModal()">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row row1">
                                 <div class="col-6 col1">
-                                    <label>Testing Lab Id</label>
+                                    <label>Testing Lab</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="text" name="testing_lab_id" class="form-control" [(ngModel)]="createPoolModel.testing_lab_id">
+
+                                    <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]="createPoolModel.testing_lab_id">
+                                        <option value="" selected ></option>
+                                        
+                                        <option *ngFor = "let labs of testingLabs" value={{labs.id}}>{{labs.name}}</option>
+                                    </select>
+
+                                    <!-- <input type="text" name="testing_lab_id" class="form-control" [(ngModel)]="createPoolModel.testing_lab_id"> -->
                                 </div>
                             </div>
                         </div>
@@ -124,13 +131,20 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="error-msg" *ngIf="isErrorMsgVisible">
+                            <h4>
+                                {{errorMsg}}
+                            </h4>
+                        </div>
+
                     </form>
                 </div>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="newPool.hide()">Close</button>
-                <button type="button" class="btn btn-lg modalBtn2" (click)="createPool()">Select</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="createPool()">Save</button>
             </div>
 
         </div>
@@ -184,7 +198,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="testResult.hide()">Close</button>
-                <button type="button" class="btn btn-lg modalBtn2" (click)="setTestResult()">Select</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="setTestResult()">Update</button>
             </div>
 
         </div>

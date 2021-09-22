@@ -47,7 +47,6 @@ export class DashboardService {
     return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.CREATE_POOL, createPool, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
-
   setTestResult(token : string, testResult: TestResult): Observable<any> {
     return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.SET_TEST_RESULT, testResult, { headers: new HttpHeaders().set("Authorization", token) })
   }
@@ -56,9 +55,12 @@ export class DashboardService {
     return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.CREATE_PASTURIZATION, createPasturization, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
-
   getPasturization(token: string): Observable<any> {
     return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_PASTURIZATION, { headers: new HttpHeaders().set("Authorization", token) })
+  }
+
+  getTestingLabsName(token : string) : Observable<any>{
+     return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_TESTING_LABS_NAME, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
 }
