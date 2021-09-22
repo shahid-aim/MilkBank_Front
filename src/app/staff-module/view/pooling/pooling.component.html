@@ -12,28 +12,31 @@
         </div> -->
     </div>
 
+    <div class="table-responsive">
+        <table class="table table-hover table-striped table-responsive">
+            <thead>
+                <tr>
 
-    <table class="table table-hover table-striped ">
-        <thead>
-            <tr>
+                    <th *ngFor="let header of poolHeader" class="px-4">
+                        {{header}}
+                    </th>
+                </tr>
+            </thead>
 
-                <th *ngFor="let header of poolHeader">
-                    {{header}}
-                </th>
-            </tr>
-        </thead>
+            <tbody>
 
-        <tbody>
+                <tr *ngFor="let p of poolData |filter:searchTerm" (dblclick)="doubleClicked(p.id)">
+                    <td>{{p.mixing_date | date:"dd/MM/yyyy"}}</td>
+                    <td>{{p.total_volume}}</td>
+                    <td>{{p.testing_lab}}</td>
+                    <td>{{p.test_sample_sent_date| date:"dd/MM/yyyy"}}</td>
+                    <td>{{p.test_result}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-            <tr *ngFor="let p of poolData |filter:searchTerm" (dblclick)="doubleClicked(p.id)">
-                <td>{{p.mixing_date | date:"dd/MM/yyyy"}}</td>
-                <td>{{p.total_volume}}</td>
-                <td>{{p.testing_lab}}</td>
-                <td>{{p.test_sample_sent_date| date:"dd/MM/yyyy"}}</td>
-                <td>{{p.test_result}}</td>
-            </tr>
-        </tbody>
-    </table>
+
 
 </div>
 
@@ -208,7 +211,7 @@
 <!-- Raw Collection -->
 <div class="modal fade" bsModal #rawCollectionModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
     <div class="modal-dialog modal-fullscreen modal-dialog-centered">
-        <div class="modal-content text-center">
+        <div class="modal-content pt-5">
             <div class="modal-body">
                 <div class="col-lg-12">
                     <input type="text" name="search" placeholder="search here" [(ngModel)]="searchTerm">
@@ -251,13 +254,13 @@
 <!-- STAFF MODAL -->
 <div class="modal fade" bsModal #staffDetailModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
     <div class="modal-dialog modal-fullscreen modal-dialog-centered">
-        <div class="modal-content text-center">
+        <div class="modal-content">
             <div class="modal-body">
                 <div class="col-sm">
                     <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
                 </div>
 
-                <table class="table table-hover table-striped ">
+                <table class="table table-hover table-striped">
                     <thead>
                         <tr>
                             <th></th>
