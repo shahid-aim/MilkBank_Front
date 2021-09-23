@@ -9,7 +9,6 @@
     height: 120vh;
     margin-left: auto;
     width: 9vw;
-    /* background: -webkit-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 58, 0) 100%); */
     background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 58, 0) 100%);
 }
 
@@ -57,6 +56,7 @@
 
 .p-login-here a {
     color: #f25b87;
+    cursor: pointer;
     text-decoration: none;
     font-family: DM SansSce medium;
 }

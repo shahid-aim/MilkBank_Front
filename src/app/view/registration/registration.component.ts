@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { CreateUserModel } from 'src/app/models/common';
 import { CommonService } from 'src/app/service/common/common.service';
+import { InternalUrlMappings } from 'src/app/shared/UrlMapping';
 
 @Component({
   selector: 'app-registration',
@@ -88,6 +89,9 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
+  navigateToLogin(){
+    this.router.navigateByUrl(InternalUrlMappings.LOGIN)
+  }
 
   navigateToHome(){
     this.router.navigateByUrl("")
