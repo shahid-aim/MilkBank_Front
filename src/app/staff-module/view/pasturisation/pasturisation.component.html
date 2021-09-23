@@ -3,12 +3,8 @@
         <h2 class="pastuHead">Pasturization</h2>
         <div class="col-6 col1 py-4">
             <button class="btn openCollectionBtn" (click)="openCollectionForm()"><i class="fa fa-plus"
-                aria-hidden="true"></i> New Branch</button>
+                    aria-hidden="true"></i> New Pasturization</button>
         </div>
-        <!-- 
-        <div class="col-6 col1">
-            <input type="text" name="search" style="height: 55px;" [(ngModel)]="searchString">
-        </div> -->
     </div>
     <div class="table-responsive">
         <div class="collection-table">
@@ -58,9 +54,9 @@ after container -->
                                 <div class="col-6 col1">
 
                                     <select name="pre_result" id="pre_result" [(ngModel)]="createPasturizationModal.pre_result">
-                                    <option value=true>Pass</option>
-                                    <option value=false>Fail</option>
-                                </select>
+                                        <option value=true>Pass</option>
+                                        <option value=false>Fail</option>
+                                    </select>
 
                                 </div>
 
@@ -81,56 +77,55 @@ after container -->
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="pasturizationForm.hide()">Close</button>
-                        <button type="button" class="btn btn-lg modalBtn2" (click)="createPasturization()">Select</button>
+                        <button type="button" class="btn btn-lg modalBtn2" (click)="createPasturization()">Create</button>
                     </div>
 
                 </div>
             </div>
         </div>
-
-
-        <!-- 
+    </div>
+    <!-- 
       pooling modal -->
-        <div class="modal fade" bsModal #poolModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
-            <div class="modal-dialog modal-fullscreen modal-dialog-centered">
-                <div class="modal-content text-center">
-                    <div class="modal-body">
-                        <div class="col-sm">
-                            <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
-                        </div>
-
-                        <table class="table table-hover table-striped ">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th *ngFor="let header of poolHeader" class="px-4">
-                                        {{header}}
-                                    </th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-
-                                <tr *ngFor="let p of poolData |filter:searchTerm" (dblclick)="doubleClicked(p.id)">
-                                    <td>
-                                        <input type="radio" name="rdo" id={{p.id}} [value]=p.id [(ngModel)]="selectedPool">
-                                    </td>
-                                    <td>{{p.mixing_date | date:"dd/MM/yyyy "}}</td>
-                                    <td>{{p.total_volume}}</td>
-                                    <td>{{p.testing_lab}}</td>
-                                    <td>{{p.test_sample_sent_date| date:"dd/MM/yyyy "}}</td>
-                                    <td>{{p.test_result}}</td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-
+    <div class="modal fade" bsModal #poolModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+        <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="modal-body">
+                    <div class="col-sm">
+                        <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-lg modalBtn1" (click)="poolModal.hide()">Close</button>
-                        <button type="button" class="btn btn-lg modalBtn2" (click)="seleceHidePool()">Select</button>
-                    </div>
+
+                    <table class="table table-hover table-striped ">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th *ngFor="let header of poolHeader" class="px-4">
+                                    {{header}}
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr *ngFor="let p of poolData |filter:searchTerm" (dblclick)="doubleClicked(p.id)">
+                                <td>
+                                    <input type="radio" name="rdo" id={{p.id}} [value]=p.id [(ngModel)]="selectedPool">
+                                </td>
+                                <td>{{p.mixing_date | date:"dd/MM/yyyy "}}</td>
+                                <td>{{p.total_volume}}</td>
+                                <td>{{p.testing_lab}}</td>
+                                <td>{{p.test_sample_sent_date| date:"dd/MM/yyyy "}}</td>
+                                <td>{{p.test_result}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
 
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-lg modalBtn1" (click)="poolModal.hide()">Close</button>
+                    <button type="button" class="btn btn-lg modalBtn2" (click)="seleceHidePool()">Select</button>
+                </div>
+
             </div>
         </div>
+    </div>

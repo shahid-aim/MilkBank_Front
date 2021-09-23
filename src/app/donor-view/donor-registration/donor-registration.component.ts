@@ -11,7 +11,7 @@ import { DonorRegistrationService } from 'src/app/service/donor-registration/don
   providers: [FormBuilder, DonorRegistrationService]
 })
 export class DonorRegistrationComponent implements OnInit {
-  @ViewChild("donorDetailModal") donorDetailModal: ModalDirective;
+  @ViewChild("success") success: ModalDirective;
 
   fullName: string = ""
   contactNumber: number = 0
@@ -28,6 +28,8 @@ export class DonorRegistrationComponent implements OnInit {
   fourthFormGroup: FormGroup
 
   formControls: any
+
+  termsNotAccepted :  boolean = false
 
   donorRegistrationModel: DonorRegistration = new DonorRegistration()
   contactInformationModel: ContactInformation = new ContactInformation()
@@ -119,7 +121,8 @@ export class DonorRegistrationComponent implements OnInit {
 
 
   medicalHistory() {
-    console.log("Third Form")
+    console.log("Great");
+    
     this.thirdFormGroupInvalidStatus = false
     if (this.thirdFormGroup.status != "INVALID") {
       this.formControls = this.thirdFormGroup.controls
@@ -128,26 +131,25 @@ export class DonorRegistrationComponent implements OnInit {
       this.medicalHistoryModel.fever_or_rashes = this.formControls.feverRashes.value == "yes" ? true : false
       this.medicalHistoryModel.acute_disease = this.formControls.acuteDisease.value == "yes" ? true : false
       this.medicalHistoryModel.hiv_hbag_disease = this.formControls.hivHbagDisease.value == "yes" ? true : false
-      console.log("this.medicalHistoryModel -> ", this.medicalHistoryModel)
-
       this._donorRegistration.medicalHistory(this.medicalHistoryModel).subscribe(response => {
-        console.log(response)
-        this.navigateToRegistrationComplete()
+
       })
     }else{
       this.thirdFormGroupInvalidStatus = true
     }
   }
 
-
   navigateToRegistrationComplete() {
     this._router.navigateByUrl("registration-complete")
   }
 
-
-
-  
   showModel(){
-    this.donorDetailModal .show()
+    console.log(this.fourthFormGroup)
+    this.termsNotAccepted = false
+
+    if(this.fourthFormGroup.status == "VALID")
+      this.success.show()
+    else
+      this.termsNotAccepted = true
   }
 }

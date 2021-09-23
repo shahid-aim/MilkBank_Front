@@ -146,6 +146,12 @@ input:focus-visible {
     filter: invert(50%) sepia(40%) saturate(2329%) hue-rotate(310deg) brightness(98%) contrast(93%);
 }
 
+.agree-terms-error {
+    color: red;
+    font-size: 20px;
+    margin-top: 25px;
+}
+
 
 /*end previous and next arrow */
 

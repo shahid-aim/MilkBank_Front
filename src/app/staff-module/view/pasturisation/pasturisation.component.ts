@@ -68,7 +68,9 @@ export class PasturisationComponent implements OnInit {
 
   createPasturization(){
     this._dashboardService.createPasturization(this.token, this.createPasturizationModal).subscribe(response => {
+      this.getPasturization()
       this.pasturizationForm.hide()
+
     },
     error => {
       if (error.status == 401) {
