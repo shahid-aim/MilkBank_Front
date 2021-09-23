@@ -1,57 +1,88 @@
-        .ProfileText {
-            color: #0a2463;
-            font-weight: 500;
-            font-size: 20px;
-        }
-        
-        .form-control:focus {
-            box-shadow: none;
-            border-color: #f25b87;
-        }
-        
-        .profile-button {
-            background: #f25b87;
-            box-shadow: none;
-            border: none;
-            font-size: 20px;
-        }
-        
-        label {
-            font-size: 18px;
-            text-align: left;
-            color: #7E7CA8;
-            letter-spacing: 1px;
-            padding-bottom: 5px
-        }
-        
-        input {
-            width: 70%;
-            padding: 7px;
-            box-sizing: border-box;
-            border: 1px solid #7E7CA8;
-            border-radius: 20px;
-            color: #7E7CA8;
-            font-size: 18px;
-        }
-        /* css for 2 row */
-        
-        .heading1 {
-            color: #0a2463;
-            font-weight: 500;
-            font-size: 20px;
-            padding-top: 40px;
-        }
-        
-        .colBind {
-            color: #7E7CA8;
-            font-size: 18px;
-        }
-        
-        .main-container {
-            background-color: #f2f2f2;
-            padding: 20px 50px 20px 50px;
-        }
-        
+.DonorText {
+    color: #0a2463;
+    font-weight: 500;
+    font-size: 25px;
+    display: flex;
+    justify-content: left;
+}
+
+.donorBox {
+    background-color: #f2f2f2;
+    padding: 20px 50px 20px 50px;
+}
+
+.MedicalForm {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
+    position: relative;
+    right: 11px;
+}
+
+.profileBox {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.ProfileText {
+    color: #0a2463;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.profile-button {
+    background: #f25b87;
+    box-shadow: none;
+    border: none;
+    font-size: 20px;
+}
+
+label {
+    font-size: 18px;
+    text-align: left;
+    color: #7E7CA8;
+    letter-spacing: 1px;
+    padding-bottom: 5px
+}
+
+input {
+    width: 70%;
+    padding: 7px;
+    box-sizing: border-box;
+    border: 1px solid #7E7CA8;
+    border-radius: 20px;
+    color: #7E7CA8;
+    font-size: 18px;
+}
+
+
+/* css for 2 row */
+
+.heading1 {
+    color: #0a2463;
+    font-weight: 500;
+    font-size: 20px;
+    padding-top: 40px;
+}
+
+.colBind {
+    color: #7E7CA8;
+    font-size: 18px;
+}
+
+.main-container {
+    background-color: #f2f2f2;
+    padding: 12px 0px 0px 20px;
+    width: 100%;
+}
+
+
+/*         
         .col-25 {
             float: left;
             width: 25%;
@@ -64,17 +95,19 @@
             float: left;
             width: 60%;
             margin-top: 15px;
-        }
-        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-        
-        @media screen and (max-width: 600px) {
-            .col-25,
-            .col-75 {
-                width: 100%;
-                margin-top: 0;
-                padding: 0px 0px 10px 0px;
-            }
-            .heading1 {
-                padding-top: 10px;
-            }
-        }
+        } */
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    .col-25,
+    .col-75 {
+        width: 100%;
+        margin-top: 0;
+        padding: 0px 0px 10px 0px;
+    }
+    .heading1 {
+        padding-top: 10px;
+    }
+}
