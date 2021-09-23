@@ -66,7 +66,7 @@
 
             <p class="invalid-message" *ngIf="invalidUsernamePassword">{{message}}</p>
 
-            <p class="p-login-here">Already have an Account? <a>Login</a></p>
+            <p class="p-login-here" (click)="navigateToLogin()">Already have an Account? <a>Login</a></p>
 
         </div>
 

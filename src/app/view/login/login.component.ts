@@ -28,6 +28,8 @@ export class LoginComponent implements OnInit {
 
   login() {
 
+    this.invalidUsernamePassword = false
+
     if (this.username != null && this.password != null) {
       this.loginModel.username = this.username
       this.loginModel.password = this.password
@@ -38,7 +40,10 @@ export class LoginComponent implements OnInit {
         expiry.setMinutes(expiry.getMinutes() + 60)
         localStorage.setItem("token", response.token)
         if (response.user_group == "Donor") {
-          this.router.navigateByUrl(InternalUrlMappings.DONOR_REGISTRATION)
+          if(response.donor_profile_complete == true)
+            this.router.navigateByUrl(InternalUrlMappings.DONOR_PROFILE)
+          else
+            this.router.navigateByUrl(InternalUrlMappings.DONOR_REGISTRATION)
         }
         else {
           this.router.navigateByUrl(InternalUrlMappings.STAFF + "/" + StaffInternalUrlMappings.DASHBOARD)
