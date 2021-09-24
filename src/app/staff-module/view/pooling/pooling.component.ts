@@ -16,6 +16,7 @@ export class PoolingComponent implements OnInit {
   @ViewChild("testResult") testResult: ModalDirective;
   @ViewChild("staffDetailModal") staffDetailModal: ModalDirective;
   @ViewChild("productdata") productdata: NgForm;
+  @ViewChild("addTest") addTest:ModalDirective;
  
   
   constructor(private _dashboardService : DashboardService) { }
@@ -51,6 +52,9 @@ export class PoolingComponent implements OnInit {
 
   createPoolModel : CreatePool = new CreatePool()
   testResultModel : TestResult = new TestResult()
+
+
+
   ngOnInit(): void {
     this.token = localStorage.getItem("token")
     this.getPool()
@@ -173,6 +177,8 @@ export class PoolingComponent implements OnInit {
       }
     })
   }
+  
+
 
 
   // END API
@@ -222,4 +228,9 @@ export class PoolingComponent implements OnInit {
     this.testResult.show()
   }
 
+  showAddTest(){
+    this.addTest.show()
+  }
+  
+ 
 }
