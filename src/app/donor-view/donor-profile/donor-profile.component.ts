@@ -61,10 +61,11 @@ export class DonorProfileComponent implements OnInit {
     })
   }
 
+  logoutDonorProfile(){
+    localStorage.removeItem("token")
+    this._router.navigateByUrl("")
+  }
+
 }
 
 
-// background-color: white;
-// padding: 20px;
-// border-radius: 10px;
-// box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);

@@ -18,6 +18,7 @@
 
 .mat-icon {
     color: #7e7ca8;
+    cursor: pointer;
 }
 
 #form-container {
