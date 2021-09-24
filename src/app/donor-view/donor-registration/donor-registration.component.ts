@@ -139,12 +139,11 @@ export class DonorRegistrationComponent implements OnInit {
     }
   }
 
-  navigateToRegistrationComplete() {
-    this._router.navigateByUrl("registration-complete")
+  navigateToHome() {
+    this._router.navigateByUrl("")
   }
 
   showModel(){
-    console.log(this.fourthFormGroup)
     this.termsNotAccepted = false
 
     if(this.fourthFormGroup.status == "VALID")

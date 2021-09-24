@@ -15,7 +15,6 @@ export class DonorRegistrationService {
     this.token = localStorage.getItem("token")
   }
 
-
   getDonorRegisteredInitial(): Observable<any>{
     return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_DONOR_REGISTERED_INITIAL, {headers : new HttpHeaders().set("Authorization", this.token)})
   }
@@ -33,7 +32,7 @@ export class DonorRegistrationService {
   }
 
   getDonorProfile(token : string) : Observable<any>{
-    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_DONOR_PROFILE, {headers : new HttpHeaders().set("Authorization", this.token)})
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_DONOR_PROFILE, {headers : new HttpHeaders().set("Authorization", token)})
   }
  
 }

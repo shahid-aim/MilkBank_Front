@@ -35,13 +35,16 @@ export class LoginComponent implements OnInit {
       this.loginModel.password = this.password
 
       this._commonService.login(this.loginModel).subscribe(response => {
-        console.log(response.user_group)
+      
+        localStorage.setItem("token", response.token)
         let expiry = new Date()
         expiry.setMinutes(expiry.getMinutes() + 60)
-        localStorage.setItem("token", response.token)
         if (response.user_group == "Donor") {
           if(response.donor_profile_complete == true)
+          {
+            debugger
             this.router.navigateByUrl(InternalUrlMappings.DONOR_PROFILE)
+          }
           else
             this.router.navigateByUrl(InternalUrlMappings.DONOR_REGISTRATION)
         }
