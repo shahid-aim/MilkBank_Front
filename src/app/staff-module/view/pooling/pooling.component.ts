@@ -2,7 +2,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { CreatePool, TestResult } from '../../models/phase';
+import { CreatePool, PasturizationPostResult, TestResult} from '../../models/phase';
 import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
@@ -18,7 +18,6 @@ export class PoolingComponent implements OnInit {
   @ViewChild("productdata") productdata: NgForm;
   @ViewChild("addTest") addTest:ModalDirective;
  
-  
   constructor(private _dashboardService : DashboardService) { }
   
   donor : any
@@ -52,6 +51,11 @@ export class PoolingComponent implements OnInit {
 
   createPoolModel : CreatePool = new CreatePool()
   testResultModel : TestResult = new TestResult()
+  // for pasturization post result
+  pasturizationResultModal :PasturizationPostResult = new PasturizationPostResult
+
+  
+  
 
 
 
@@ -177,8 +181,21 @@ export class PoolingComponent implements OnInit {
       }
     })
   }
-  
 
+  //for pasturization-post-result
+  setTestResult1(){
+   this.pasturizationResultModal.pool_id = this.selectedPool
+   this._dashboardService.setTestResult1(this.token , this.pasturizationResultModal).subscribe(response =>{
+     this.getPool()
+     this.addTest.hide()
+     this.pasturizationResultModal = new PasturizationPostResult()
+   },
+   error =>{
+     if(error.status == 401) {
+       this._dashboardService.logoutUser()
+     }
+  })
+  }
 
 
   // END API

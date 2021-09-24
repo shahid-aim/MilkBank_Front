@@ -321,7 +321,7 @@
                                     <label>Test Sample Quantity</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="number" min="1" name="test_sample_qty" class="form-control" [(ngModel)]="createPoolModel.test_sample_qty" required>
+                                    <input type="number" min="1" name="test_sample_qty" class="form-control" [(ngModel)]="pasturizationResultModal.test_sample_qty" required>
                                 </div>
                             </div>
                         </div>
@@ -331,7 +331,7 @@
                                     <label>Test Sample Send Date</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="date" name="test_sample_sent_date" class="form-control" [(ngModel)]="createPoolModel.test_sample_sent_date" required>
+                                    <input type="date" name="test_sample_sent_date" class="form-control" [(ngModel)]="pasturizationResultModal.test_sample_sent_date" required>
                                 </div>
                             </div>
                         </div>
@@ -341,7 +341,7 @@
                                     <label>Testing Lab</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]="createPoolModel.testing_lab_id" required>
+                                    <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]="pasturizationResultModal.testing_lab_id" required>
                                         <option value="" selected ></option>
                                         
                                         <option *ngFor = "let labs of testingLabs" value={{labs.id}}>{{labs.name}}</option>
@@ -355,7 +355,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="addTest.hide()">Close</button>
-                <button type="button" class="btn btn-lg modalBtn2">Update</button>
+                <button type="button" class="btn btn-lg modalBtn2" click="setTestResult1()">Update</button>
             </div>
 
         </div>

@@ -7,6 +7,7 @@ export const  ExternalUrlMappings = {
 
     GET_DONOR_REGISTERED_INITIAL : "donor/get-donor-registered-initial",
     GET_DONOR_PROFILE : "donor/get-profile",
+
 }
 
 export const  InternalUrlMappings = {
@@ -16,4 +17,5 @@ export const  InternalUrlMappings = {
     DONOR_PROFILE : "donor-profile",
     THANK_YOU : "registration-complete",
     DONOR_REGISTRATION : "donor-registration",
+   
 }
