@@ -31,4 +31,21 @@ export class CreatePasturization{
     pasturization_date:Date;
     pre_result:boolean;
     pooling:number;
+
 }
+//pasturization post result
+export class PasturizationPostResult{
+    pool_id : number
+    test_sample_qty : number
+    test_sample_sent_date : Date
+    testing_lab_id : number
+
+}
+export class createBottling{
+    pasturization_id:number;
+    date_added:Date;
+   total_volume:any;
+   staff:string;
+}
+
+
