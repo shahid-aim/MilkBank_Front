@@ -33,6 +33,7 @@ export class DonorProfileComponent implements OnInit {
   ngOnInit(): void {
     this.token = localStorage.getItem("token")
     this.getDonorProfile()
+    debugger
   }
 
   // API
