@@ -34,5 +34,6 @@ export class DonorRegistrationService {
   getDonorProfile(token : string) : Observable<any>{
     return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_DONOR_PROFILE, {headers : new HttpHeaders().set("Authorization", token)})
   }
+
  
 }

@@ -3,13 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ExternalUrlMappings } from '../shared/UrlMapping';
-import { CreatePasturization, CreatePool, CreateRawCollection, TestResult } from '../models/phase';
+import { createBottling, CreatePasturization, CreatePool, CreateRawCollection, TestResult,PasturizationPostResult} from '../models/phase';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
+  [x: string]: any;
   
   constructor(private _httpClient: HttpClient, private _router: Router) {}
 
@@ -39,6 +40,12 @@ export class DashboardService {
   }
 
 
+  // for bottling
+  // getBottlePool(token : string){
+  //   return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings),{ headers : new HttpHeaders().set("Authorization",token)} )
+  // }
+
+
   getPool(token : string): Observable<any> {
     return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_POOL, { headers: new HttpHeaders().set("Authorization", token) })
   }
@@ -61,6 +68,24 @@ export class DashboardService {
 
   getTestingLabsName(token : string) : Observable<any>{
      return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_TESTING_LABS_NAME, { headers: new HttpHeaders().set("Authorization", token) })
+  }
+
+  // for bottling
+
+  CreateBottling(tokan : string , createbottling : createBottling):Observable<any> {
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings) 
+  }
+
+  getBottling(tokan : string):Observable<any> {
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings)
+  }
+
+//for Paturization post result
+  updatePasturizationPostResult(token : string) : Observable<any>{
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.UPDATE_PASTURIZATION_POST_RESULT,{headers: new HttpHeaders().set("Authorization", token) })
+  }
+  setTestResult1(token : string, addTest: PasturizationPostResult): Observable<any> {
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.SET_TEST_RESULT, addTest, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
 }

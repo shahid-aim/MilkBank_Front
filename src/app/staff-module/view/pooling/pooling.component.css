@@ -68,6 +68,12 @@ select {
     font-size: 18px;
 }
 
+.addTest {
+    background: none;
+    border: 1px solid #f25b87;
+    font-size: 18px;
+}
+
 .modal-footer {
     display: flex;
     flex-wrap: wrap;
@@ -94,7 +100,6 @@ select {
     input[type=text],
     input[type=date],
     input[type=time],
-    input[type=submit],
     select {
         width: 85VW;
         padding: 8px;
