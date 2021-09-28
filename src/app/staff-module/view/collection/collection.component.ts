@@ -131,30 +131,23 @@ export class CollectionComponent implements OnInit {
   }
 
   createRawCollection() {
-
-    console.log()
-
     this.isErrorMsgVisible = false
     this.errorMsg = ""
 
-    if(this.nativeCollectionForm.status == "INVALID"){
+    if (this.nativeCollectionForm.status == "INVALID") {
       this.isErrorMsgVisible = true
       this.errorMsg = "All fields are compulsory"
     }
-
-    
 
     if (this.createRawCollectionModal.volumeCollected < 1) {
       this.isErrorMsgVisible = true
       this.errorMsg = "Total volume cannot be less than 1"
     }
 
-
     if (this.createRawCollectionModal.units < 1) {
       this.isErrorMsgVisible = true
       this.errorMsg = "Number of units cannot be less than 1"
     }
-
 
     if (!this.isErrorMsgVisible) {
       this.createRawCollectionModal.createdDateTime = new Date(this.date + "T" + this.time)
@@ -162,6 +155,10 @@ export class CollectionComponent implements OnInit {
         this.collectionForm.hide()
         this.getRawCollection()
         this.createRawCollectionModal = new CreateRawCollection()
+        this.selectedDonorName = ""
+        this.selectedStaffName = ""
+        this.date = new Date()
+        this.time = ""
       },
         error => {
           if (error.status == 401) {

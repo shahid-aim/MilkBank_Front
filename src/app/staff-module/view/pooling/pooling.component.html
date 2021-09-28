@@ -118,7 +118,7 @@
                                     <label>Staff</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="text" name="staff_id" class="form-control" [(ngModel)]="selectedStaffName" (click)="showDonorStaffModal()" required>
+                                    <input type="text" name="staff_id" class="form-control" [(ngModel)]="selectedStaffName" (focus)="showDonorStaffModal()" required>
                                 </div>
                             </div>
                         </div>
@@ -142,7 +142,7 @@
                                     <label>Raw Collection Id</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="text" class="form-control" (click)="openRawCollection()" name="collectionCheckBoxString" [(ngModel)]="collectionCheckBoxString" required>
+                                    <input type="text" class="form-control" (focus)="openRawCollection()" name="collectionCheckBoxString" [(ngModel)]="collectionCheckBoxString" required>
                                 </div>
                             </div>
                         </div>
