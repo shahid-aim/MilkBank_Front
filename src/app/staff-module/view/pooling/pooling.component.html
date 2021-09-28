@@ -247,7 +247,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let data of rawCollectionData">
+                        <tr *ngFor="let data of rawCollectionData | filter : searchTerm">
                             <td>
                                 <input type="checkbox" name="collectionCheckBox" id={{data.id}} (click)="makeRawSelection(data.id)">
                             </td>
