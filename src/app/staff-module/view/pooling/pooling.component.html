@@ -7,9 +7,6 @@
             <button type="button" class="btn addPool btn-md mb-2" (click)="openNewPoolModal()"><i class="fa fa-plus"
                 aria-hidden="true"></i> Add New Pool</button>
         </div>
-        <!-- <div class="col-6 col1">
-            <input type="text" name="search" style="height: 55px;" [(ngModel)]="searchTerm">
-        </div> -->
     </div>
 
     <div class="table-responsive">
@@ -25,21 +22,32 @@
 
             <tbody>
 
-                <tr *ngFor="let p of poolData |filter:searchTerm" (dblclick)="doubleClicked(p.id)">
+                <tr *ngFor="let p of poolData |filter:searchTerm">
                     <td class="px-4">{{p.mixing_date | date:"dd/MM/yyyy"}}</td>
-                    <td class="px-4">{{p.total_volume}}</td>
-                    <td class="px-4">{{p.testing_lab}}</td>
-                    <td class="px-4">{{p.test_sample_sent_date| date:"dd/MM/yyyy"}}</td>
-                    <td class="px-4">{{p.test_result}}</td>
-                    <td class="px-4" (click)="doubleClicked(p.id)">
-                        <button class="btn-lg addResult">
-                            Add Result
-                        </button>
+                    <td class="px-4 total_volume">{{p.total_volume}}</td>
+                    <td class="px-4 testing_lab" *ngIf="p.testing_lab != null">{{p.testing_lab}}</td>
+                    <td class="px-4 test_sample_sent_date" *ngIf="p.test_sample_sent_date != null">{{p.test_sample_sent_date| date:"dd/MM/yyyy"}}</td>
+                    <td class="px-4 test_result" *ngIf="p.test_result != null">
+                        <span *ngIf="p.test_result == true else notAcceptable">
+                            Acceptable
+                        </span>
+                        <ng-template #notAcceptable>
+                            <span *ngIf="p.test_result != null">
+                               Not Acceptable
+                           </span>
+                        </ng-template>
                     </td>
-                    <td>
-                        <button class="btn-lg addTest" (click)="showAddTest()">
+                    <td class="px-4" *ngIf="p.test_result ==  null">
+                        <button *ngIf="p.testing_lab == null else TestResult" class="btn-lg addTest" (click)="showAddTest(p.id)">
                             Add Test
                         </button>
+
+                        <ng-template #TestResult>
+                            <button class="btn-lg addResult" (click)="addTestResult(p.id)">
+                                Add Result
+                            </button>
+                        </ng-template>
+
                     </td>
                 </tr>
             </tbody>
@@ -84,26 +92,26 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="row row1">
                                 <div class="col-6 col1">
                                     <label>Test Sample Quantity</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="number" min="1" name="test_sample_qty" class="form-control" [(ngModel)]="createPoolModel.test_sample_qty" required>
+                                    <input type="number" min="1" name="test_sample_qty" class="form-control" [(ngModel)]="createPoolModel.test_sample_qty">
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
+                        </div> -->
+                        <!-- <div class="form-group">
                             <div class="row row1">
                                 <div class="col-6 col1">
                                     <label>Test Sample Send Date</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="date" name="test_sample_sent_date" class="form-control" [(ngModel)]="createPoolModel.test_sample_sent_date" required>
+                                    <input type="date" name="test_sample_sent_date" class="form-control" [(ngModel)]="createPoolModel.test_sample_sent_date">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <div class="row row1">
                                 <div class="col-6 col1">
@@ -114,23 +122,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="row row1">
                                 <div class="col-6 col1">
                                     <label>Testing Lab</label>
                                 </div>
                                 <div class="col-6 col1">
-
-                                    <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]="createPoolModel.testing_lab_id" required>
+                                    <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]="createPoolModel.testing_lab_id">
                                         <option value="" selected ></option>
                                         
                                         <option *ngFor = "let labs of testingLabs" value={{labs.id}}>{{labs.name}}</option>
                                     </select>
-
-                                    <!-- <input type="text" name="testing_lab_id" class="form-control" [(ngModel)]="createPoolModel.testing_lab_id"> -->
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <div class="row row1">
                                 <div class="col-6 col1">
@@ -314,14 +319,14 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="container d-flex justify-content-center">
-                    <form #productdata="ngForm">
+                    <form #poolTest="ngForm">
                         <div class="form-group">
                             <div class="row row1">
                                 <div class="col-6 col1">
                                     <label>Test Sample Quantity</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="number" min="1" name="test_sample_qty" class="form-control" [(ngModel)]="pasturizationResultModal.test_sample_qty" required>
+                                    <input type="number" min="1" name="test_sample_qty" class="form-control" [(ngModel)]="poolResultModal.test_sample_qty" required>
                                 </div>
                             </div>
                         </div>
@@ -331,7 +336,7 @@
                                     <label>Test Sample Send Date</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <input type="date" name="test_sample_sent_date" class="form-control" [(ngModel)]="pasturizationResultModal.test_sample_sent_date" required>
+                                    <input type="date" name="test_sample_sent_date" class="form-control" [(ngModel)]="poolResultModal.test_sample_sent_date" required>
                                 </div>
                             </div>
                         </div>
@@ -341,21 +346,19 @@
                                     <label>Testing Lab</label>
                                 </div>
                                 <div class="col-6 col1">
-                                    <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]="pasturizationResultModal.testing_lab_id" required>
+                                    <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]="poolResultModal.testing_lab_id" required>
                                         <option value="" selected ></option>
-                                        
                                         <option *ngFor = "let labs of testingLabs" value={{labs.id}}>{{labs.name}}</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="addTest.hide()">Close</button>
-                <button type="button" class="btn btn-lg modalBtn2" click="setTestResult1()">Update</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="addPoolTest()">Update</button>
             </div>
 
         </div>

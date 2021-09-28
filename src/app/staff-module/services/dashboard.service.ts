@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ExternalUrlMappings } from '../shared/UrlMapping';
-import { createBottling, CreatePasturization, CreatePool, CreateRawCollection, TestResult,PasturizationPostResult} from '../models/phase';
+import { CreatePasturization, CreatePool, CreateRawCollection, PoolTest, TestResult} from '../models/phase';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -70,22 +70,22 @@ export class DashboardService {
      return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_TESTING_LABS_NAME, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
-  // for bottling
+  // // for bottling
 
-  CreateBottling(tokan : string , createbottling : createBottling):Observable<any> {
-    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings) 
-  }
+  // CreateBottling(tokan : string , createbottling : createBottling):Observable<any> {
+  //   return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings) 
+  // }
 
-  getBottling(tokan : string):Observable<any> {
+  getBottling():Observable<any> {
     return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings)
   }
 
-//for Paturization post result
   updatePasturizationPostResult(token : string) : Observable<any>{
     return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.UPDATE_PASTURIZATION_POST_RESULT,{headers: new HttpHeaders().set("Authorization", token) })
   }
-  setTestResult1(token : string, addTest: PasturizationPostResult): Observable<any> {
-    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.SET_TEST_RESULT, addTest, { headers: new HttpHeaders().set("Authorization", token) })
+
+  addPoolTest(token : string, addTest: PoolTest): Observable<any> {
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.UPDATE_POOL_TEST, addTest, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
 }

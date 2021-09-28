@@ -34,7 +34,7 @@ export class CreatePasturization{
 
 }
 //pasturization post result
-export class PasturizationPostResult{
+export class PoolTest{
     pool_id : number
     test_sample_qty : number
     test_sample_sent_date : Date
