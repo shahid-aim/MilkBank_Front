@@ -29,11 +29,11 @@
                     <td class="px-4 test_sample_sent_date" *ngIf="p.test_sample_sent_date != null">{{p.test_sample_sent_date| date:"dd/MM/yyyy"}}</td>
                     <td class="px-4 test_result" *ngIf="p.test_result != null">
                         <span *ngIf="p.test_result == true else notAcceptable">
-                            Acceptable
+                          Growth
                         </span>
                         <ng-template #notAcceptable>
                             <span *ngIf="p.test_result != null">
-                               Not Acceptable
+                               No Growth
                            </span>
                         </ng-template>
                     </td>
@@ -62,6 +62,28 @@
                 <div class="container d-flex justify-content-center">
                     <form #productdata="ngForm">
                         <div class="form-group">
+
+                            <div class="form-group">
+                                <div class="row row1">
+                                    <div class="col-6 col1">
+                                        <label>Raw Collection Name</label>
+                                    </div>
+                                    <div class="col-6 col1">
+                                        <input type="text" class="form-control" (focus)="openRawCollection()" name="collectionCheckBoxString" [(ngModel)]="collectionCheckBoxString" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row row1">
+                                    <div class="col-6 col1">
+                                        <label>Staff</label>
+                                    </div>
+                                    <div class="col-6 col1">
+                                        <input type="text" name="staff_id" class="form-control" [(ngModel)]="selectedStaffName" (focus)="showDonorStaffModal()" required>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row row1">
                                 <div class="col-6 col1">
                                     <label>Mixing Date</label>
@@ -112,16 +134,7 @@
                                 </div>
                             </div>
                         </div> -->
-                        <div class="form-group">
-                            <div class="row row1">
-                                <div class="col-6 col1">
-                                    <label>Staff</label>
-                                </div>
-                                <div class="col-6 col1">
-                                    <input type="text" name="staff_id" class="form-control" [(ngModel)]="selectedStaffName" (focus)="showDonorStaffModal()" required>
-                                </div>
-                            </div>
-                        </div>
+
                         <!-- <div class="form-group">
                             <div class="row row1">
                                 <div class="col-6 col1">
@@ -136,16 +149,7 @@
                                 </div>
                             </div>
                         </div> -->
-                        <div class="form-group">
-                            <div class="row row1">
-                                <div class="col-6 col1">
-                                    <label>Raw Collection Id</label>
-                                </div>
-                                <div class="col-6 col1">
-                                    <input type="text" class="form-control" (focus)="openRawCollection()" name="collectionCheckBoxString" [(ngModel)]="collectionCheckBoxString" required>
-                                </div>
-                            </div>
-                        </div>
+
 
                         <div class="error-msg" *ngIf="isErrorMsgVisible">
                             <h2>
