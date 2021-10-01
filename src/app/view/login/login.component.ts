@@ -25,13 +25,6 @@ export class LoginComponent implements OnInit {
   constructor(private _commonService: CommonService, private router: Router ,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-    // /** spinner starts on init */
-    // this.spinner.show();
-
-    // setTimeout(() => {
-    //   /** spinner ends after 5 seconds */
-    //   this.spinner.hide();
-    // }, 5000);
   }
   
 
@@ -54,9 +47,7 @@ export class LoginComponent implements OnInit {
          
           if(response.donor_profile_complete == true)
           {
-            debugger
             this.router.navigateByUrl(InternalUrlMappings.DONOR_PROFILE)
-           
           }
           else
             this.router.navigateByUrl(InternalUrlMappings.DONOR_REGISTRATION)
@@ -64,10 +55,11 @@ export class LoginComponent implements OnInit {
         else {
           this.router.navigateByUrl(InternalUrlMappings.STAFF + "/" + StaffInternalUrlMappings.DASHBOARD)
         }
-        
+        this.spinner.hide()
       },
         error => {
           this.invalidUsernamePassword = true
+          this.spinner.hide()
         }
       )
     }

@@ -131,6 +131,7 @@ export class CollectionComponent implements OnInit {
   }
 
   createRawCollection() {
+    console.log(this.nativeCollectionForm.controls)
     this.isErrorMsgVisible = false
     this.errorMsg = ""
 

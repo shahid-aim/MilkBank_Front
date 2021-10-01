@@ -249,9 +249,14 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th *ngFor="let header of rawCollectionHeader; index as i">
+                            <!-- <th *ngFor="let header of rawCollectionHeader; index as i">
                                 {{header}}
-                            </th>
+                            </th> -->
+
+                            <th>Donor Name</th>
+                            <th>Staff Name</th>
+                            <th>Volume</th>
+                            <th>Collection Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -260,7 +265,7 @@
                                 <input type="checkbox" name="collectionCheckBox" id={{data.id}} (click)="makeRawSelection(data.id, data.donor_full_name)">
                             </td>
                             <td>{{data.donor_full_name}}</td>
-                            <td>{{data.receiving_site}}</td>
+                            <!-- <td>{{data.receiving_site}}</td> -->
                             <td>{{data.staff_name}}</td>
                             <td>{{data.volume_collected}}</td>
                             <td>{{data.collection_date | date:"dd/MM/yyyy"}}</td>
