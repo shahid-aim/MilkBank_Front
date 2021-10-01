@@ -24,6 +24,8 @@ export class PoolingComponent implements OnInit {
   donor: any
   collectionCheckBox: number[] = []
   collectionCheckBoxString: string
+  collectionCheckBoxNameArray : string[] = []
+  collectionCheckBoxNameString : string
   searchTerm: string
   removeIndex: number
 
@@ -181,9 +183,6 @@ export class PoolingComponent implements OnInit {
   }
 
   addPoolTest() {
-
-    console.log(this.poolTest);
-
     this.poolResultModal.pool_id = this.selectedPool
     this._dashboardService.addPoolTest(this.token, this.poolResultModal).subscribe(response => {
       this.getPool()
@@ -209,13 +208,19 @@ export class PoolingComponent implements OnInit {
     this.rawCollectionModal.show()
   }
 
-  makeRawSelection(id: number) {
+  makeRawSelection(id: number, donorNameArray : string) {
     if (this.collectionCheckBox.includes(id)) {
       this.removeIndex = this.collectionCheckBox.indexOf(id, 0)
       this.collectionCheckBox.splice(this.removeIndex, 1)
+
+      this.removeIndex = this.collectionCheckBoxNameArray.indexOf(donorNameArray, 0)
+      this.collectionCheckBoxNameArray.splice(this.removeIndex, 1)
+
     } else {
+      this.collectionCheckBoxNameArray.push(donorNameArray)
       this.collectionCheckBox.push(id)
     }
+    this.collectionCheckBoxNameString = this.collectionCheckBoxNameArray.toString()
     this.collectionCheckBoxString = this.collectionCheckBox.toString()
   }
 

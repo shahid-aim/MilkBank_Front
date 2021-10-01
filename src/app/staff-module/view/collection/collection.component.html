@@ -5,7 +5,7 @@
 
         <div class="col-6 col1 py-4">
             <button class="btn newCollection" (click)="openCollectionForm()"><i class="fa fa-plus"
-                aria-hidden="true"></i> New Collection</button>
+                    aria-hidden="true"></i> New Collection</button>
         </div>
         <!-- 
         <div class="col-6 col1">
@@ -92,22 +92,22 @@
                                 <input type="text" name="breast_pump_type" [(ngModel)]="createRawCollectionModal.breastPumpType" required>
                             </div>
                         </div> -->
-                        <div class="row row1">
+                        <!-- <div class="row row1">
                             <div class="col-6 col1">
                                 <label for="subject">Number of Units</label>
                             </div>
                             <div class="col-6 col1">
                                 <input type="number" min="1" name="number_of_units" [(ngModel)]="createRawCollectionModal.units" required>
                             </div>
-                        </div>
-                        <!-- <div class="row row1">
+                        </div> -->
+                        <div class="row row1">
                             <div class="col-6 col1">
                                 <label for="subject">Total Volume</label>
                             </div>
                             <div class="col-6 col1">
                                 <input type="number" min="1" name="total_volume" [(ngModel)]="createRawCollectionModal.volumeCollected" required>
                             </div>
-                        </div> -->
+                        </div>
 
                         <div class="error-msg" *ngIf="isErrorMsgVisible">
                             <h2>
@@ -124,85 +124,86 @@
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Donor -->
-    <div class="modal fade" bsModal #donorDetailModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
-        <div class="modal-dialog modal-fullscreen modal-dialog-centered">
-            <div class="modal-content text-center">
-                <div class="modal-body">
-                    <div class="col-sm">
-                        <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
-                    </div>
-
-                    <table class="table table-hover table-striped ">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th *ngFor="let header of donorHeader; index as i">{{header}}</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr *ngFor="let p of donorData | filter : searchString">
-                                <td>
-                                    <input type="radio" id={{p.id}} name="rdo_id" [value]=p.id [(ngModel)]="selectedDonor">
-                                </td>
-                                <td>{{p.id}}</td>
-                                <td>{{p.full_name}}</td>
-                                <td>{{p.address}}</td>
-                                <td>{{p.phone_number}}</td>
-                                <td>{{p.email}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
+<!-- Donor -->
+<div class="modal fade" bsModal #donorDetailModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <div class="col-sm">
+                    <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="donorDetailModal.hide()">Close</button>
-                    <button type="button" class="btn btn-lg modalBtn2" (click)="selectIdAndClose()">Select</button>
-                </div>
+
+                <table class="table table-hover table-striped ">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th *ngFor="let header of donorHeader; index as i">{{header}}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let p of donorData | filter : searchString">
+                            <td>
+                                <input type="radio" id={{p.id}} name="rdo_id" [value]=p.id [(ngModel)]="selectedDonor">
+                            </td>
+                            <td>{{p.id}}</td>
+                            <td>{{p.full_name}}</td>
+                            <td>{{p.address}}</td>
+                            <td>{{p.phone_number}}</td>
+                            <td>{{p.email}}</td>
+                        </tr>
+                    </tbody>
+                </table>
 
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="donorDetailModal.hide()">Close</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="selectIdAndClose()">Select</button>
+            </div>
+
         </div>
     </div>
+</div>
 
-    <!-- STAFF MODAL -->
-    <div class="modal fade" bsModal #staffDetailModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
-        <div class="modal-dialog modal-fullscreen modal-dialog-centered">
-            <div class="modal-content text-center">
-                <div class="modal-body">
-                    <div class="col-sm">
-                        <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
-                    </div>
-
-                    <table class="table table-hover table-striped ">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th *ngFor="let header of staffHeader; index as i">{{header}}</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-                            <tr *ngFor="let p of staffData | filter : searchString">
-                                <td>
-                                    <input type="radio" id="html" name="rdo_id" value={{p.id}} [(ngModel)]="selectedStaff">
-                                </td>
-                                <td>{{p.hosp_id}}</td>
-                                <td>{{p.staff_full_name}}</td>
-                                <td>{{p.staff_contact}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
+<!-- STAFF MODAL -->
+<div class="modal fade" bsModal #staffDetailModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <div class="col-sm">
+                    <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="staffDetailModal.hide()">Close</button>
-                    <button type="button" class="btn btn-lg modalBtn2" (click)="selectIdAndCloseStaffModal()">Select</button>
 
-                </div>
+                <table class="table table-hover table-striped ">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th *ngFor="let header of staffHeader; index as i">{{header}}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr *ngFor="let p of staffData | filter : searchString">
+                            <td>
+                                <input type="radio" id="html" name="rdo_id" value={{p.id}} [(ngModel)]="selectedStaff">
+                            </td>
+                            <td>{{p.hosp_id}}</td>
+                            <td>{{p.staff_full_name}}</td>
+                            <td>{{p.staff_contact}}</td>
+                        </tr>
+                    </tbody>
+                </table>
 
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="staffDetailModal.hide()">Close</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="selectIdAndCloseStaffModal()">Select</button>
+
+            </div>
+
         </div>
     </div>
+</div>

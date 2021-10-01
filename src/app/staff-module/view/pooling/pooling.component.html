@@ -69,7 +69,7 @@
                                         <label>Raw Collection Name</label>
                                     </div>
                                     <div class="col-6 col1">
-                                        <input type="text" class="form-control" (focus)="openRawCollection()" name="collectionCheckBoxString" [(ngModel)]="collectionCheckBoxString" required>
+                                        <input type="text" class="form-control" (focus)="openRawCollection()" name="collectionCheckBoxNameString" [(ngModel)]="collectionCheckBoxNameString" required>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="row row1">
                                 <div class="col-6 col1">
                                     <label>Total Units</label>
@@ -103,7 +103,7 @@
                                     <input type="number" min="1" name="total_units" class="form-control" [(ngModel)]="createPoolModel.total_units" required>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <div class="row row1">
                                 <div class="col-6 col1">
@@ -253,7 +253,7 @@
                     <tbody>
                         <tr *ngFor="let data of rawCollectionData | filter : searchTerm">
                             <td>
-                                <input type="checkbox" name="collectionCheckBox" id={{data.id}} (click)="makeRawSelection(data.id)">
+                                <input type="checkbox" name="collectionCheckBox" id={{data.id}} (click)="makeRawSelection(data.id, data.donor_full_name)">
                             </td>
                             <td>{{data.donor_full_name}}</td>
                             <td>{{data.receiving_site}}</td>

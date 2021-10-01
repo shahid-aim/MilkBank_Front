@@ -10,12 +10,15 @@ import { InternalUrlMappings } from './shared/UrlMapping';
 })
 export class StaffModuleComponent implements OnInit {
 
+  isClose : boolean = true
+
   constructor(private _dashboardService : DashboardService, private _router  : Router) { }
 
   ngOnInit(): void {
   }
 
   openNav(){
+    this.isClose = false
     document.getElementById("mySidenav").style.width = "250px"
   }
 
@@ -35,6 +38,7 @@ export class StaffModuleComponent implements OnInit {
     }
   
   closeNav(){
+    this.isClose = true
     document.getElementById("mySidenav").style.width = "0px"
   }
 
