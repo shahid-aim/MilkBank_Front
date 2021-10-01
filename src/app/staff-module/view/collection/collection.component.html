@@ -40,11 +40,12 @@
     <div class="modal-dialog modal-fullscreen modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
+                <h2 class="newRawCollection">New Raw-Collection </h2>
                 <div class="container d-flex justify-content-center">
                     <form #nativeCollectionForm="ngForm" (ngSubmit)="createRawCollection()">
                         <div class="row row1">
                             <div class="col-6 col1">
-                                <label>Donor</label>
+                                <label>Select Donor</label>
                             </div>
                             <div class="col-6 col1">
                                 <input type="text" name="donor" id="donor" [(ngModel)]="selectedDonorName" (focus)="showDonorDetailModal()" required>
@@ -53,10 +54,19 @@
 
                         <div class="row row1">
                             <div class="col-6 col1">
-                                <label for="country">Executive</label>
+                                <label for="country"> Select Executive</label>
                             </div>
                             <div class="col-6 col1">
                                 <input type="text" name="executive_id" [(ngModel)]="selectedStaffName" (focus)="showDonorStaffModal()" required>
+                            </div>
+                        </div>
+
+                        <div class="row row1">
+                            <div class="col-6 col1">
+                                <label for="subject">Total Volume</label>
+                            </div>
+                            <div class="col-6 col1">
+                                <input type="number" min="1" name="total_volume" [(ngModel)]="createRawCollectionModal.volumeCollected" required>
                             </div>
                         </div>
                         <div class="row row1">
@@ -92,22 +102,15 @@
                                 <input type="text" name="breast_pump_type" [(ngModel)]="createRawCollectionModal.breastPumpType" required>
                             </div>
                         </div> -->
-                        <div class="row row1">
+                        <!-- <div class="row row1">
                             <div class="col-6 col1">
                                 <label for="subject">Number of Units</label>
                             </div>
                             <div class="col-6 col1">
                                 <input type="number" min="1" name="number_of_units" [(ngModel)]="createRawCollectionModal.units" required>
                             </div>
-                        </div>
-                        <!-- <div class="row row1">
-                            <div class="col-6 col1">
-                                <label for="subject">Total Volume</label>
-                            </div>
-                            <div class="col-6 col1">
-                                <input type="number" min="1" name="total_volume" [(ngModel)]="createRawCollectionModal.volumeCollected" required>
-                            </div>
                         </div> -->
+
 
                         <div class="error-msg" *ngIf="isErrorMsgVisible">
                             <h2>
@@ -134,7 +137,7 @@
                         <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
                     </div>
 
-                    <table class="table table-hover table-striped ">
+                    <table class="table table-hover table-striped text-left">
                         <thead>
                             <tr>
                                 <th></th>
@@ -175,7 +178,7 @@
                         <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
                     </div>
 
-                    <table class="table table-hover table-striped ">
+                    <table class="table table-hover table-striped text-left">
                         <thead>
                             <tr>
                                 <th></th>

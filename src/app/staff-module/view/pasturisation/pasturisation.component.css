@@ -11,7 +11,7 @@ label {
 form {
     text-align: start;
     background-color: #fff;
-    padding-top: 120px;
+    padding-top: 37px;
 }
 
 input[type=text],
@@ -49,6 +49,7 @@ select {
     background: none;
     border: 1px solid #f25b87;
     font-size: 20px;
+    color: #f25b87;
 }
 
 .modalBtn2 {
@@ -67,6 +68,12 @@ select {
     justify-content: center;
     padding: .75rem;
     border-top: 1px solid #dee2e6;
+}
+
+.addPasturizationHeading {
+    font-size: 20px;
+    color: #f25b87;
+    margin-left: 30px;
 }
 
 @media screen and (max-width: 600px) {
