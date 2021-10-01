@@ -1,3 +1,7 @@
+* {
+    user-select: none;
+}
+
 .tophead {
     height: 65px;
     background: #F25B87;

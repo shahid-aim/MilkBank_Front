@@ -8,7 +8,7 @@
     </div>
     <div class="table-responsive">
         <div class="collection-table">
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover text-start">
                 <thead>
                     <tr>
                         <th *ngFor="let header of pasturizationHeader; index as i" class="px-4">
@@ -45,7 +45,7 @@ after container -->
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
-
+                    <h2 class="addPasturizationHeading">Add Pasturization</h2>
                     <div class="container d-flex justify-content-center">
                         <form>
                             <div class="row row1">
@@ -100,11 +100,12 @@ after container -->
         <div class="modal-dialog modal-fullscreen modal-dialog-centered">
             <div class="modal-content text-center">
                 <div class="modal-body">
+
                     <div class="col-sm">
                         <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
                     </div>
 
-                    <table class="table table-hover table-striped ">
+                    <table class="table table-hover table-striped text-start">
                         <thead>
                             <tr>
                                 <th></th>

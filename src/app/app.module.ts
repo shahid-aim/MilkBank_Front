@@ -23,6 +23,7 @@ import { DragFileComponent } from './drag-file/drag-file.component';
 import { DropFileComponent } from './drop-file/drop-file.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { DonorProfileComponent } from './donor-view/donor-profile/donor-profile.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
@@ -59,6 +60,7 @@ import { DonorProfileComponent } from './donor-view/donor-profile/donor-profile.
     MatRadioModule,
     MatCheckboxModule,
     MatIconModule,
+    NgxSpinnerModule
 
   ],
   providers: [CookieService],

@@ -1,3 +1,7 @@
+* {
+    user-select: none;
+}
+
 .row1 {
     padding: 10px;
     text-align: left;
@@ -51,6 +55,7 @@ select {
     background: none;
     border: 1px solid #f25b87;
     font-size: 20px;
+    color: #f25b87;
 }
 
 .modalBtn2 {
@@ -72,6 +77,7 @@ select {
     background: none;
     border: 1px solid #f25b87;
     font-size: 18px;
+    color: #f25b87;
 }
 
 .modal-footer {
@@ -88,6 +94,12 @@ select {
     color: red;
     text-align: center;
     font-size: 20px;
+}
+
+.addPoolHeading {
+    font-size: 20px;
+    color: #f25b87;
+    margin-left: 30px;
 }
 
 @media screen and (max-width: 600px) {

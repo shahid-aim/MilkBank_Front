@@ -25,9 +25,12 @@
 
                 <p class="invalid-message" *ngIf="invalidUsernamePassword">Invalid Username or Password</p>
 
-                <button type="submit" class="btn-login mt-3 mb-5">Login</button>
+                <button type="submit" class="btn btn-login mt-3 mb-5">Login</button>
                 <p class="p-register-here">Don't have an Account? <a class="" (click)="navigateToRegistration()">Register here</a></p>
             </form>
+            <ngx-spinner bdColor="rgba(255,255 ,255,0.5)" size="medium" color="#f25b87" type="ball-clip-rotate-pulse" [fullScreen]="true">
+                <p style="color: white"> Loading... </p>
+            </ngx-spinner>
         </div>
     </div>
 </div>
