@@ -63,18 +63,10 @@
 
                         <div class="row row1">
                             <div class="col-6 col1">
-                                <label for="subject">Total Volume</label>
+                                <label for="subject">Total Volume(ml)</label>
                             </div>
                             <div class="col-6 col1">
                                 <input type="number" min="1" name="total_volume" [(ngModel)]="createRawCollectionModal.volumeCollected" required>
-                            </div>
-                        </div>
-                        <div class="row row1">
-                            <div class="col-6 col1">
-                                <label>Collection Date </label>
-                            </div>
-                            <div class="col-6 col1">
-                                <input type="date" name="collection_date_time" placeholder="Click to select date" [(ngModel)]="date" required>
                             </div>
                         </div>
                         <div class="row row1">
@@ -85,6 +77,15 @@
                                 <input type="time" name="collection_date_time" placeholder="Click to select time" [(ngModel)]="time" required>
                             </div>
                         </div>
+                        <div class="row row1">
+                            <div class="col-6 col1">
+                                <label>Collection Date </label>
+                            </div>
+                            <div class="col-6 col1">
+                                <input type="date" name="collection_date_time" placeholder="Click to select date" [(ngModel)]="date" required>
+                            </div>
+                        </div>
+
                         <div class="row row1">
                             <div class="col-6 col1">
                                 <label for="subject">Receiving Center</label>
@@ -110,14 +111,14 @@
                                 <input type="number" min="1" name="number_of_units" [(ngModel)]="createRawCollectionModal.units" required>
                             </div>
                         </div> -->
-                        <div class="row row1">
+                        <!-- <div class="row row1">
                             <div class="col-6 col1">
                                 <label for="subject">Total Volume</label>
                             </div>
                             <div class="col-6 col1">
                                 <input type="number" min="1" name="total_volume" [(ngModel)]="createRawCollectionModal.volumeCollected" required>
                             </div>
-                        </div>
+                        </div> -->
 
 
                         <div class="error-msg" *ngIf="isErrorMsgVisible">
