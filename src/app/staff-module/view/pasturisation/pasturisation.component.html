@@ -119,7 +119,8 @@ after container -->
 
                             <tr *ngFor="let p of poolData |filter:searchString" (dblclick)="doubleClicked(p.id)">
                                 <td>
-                                    <input type="radio" name="rdo" id={{p.id}} [value]=p.id [(ngModel)]="selectedPool">
+                                    <input type="checkbox" name="collectionCheckBox" id={{p.id}} [value]=p.id [(ngModel)]="selectedPool">
+
                                 </td>
                                 <td>{{p.mixing_date | date:"dd/MM/yyyy "}}</td>
                                 <td>{{p.total_volume}}</td>

@@ -24,7 +24,7 @@
 
 .nav-link {
     color: #000 !important;
-    font-size: 20px;
+    font-size: 18px;
     padding-left: 20px;
     font-family: DM SansSce Medium;
 }
@@ -51,7 +51,7 @@
 }
 
 .moto-tagline {
-    font-size: 20px;
+    font-size: 18px;
     color: #0A2463 !important;
     font-family: DM SansSce Regular;
     text-align: center;
@@ -64,7 +64,7 @@
 
 .moto-tagline .card-title {
     padding: 0px;
-    font-size: 30px;
+    font-size: 28px;
     color: #0A2463 !important;
     font-family: DM SansSce Medium;
     line-height: 40px;
@@ -90,7 +90,7 @@
 }
 
 .makeDifferenceHead {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .head-whyDonate {
@@ -103,7 +103,7 @@
 }
 
 .head-whyDonate {
-    font-size: 32px;
+    font-size: 30px;
     padding-top: 25px;
 }
 
@@ -114,7 +114,7 @@
 }
 
 .p-whyDonate {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .heart-line {
@@ -145,13 +145,13 @@
 }
 
 .doctor-recipient .card-title {
-    font-size: 30px;
+    font-size: 28px;
     font-family: DM;
     font-family: DM SansSce Medium;
 }
 
 .para2 {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 31px;
     color: #F25B87;
 }
@@ -161,7 +161,7 @@
 }
 
 .Source-Title {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 31px;
 }
 
@@ -176,12 +176,12 @@ footer {
 
 .footer-list li {
     font-family: DM SansSce Regular;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .footer-list-header {
     font-family: DM SansSce Medium;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
 }
 
