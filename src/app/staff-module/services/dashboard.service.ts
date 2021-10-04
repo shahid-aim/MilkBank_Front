@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ExternalUrlMappings } from '../shared/UrlMapping';
-import { CreatePasturization, CreatePool, CreateRawCollection, PoolTest, TestResult} from '../models/phase';
+import { CreatePasturization, CreatePool, CreateRawCollection, PoolTest, TestResult,createBottling} from '../models/phase';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -72,9 +72,9 @@ export class DashboardService {
 
   // // for bottling
 
-  // CreateBottling(tokan : string , createbottling : createBottling):Observable<any> {
-  //   return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings) 
-  // }
+  createBottling(tokan : string , createbottling : createBottling):Observable<any> {
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings) 
+  }
 
   getBottling():Observable<any> {
     return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings)
