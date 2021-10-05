@@ -38,8 +38,6 @@
             </table>
         </div>
     </div>
-    <!-- 
-after container -->
 
     <div class="modal fade" bsModal #pasturizationForm="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
         <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -119,9 +117,7 @@ after container -->
 
                             <tr *ngFor="let p of poolData |filter:searchString" (dblclick)="doubleClicked(p.id)">
                                 <td>
-                                    <input type="checkbox" name="collectionCheckBox" id={{p.id}} [value]=p.id [(ngModel)]="selectedPool">
-
-                                </td>
+                                    <input type="checkbox" id={{p.id}} [value]=p.id (click)="selectPoolArray(p.id)"> </td>
                                 <td>{{p.mixing_date | date:"dd/MM/yyyy "}}</td>
                                 <td>{{p.total_volume}}</td>
                                 <td>{{p.testing_lab}}</td>

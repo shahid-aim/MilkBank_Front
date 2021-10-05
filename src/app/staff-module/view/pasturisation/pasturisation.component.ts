@@ -23,15 +23,16 @@ export class PasturisationComponent implements OnInit {
   token : string = "";
   searchTerm : string;
   
+  removeIdIndex : number
+  poolArray : number[] = []
+
   poolData : any;
   poolHeader :any;
   
-  
   createPasturizationModal : CreatePasturization = new CreatePasturization()
- 
+
   constructor(private _dashboardService : DashboardService) { }
 
-  
   ngOnInit(): void {
     this.token = localStorage.getItem("token")
     this.getPasturization()
@@ -79,7 +80,6 @@ export class PasturisationComponent implements OnInit {
     })
   }
 
-  
   openCollectionForm(){
     this.pasturizationForm.show()
   }
@@ -94,8 +94,20 @@ export class PasturisationComponent implements OnInit {
   }
 
   seleceHidePool(){
-    this.createPasturizationModal.pooling = this.selectedPool
+    this.createPasturizationModal.pooling = this.poolArray
+    console.log(this.createPasturizationModal);
     this.poolModal.hide()
+  }
+
+  selectPoolArray(id : number){
+    this.removeIdIndex = this.poolArray.indexOf(id)
+    if (this.removeIdIndex == -1) {
+      this.poolArray.push(id)
+    }
+    else{
+      this.poolArray.splice(this.removeIdIndex, 1)
+    }
+    console.log(this.poolArray)
   }
 
 }

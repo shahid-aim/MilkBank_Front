@@ -30,7 +30,7 @@ export class TestResult{
 export class CreatePasturization{
     pasturization_date:Date;
     pre_result:boolean;
-    pooling:number;
+    pooling : number[];
 
 }
 //pasturization post result

@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
+  production: false,
   ASSET_URL : "lacto/",
-  BASE_URL : "http://192.168.137.1:8000/"
+  BASE_URL : "http://localhost:8000/"
 };
 /*
  * For easier debugging in development mode, you can import the following file
