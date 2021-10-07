@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { CreateRawCollection } from '../../models/phase';
@@ -10,6 +10,7 @@ import { DashboardService } from '../../services/dashboard.service';
   styleUrls: ['./collection.component.css']
 })
 export class CollectionComponent implements OnInit {
+
 
   @ViewChild("collectionForm") collectionForm: ModalDirective;
   @ViewChild("donorDetailModal") donorDetailModal: ModalDirective;

@@ -7,6 +7,11 @@
     text-align: left;
 }
 
+.col2 {
+    display: flex;
+    justify-content: right;
+}
+
 label {
     font-size: 18px;
     color: #7E7CA8;
@@ -19,17 +24,67 @@ form {
     padding-top: 20px;
 }
 
+.addPool {
+    background-color: #f25b87;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 27px;
+    color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.heading1 {
+    width: 80vw;
+    margin: auto;
+    /* padding-top: 30px; */
+}
+
+.poolHead {
+    font-family: DM SansSce Medium;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #10467E;
+}
+
+.poolHead-p {
+    font-family: DM SansSce Medium;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    color: #10467E;
+}
+
+.poolTableHead {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #10467E;
+    border-bottom: 2px solid #7E7CA8 !important;
+}
+
+::placeholder {
+    color: #7E7CA8;
+}
+
 input[type=number],
 input[type=text],
 input[type=date],
 input[type=time],
 input[type=submit],
 select {
-    width: 30VW;
-    padding: 8px;
+    width: 23VW;
+    padding: 14px;
     box-sizing: border-box;
     border: 1px solid #7E7CA8;
-    border-radius: 20px;
+    border-radius: 10px;
     color: #7E7CA8;
     font-size: 18px;
     outline: 0;
@@ -44,11 +99,6 @@ select {
     background-color: #f25b87 !important;
     color: #fff;
     font-size: 20px;
-}
-
-.poolHead {
-    font-size: 25px;
-    color: #f25b87;
 }
 
 .modalBtn1 {
@@ -67,17 +117,19 @@ select {
 }
 
 .addResult {
-    background-color: #f25b87;
-    border: none;
-    color: #fff;
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #7B61FF;
 }
 
 .addTest {
-    background: none;
-    border: 1px solid #f25b87;
-    font-size: 18px;
-    color: #f25b87;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #7B61FF;
 }
 
 .modal-footer {
@@ -103,15 +155,38 @@ select {
 }
 
 .addTestHeading {
-    font-size: 20px;
-    color: #f25b87;
-    margin-left: 30px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #10467E;
 }
 
 .addResultHeading {
-    font-size: 20px;
-    color: #f25b87;
-    margin-left: 30px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #10467E;
+}
+
+.fa-search:before {
+    content: "\f002";
+    position: relative;
+    right: 48px;
+    color: #7E7CA8;
+    font-size: large;
+}
+
+.donorTableHead {
+    background: #7E7CA821;
+    border-bottom: 2px solid #7E7CA8 !important;
 }
 
 @media screen and (max-width: 600px) {
@@ -124,17 +199,31 @@ select {
     input[type=text],
     input[type=date],
     input[type=time],
+    input[type=number],
     select {
         width: 85VW;
-        padding: 8px;
+        padding: 16px;
+        box-sizing: border-box;
         border: 1px solid #7E7CA8;
-        border-radius: 20px;
+        border-radius: 10px;
         color: #7E7CA8;
-        font-size: 20px;
+        font-size: 18px;
         outline: 0;
     }
     label {
         margin-bottom: 10px;
+    }
+    .heading1 {
+        width: auto;
+    }
+    .poolHead {
+        text-align: center;
+    }
+    .poolHead-p {
+        display: none;
+    }
+    .modalButtons {
+        padding-top: 30px;
     }
 }
 
@@ -158,5 +247,17 @@ select {
     }
     label {
         margin-bottom: 10px;
+    }
+    .heading1 {
+        width: auto;
+    }
+    .poolHead {
+        text-align: center;
+    }
+    .poolHead-p {
+        display: none;
+    }
+    .modalButtons {
+        padding-top: 30px;
     }
 }

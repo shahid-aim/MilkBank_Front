@@ -6,10 +6,8 @@
     padding: 10px;
 }
 
-label {
-    font-size: 20px;
+::placeholder {
     color: #7E7CA8;
-    letter-spacing: 1px;
 }
 
 form {
@@ -22,31 +20,73 @@ input[type=text],
 input[type=date],
 input[type=time],
 input[type=submit],
+input[type=number],
 select {
-    width: 30vw;
-    padding: 8px;
+    width: 23VW;
+    padding: 14px;
     box-sizing: border-box;
     border: 1px solid #7E7CA8;
-    border-radius: 20px;
+    border-radius: 10px;
     color: #7E7CA8;
-    font-size: 20px;
+    font-size: 18px;
     outline: 0;
 }
 
+
+/* 
 .col1 {
     display: flex;
     justify-content: left;
+} */
+
+.col2 {
+    display: flex;
+    justify-content: right;
+}
+
+.pastTableHead {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #10467E;
+    border-bottom: 2px solid #7E7CA8 !important;
+}
+
+.heading1 {
+    width: 50vw;
+    margin: auto;
 }
 
 .pastuHead {
-    font-size: 25px;
-    color: #f25b87;
+    font-family: DM SansSce Medium;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #10467E;
+}
+
+.pastuHead-p {
+    font-family: DM SansSce Medium;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    color: #10467E;
 }
 
 .openCollectionBtn {
     background-color: #f25b87;
-    color: #fff;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
     font-size: 20px;
+    line-height: 27px;
+    color: #FFFFFF;
+    border-radius: 10px;
 }
 
 .modalBtn1 {
@@ -80,6 +120,19 @@ select {
     margin-left: 30px;
 }
 
+.donorTableHead {
+    background: #7E7CA821;
+    border-bottom: 2px solid #7E7CA8 !important;
+}
+
+.fa-search:before {
+    content: "\f002";
+    position: relative;
+    right: 48px;
+    color: #7E7CA8;
+    font-size: large;
+}
+
 @media screen and (max-width: 600px) {
     .col1,
     input[type=text],
@@ -92,8 +145,23 @@ select {
         display: flex;
         justify-content: left;
     }
-    label {
-        margin-bottom: 10px;
+    .pastuHead-p {
+        display: none;
+    }
+    .heading1 {
+        width: auto;
+    }
+    .modalButtons {
+        padding-top: 30px;
+        /* border-top: 0.5px solid #BBBFC8; */
+    }
+    .fa-search {
+        content: "\f002";
+        position: relative;
+        color: #7E7CA8;
+        font-size: large;
+        left: 150px;
+        bottom: 35px;
     }
 }
 
@@ -115,7 +183,21 @@ select {
         font-size: 20px;
         outline: 0;
     }
-    label {
-        margin-bottom: 10px;
+    .heading1 {
+        width: auto;
+    }
+    .rawHead-p {
+        display: none;
+    }
+    .modalButtons {
+        padding-top: 30px;
+    }
+    .fa-search {
+        content: "\f002";
+        position: relative;
+        color: #7E7CA8;
+        font-size: large;
+        left: 132px;
+        bottom: 30px;
     }
 }
