@@ -1,19 +1,16 @@
 <div class="container-fluid">
-
-    <div class="row row1 ">
-        <h2 class="poolHead">Pooling</h2>
-
-        <div class="col-6 col1 py-4">
-            <button type="button" class="btn addPool btn-md mb-2" (click)="openNewPoolModal()"><i class="fa fa-plus"
+    <div class="col-12 col2 py-4 d-flex justify-content-right">
+        <button type="button" class="btn addPool btn-md mb-2" (click)="openNewPoolModal()"><i class="fa fa-plus"
                 aria-hidden="true"></i> Add New Pool</button>
-        </div>
     </div>
 
+
     <div class="table-responsive">
-        <table class="table table-hover table-striped table-responsive text-start">
+        <table class="table table-hover table-bordered text-start">
             <thead>
                 <tr>
-                    <th *ngFor="let header of poolHeader" class="px-4">
+
+                    <th *ngFor="let header of poolHeader" class="px-4 poolTableHead">
                         {{header}}
                     </th>
                 </tr>
@@ -37,14 +34,14 @@
                         </ng-template>
                     </td>
                     <td class="px-4" *ngIf="p.test_result ==  null">
-                        <button *ngIf="p.testing_lab == null else TestResult" class="btn-sm addTest" (click)="showAddTest(p.id)">
+                        <a *ngIf="p.testing_lab == null else TestResult" class="addTest" (click)="showAddTest(p.id)">
                             Add Test
-                        </button>
+                        </a>
 
                         <ng-template #TestResult>
-                            <button class="btn-sm addResult" (click)="addTestResult(p.id)">
+                            <a class="btn-sm addResult" (click)="addTestResult(p.id)">
                                 Add Result
-                            </button>
+                            </a>
                         </ng-template>
 
                     </td>
@@ -58,64 +55,62 @@
     <div class="modal-dialog modal-fullscreen modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
-                <h2 class="addPoolHeading">Add Pool</h2>
+                <div class="heading1">
+                    <span>
+                        <h4 class="poolHead">Add New Pooling:</h4>
+                        <P class="poolHead-p">Please Select and Fill Required Information.</P>
+                        <hr>
+                    </span>
+                </div>
                 <div class="container d-flex justify-content-center">
                     <form #productdata="ngForm">
                         <div class="form-group">
 
                             <div class="form-group">
                                 <div class="row row1">
-                                    <div class="col-6 col1">
-                                        <label>Select Collection</label>
-                                    </div>
-                                    <div class="col-6 col1">
-                                        <input type="text" class="form-control" (focus)="openRawCollection()" name="collectionCheckBoxNameString" [(ngModel)]="collectionCheckBoxNameString" required>
+                                    <div class="col-12 col1">
+                                        <input type="text" class="form-control" placeholder="Select Collection" (focus)="openRawCollection()" name="collectionCheckBoxNameString" [(ngModel)]="collectionCheckBoxNameString" required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="row row1">
-                                    <div class="col-6 col1">
-                                        <label>Select Executive</label>
-                                    </div>
-                                    <div class="col-6 col1">
-                                        <input type="text" name="staff_id" class="form-control" [(ngModel)]="selectedStaffName" (focus)="showDonorStaffModal()" required>
+
+                                    <div class="col-12 col1">
+                                        <input type="text" name="staff_id" class="form-control" placeholder="Select Executive" [(ngModel)]="selectedStaffName" (focus)="showDonorStaffModal()" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row row1">
-                                    <div class="col-6 col1">
-                                        <label>Total Volume(ml)</label>
-                                    </div>
-                                    <div class="col-6 col1">
-                                        <input type="number" min="1" name="total_volume" class="form-control" [(ngModel)]="createPoolModel.total_volume" required>
+
+                                    <div class="col-12 col1">
+                                        <input type="number" min="1" name="total_volume" placeholder="Total Volume(ml)" class="form-control" [(ngModel)]="createPoolModel.total_volume" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row row1">
-                                <div class="col-6 col1">
-                                    <label>Mixing Date</label>
-                                </div>
-
-                                <div class="col-6 col1">
-                                    <input type="date" name="mixing_date" class="form-control" [(ngModel)]="createPoolModel.mixing_date" required>
+                                <div class="col-12 col1">
+                                    <input type="date" name="mixing_date" class="form-control" placeholder="Mixing Date" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date" [(ngModel)]="createPoolModel.mixing_date" required>
+                                    <!-- <input type="date" name="collection_date" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date" placeholder="Collection Date" [(ngModel)]="date" required> -->
                                 </div>
                             </div>
                         </div>
+                        <<<<<<< HEAD=======>>>>>>> 8b529b046b95f9371159a486cf00035c1ca7dd9d
 
-                        <div class="error-msg" *ngIf="isErrorMsgVisible">
-                            <h2>
-                                {{errorMsg}}
-                            </h2>
-                        </div>
+                            <div class="error-msg" *ngIf="isErrorMsgVisible">
+                                <h2>
+                                    {{errorMsg}}
+                                </h2>
+                            </div>
 
                     </form>
                 </div>
             </div>
 
             <div class="modal-footer">
+
                 <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="newPool.hide()">Close</button>
                 <button type="button" class="btn btn-lg modalBtn2" (click)="createPool()">Save</button>
             </div>
@@ -135,44 +130,35 @@
                     <form #productdata="ngForm">
                         <div class="form-group">
                             <div class="row row1">
-                                <div class="col-6">
-                                    <label>Test Certificate Number</label>
-                                </div>
-                                <div class="col-6 col1">
-                                    <input type="text" name="test_cert_no" class="form-control" [(ngModel)]="testResultModel.test_cert_no">
+                                <div class="col-12 col1">
+                                    <input type="text" name="test_cert_no" class="form-control" placeholder="Test Certificate Number" [(ngModel)]="testResultModel.test_cert_no">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row row1">
-                                <div class="col-6">
-                                    <label>Test Result Date</label>
-                                </div>
-                                <div class="col-6 col1">
-                                    <input type="date" name="test_result_date" class="form-control" [(ngModel)]="testResultModel.test_result_date">
+
+                                <div class="col-12 col1">
+                                    <input type="date" name="test_result_date" class="form-control" placeholder="Test Result Date" [(ngModel)]="testResultModel.test_result_date" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row row1">
-                                <div class="col-6">
-                                    <label>Test Result</label>
-                                </div>
-                                <div class="col-6 col1">
+                                <div class="col-12 col1">
                                     <select name="test_result" id="test_result" [(ngModel)]="testResultModel.test_result">
+                                 <option value="">Test Result</option>       
                                 <option value=true>Pass</option>
                                 <option value=false>Fail</option>
-                              </select>
+                                </select>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row row1">
-                                <div class="col-6">
-                                    <label>Test Remarks</label>
-                                </div>
-                                <div class="col-6 col1">
-                                    <input type="text" name="test_remarks" class="form-control" [(ngModel)]="testResultModel.test_remarks">
+
+                                <div class="col-12 col1">
+                                    <input type="text" name="test_remarks" placeholder="Test Remarks" class="form-control" [(ngModel)]="testResultModel.test_remarks">
                                 </div>
                             </div>
                         </div>
@@ -193,13 +179,14 @@
     <div class="modal-dialog modal-fullscreen modal-dialog-centered">
         <div class="modal-content pt-5">
             <div class="modal-body text-center">
-                <div class="col-lg-12">
-                    <input type="text" name="search" placeholder="search here" [(ngModel)]="searchTerm">
+                <div class="col-sm py-5">
+                    <input type="text" name="search" placeholder="search here" [(ngModel)]="searchTerm" style="border-radius: 30px; font-weight: 100;">
+                    <i class="fa fa-search" aria-hidden="true"></i>
                 </div>
 
-                <table class="table table-hover table-striped text-start">
+                <table class="table table-hover table-bordered text-start">
                     <thead>
-                        <tr>
+                        <tr class="donorTableHead">
                             <th></th>
                             <!-- <th *ngFor="let header of rawCollectionHeader; index as i">
                                 {{header}}
@@ -241,15 +228,16 @@
     <div class="modal-dialog modal-fullscreen modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body text-center">
-                <div class="col-sm">
-                    <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
+                <div class="col-sm py-5">
+                    <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString" style="border-radius: 30px; font-weight: 100;">
+                    <i class="fa fa-search" aria-hidden="true"></i>
                 </div>
 
-                <table class="table table-hover table-striped text-start">
+                <table class="table table-hover table-bordered text-start">
                     <thead>
                         <tr>
                             <th></th>
-                            <th *ngFor="let header of staffHeader; index as i">{{header}}</th>
+                            <th class="donorTableHead" *ngFor="let header of staffHeader; index as i">{{header}}</th>
                         </tr>
                     </thead>
 
@@ -288,32 +276,26 @@
                     <form #poolTest="ngForm">
                         <div class="form-group">
                             <div class="row row1">
-                                <div class="col-6 col1">
-                                    <label>Test Sample Quantity</label>
-                                </div>
-                                <div class="col-6 col1">
-                                    <input type="number" min="1" name="test_sample_qty" class="form-control" [(ngModel)]="poolResultModal.test_sample_qty" required>
+
+                                <div class="col-12 col1">
+                                    <input type="number" min="1" name="test_sample_qty" placeholder="Test Sample Quantity" class="form-control" [(ngModel)]="poolResultModal.test_sample_qty" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row row1">
-                                <div class="col-6 col1">
-                                    <label>Test Sample Send Date</label>
-                                </div>
-                                <div class="col-6 col1">
-                                    <input type="date" name="test_sample_sent_date" class="form-control" [(ngModel)]="poolResultModal.test_sample_sent_date" required>
+
+                                <div class="col-12 col1">
+                                    <input type="date" name="test_sample_sent_date" placeholder="Test Sample Send Date" class="form-control" [(ngModel)]="poolResultModal.test_sample_sent_date" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row row1">
-                                <div class="col-6 col1">
-                                    <label>Testing Lab</label>
-                                </div>
-                                <div class="col-6 col1">
+
+                                <div class="col-12 col1">
                                     <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]="poolResultModal.testing_lab_id" required>
-                                        <option value="" selected ></option>
+                                        <option value="" selected >Select Testing Lab</option>
                                         <option *ngFor = "let labs of testingLabs" value={{labs.id}}>{{labs.name}}</option>
                                     </select>
                                 </div>

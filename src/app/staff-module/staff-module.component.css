@@ -2,57 +2,91 @@
     user-select: none;
 }
 
-.tophead {
+header {
     height: 65px;
-    background: #F25B87;
     display: flex;
     align-items: center;
-    padding-left: 50px
-}
-
-.brandlogo {
-    color: #fff;
-    font: size 2.1rem;
     padding-left: 50px;
-}
-
-.menulines {
-    font-size: 30px;
-    cursor: pointer;
-    margin-right: 50px;
-    color: #fff;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0px;
-    position: fixed;
-    top: 0;
+    background: #FFFFFF;
+    box-shadow: 0px 0.5px 4px rgba(0, 0, 0, 0.25);
     left: 0;
-    z-index: 1;
-    background: #F25B87;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: all 0.5s;
 }
 
-.sidenav a {
-    text-decoration: none;
-    font-size: 20px;
+.sidebar {
+    background: #10467E;
+    padding-top: 30px;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    transition: 0.5s;
+    transition-property: left;
+    z-index: 1;
+}
+
+.sidebar a {
     color: #fff;
     display: block;
-    padding: 20px 0 20px 10px;
-    white-space: nowrap;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property: background;
+    font-size: 20px;
+}
+
+.sidebar a:hover {
+    background: #7B61FF;
+}
+
+.sidebar i {
+    padding-right: 10px;
+}
+
+label #sidebar_btn {
+    z-index: 1;
+    color: #7E7CA8;
     cursor: pointer;
+    font-size: 25px;
 }
 
-.sidenav a:hover {
-    color: rgba(255, 255, 255, 0.7);
+#check:checked~.sidebar {
+    left: -190px;
 }
 
-.closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 40px!important;
+#check:checked~.sidebar a span {
+    display: none;
+}
+
+#check:checked~.sidebar a {
+    font-size: 20px;
+    margin-left: 170px;
+    width: 80px;
+}
+
+#check {
+    display: none;
+}
+
+.content {
+    margin-left: 250px;
+    transition: 0.5s;
+}
+
+#check:checked~.content {
+    margin-left: 60px;
+}
+
+@media only screen and (max-device-width: 480px) {
+    #sidebar_btn {
+        position: fixed;
+    }
+    .content {
+        margin-left: 0px !important;
+    }
+    #check:checked~.sidebar {
+        left: -90vw;
+    }
 }

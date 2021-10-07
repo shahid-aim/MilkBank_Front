@@ -1,25 +1,21 @@
-<div class="staff-main-container container-fluid p-0 m-0">
-    <header>
-        <div class="tophead">
-            <div>
-                <span class="menulines" (click)="openNav()">&#9776;</span>
-            </div>
-        </div>
-    </header>
+<input type="checkbox" id="check">
 
-    <div class="sidenav" id="mySidenav">
-        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">
-            &times;
-        </a>
-        <a (click)="routeAndClose('dashboard')">Dashboard</a>
-        <a (click)="routeAndClose('raw-collection')">Raw Collection</a>
-        <a (click)="routeAndClose('pooling')">Pooling</a>
-        <a (click)="routeAndClose('pasturization')">Pasturization</a>
-        <a (click)="routeAndClose('bottling')">Bottling</a>
-        <a (click)="routeAndClose('logout')">Logout</a>
-    </div>
+<header>
+    <label for="check">
+          <i class="fas fa-bars"id="sidebar_btn"></i>
+        </label>
+</header>
 
-    <div class="mainpart">
-        <router-outlet></router-outlet>
-    </div>
+<div class="sidebar">
+    <a (click)="routeAndClose('dashboard')"><i class="fas fa-desktop"></i><span> Dashboard</span></a>
+    <a (click)="routeAndClose('raw-collection')"><i class="fas fa-cogs"></i><span> Raw Collection</span></a>
+    <a (click)="routeAndClose('pooling')"><i class="fas fa-table"></i><span> Pooling</span></a>
+    <a (click)="routeAndClose('pasturization')"><i class="fas fa-th"></i><span> Pasturization</span></a>
+    <a (click)="routeAndClose('bottling')"><i class="fas fa-info-circle"></i><span> Bottling</span></a>
+    <a (click)="routeAndClose('logout')"><i class="fas fa-sliders-h"></i><span>Logout</span></a>
 </div>
+<div class="content">
+
+    <router-outlet></router-outlet>
+</div>
+<!-- </div> -->
