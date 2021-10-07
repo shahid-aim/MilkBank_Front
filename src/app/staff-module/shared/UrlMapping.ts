@@ -11,9 +11,12 @@ export const  ExternalUrlMappings = {
     GET_PASTURIZATION: "phase/get-pasturization",
     GET_STAFF : "staff/get-staff",
     GET_TESTING_LABS_NAME : "common/get-testing-labs-name",
-    UPDATE_PASTURIZATION_POST_RESULT:"phase/update-pasturization-post-result"
+    UPDATE_PASTURIZATION_POST_RESULT:"phase/update-pasturization-post-result",
 
     // GET_BOTTLE :
+    GET_PASTURIZATION_POOL : "phase/get-pasturization-pool",
+    CREATE_BOTTLE : "phase/create-bottle",
+    GET_BOTTLE : "phase/get-bottle"
 }
 
 export const  InternalUrlMappings = {

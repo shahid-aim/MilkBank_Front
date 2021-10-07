@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ExternalUrlMappings } from '../shared/UrlMapping';
-import { CreatePasturization, CreatePool, CreateRawCollection, PoolTest, TestResult,createBottling} from '../models/phase';
+import { CreatePasturization, CreatePool, CreateRawCollection, PoolTest, TestResult,CreateBottling} from '../models/phase';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -40,12 +40,6 @@ export class DashboardService {
   }
 
 
-  // for bottling
-  // getBottlePool(token : string){
-  //   return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings),{ headers : new HttpHeaders().set("Authorization",token)} )
-  // }
-
-
   getPool(token : string): Observable<any> {
     return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_POOL, { headers: new HttpHeaders().set("Authorization", token) })
   }
@@ -72,13 +66,6 @@ export class DashboardService {
 
   // // for bottling
 
-  createBottling(tokan : string , createbottling : createBottling):Observable<any> {
-    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings) 
-  }
-
-  getBottling():Observable<any> {
-    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings)
-  }
 
   updatePasturizationPostResult(token : string) : Observable<any>{
     return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.UPDATE_PASTURIZATION_POST_RESULT,{headers: new HttpHeaders().set("Authorization", token) })
@@ -86,6 +73,18 @@ export class DashboardService {
 
   addPoolTest(token : string, addTest: PoolTest): Observable<any> {
     return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.UPDATE_POOL_TEST, addTest, { headers: new HttpHeaders().set("Authorization", token) })
+  }
+
+  getBottle(token : string) :  Observable<any>{
+    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_BOTTLE, { headers: new HttpHeaders().set("Authorization", token) })
+  }
+
+  createBottle(token:string , createBottling : CreateBottling){
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.CREATE_BOTTLE, createBottling, { headers: new HttpHeaders().set("Authorization", token) })
+  }
+
+  getPasturizationPool(token : string, pasturzationId : number){
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.GET_PASTURIZATION_POOL, {"pasturization_id" : pasturzationId}, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
 }

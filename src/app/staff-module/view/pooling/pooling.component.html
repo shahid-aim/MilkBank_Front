@@ -13,7 +13,6 @@
         <table class="table table-hover table-striped table-responsive text-start">
             <thead>
                 <tr>
-
                     <th *ngFor="let header of poolHeader" class="px-4">
                         {{header}}
                     </th>
@@ -105,53 +104,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="form-group">
-                            <div class="row row1">
-                                <div class="col-6 col1">
-                                    <label>Total Units</label>
-                                </div>
-                                <div class="col-6 col1">
-                                    <input type="number" min="1" name="total_units" class="form-control" [(ngModel)]="createPoolModel.total_units" required>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <!-- <div class="form-group">
-                            <div class="row row1">
-                                <div class="col-6 col1">
-                                    <label>Test Sample Quantity</label>
-                                </div>
-                                <div class="col-6 col1">
-                                    <input type="number" min="1" name="test_sample_qty" class="form-control" [(ngModel)]="createPoolModel.test_sample_qty">
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="form-group">
-                            <div class="row row1">
-                                <div class="col-6 col1">
-                                    <label>Test Sample Send Date</label>
-                                </div>
-                                <div class="col-6 col1">
-                                    <input type="date" name="test_sample_sent_date" class="form-control" [(ngModel)]="createPoolModel.test_sample_sent_date">
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <!-- <div class="form-group">
-                            <div class="row row1">
-                                <div class="col-6 col1">
-                                    <label>Testing Lab</label>
-                                </div>
-                                <div class="col-6 col1">
-                                    <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]="createPoolModel.testing_lab_id">
-                                        <option value="" selected ></option>
-                                        
-                                        <option *ngFor = "let labs of testingLabs" value={{labs.id}}>{{labs.name}}</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div> -->
-
 
                         <div class="error-msg" *ngIf="isErrorMsgVisible">
                             <h2>

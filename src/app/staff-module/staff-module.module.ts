@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PoolingComponent } from './view/pooling/pooling.component';
 import { PasturisationComponent } from './view/pasturisation/pasturisation.component';
+import { BottlingComponent } from './view/bottling/bottling.component';
+
 @NgModule({
   declarations: [
     StaffModuleComponent,
@@ -16,6 +18,7 @@ import { PasturisationComponent } from './view/pasturisation/pasturisation.compo
     CollectionComponent,
     PoolingComponent,
     PasturisationComponent,
+    BottlingComponent
   ],
   imports: [
     CommonModule,

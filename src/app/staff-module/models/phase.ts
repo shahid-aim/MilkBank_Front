@@ -41,11 +41,13 @@ export class PoolTest{
     testing_lab_id : number
 
 }
-export class createBottling{
+export class CreateBottling{
     pasturization_id:number;
+    pool_id : number
     date_added:Date;
-   total_volume:any;
-   staff:string;
+    total_units : number
+    total_volume:any;
+    staff:number;
 }
 
 

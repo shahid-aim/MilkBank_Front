@@ -31,6 +31,8 @@ export class StaffModuleComponent implements OnInit {
       this._router.navigateByUrl("staff/" + InternalUrlMappings.POOLING)
     else if(routeTo == "pasturization")
       this._router.navigateByUrl("staff/" + InternalUrlMappings.PASTURIZATION)
+    else if(routeTo == "bottling")
+      this._router.navigateByUrl("staff/" + InternalUrlMappings.BOTTLING)
     else if(routeTo == "logout"){
       this._dashboardService.logoutUser()
     }

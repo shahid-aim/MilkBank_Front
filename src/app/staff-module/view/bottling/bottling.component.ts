@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { createBottling} from '../../models/phase';
+import { CreateBottling } from '../../models/phase';
 import { DashboardService } from '../../services/dashboard.service';
-
 
 @Component({
   selector: 'app-bottling',
@@ -10,121 +9,159 @@ import { DashboardService } from '../../services/dashboard.service';
   styleUrls: ['./bottling.component.css']
 })
 export class BottlingComponent implements OnInit {
-@ViewChild("bottlingForm" ) bottlingForm:ModalDirective
-@ViewChild("DonorDetailModal") DonorDetailModal:ModalDirective
-@ViewChild("bottlepool") bottlepool:ModalDirective
-@ViewChild("bottles") bottles:ModalDirective
-@ViewChild("bottle123")bottle123 :ModalDirective
+  @ViewChild("pasturizationModal") pasturizationModal: ModalDirective
+  @ViewChild("staffDetailModal") staffDetailModal: ModalDirective;
+  @ViewChild("bottleModal") bottleModal: ModalDirective
+  @ViewChild("pasturizationPoolModal") pasturizationPoolModal: ModalDirective
 
-selectedPool : any;
+  @ViewChild("bottlingForm") bottlingForm: ModalDirective
+  
+  selectedPool: any;
 
-  bottleData : any  = "";
-  bottleHeader : any = "";
-  searchString : string = "";
+  bottleData: any = "";
+  bottleHeader: any = "";
+
+  searchString: string = "";
   token: string;
+  
+  selectedStaff: string
 
-  pasturizationHeader:any;
-  pasturizationData:any;
+  pasturizationHeader: any;
+  pasturizationData: any;
+  pasturizationNativeId : string
+
+  removeIdIndex: number
+
+  poolArray: number[] = []
+  selectedPoolId : string
+  nativeSelectedPoolId : number
+  selectedPoolVolume : number
+  valueLessThanZero : boolean = false
+
+
+  staffHeader: any
+  staffData: any
 
   
-  removeIdIndex : number
-  poolArray : number[] = []
 
-  
-  createBottlingModal : createBottling = new  createBottling()
+  selectedStaffName : string
 
-  constructor(private _dashbordService : DashboardService) { }
+  past_pool_obj : any
+
+  createBottlingModal: CreateBottling = new CreateBottling()
+
+  constructor(private _dashboardService: DashboardService) { }
 
   ngOnInit(): void {
     this.token = localStorage.getItem("token")
-  
+    this.getPasturization()
+    this.getStaff()
+    this.getBottle()
   }
-//  API call
-
   
-  // getBottlePool(){
-  //  this._dashbordService.getBottle(this.token).subscribe(resp =>{
-  //    this.bottleHeader = resp.table_header
-  //    this.bottleData = resp.pool_obj
-  //  },
-  //  error =>{
-  //    if(error.status ==401){
-  //      this._dashbordService.logoutUser()
-  //    }
-   
-  //  })  
-   
-  // }
+  createBottling(){
+    this._dashboardService.createBottle(this.token, this.createBottlingModal).subscribe(resp => {
+      console.log(resp)
+    })
+  }
 
-  // getBottling(){
-  //   this._dashbordService.getBottling(this.token).subscribe(response => {
-  //     this.bottleHeader = response.table_header
-  //     this.bottleData = response.bottling_obj
-  //   },
-  //   error =>{
-  //     if(error.status == 401){
-  //        this._dashbordService.logoutUser()
-  //     }
-  //   })
+  getBottle(){
+    this._dashboardService.getBottle(this.token).subscribe(resp => {
+      console.log("resp -> ", resp);
+      this.bottleData = resp.bottle_obj
+    })
+  }
 
-  //  }
 
-   CreateBottling(){
-    this._dashbordService.createBottling(this.token,this.createBottlingModal).subscribe(response => {
-      this.bottlingForm.hide()
-    
+  getPasturization(){
+    this._dashboardService.getPasturization(this.token).subscribe(response => {
+      this.pasturizationHeader = response.table_headers
+      this.pasturizationData = response.pasturization_obj
     },
-    error =>{
-      if(error.status == 401){
-        this._dashbordService.logoutUser()
+    error => {
+      if (error.status == 401) {
+        this._dashboardService.logoutUser()
       }
     })
-   }
-
-  showDonorDetailModal(){
-    this.DonorDetailModal.show();
   }
 
-  selectHideBottlePool(){
-    this.createBottlingModal.pasturization_id ,this.selectedPool
-    this.bottlepool.hide()
+  // createBottling() {
+  //   this._dashboardService.createBottling(this.token, this.createBottlingModal).subscribe(response => {
+  //     this.bottlingForm.hide()
 
-  }
-  AddBottlePool(){
-    this.createBottlingModal,this.selectedPool
-    this.bottles.hide()
-  }
+  //   },
+  //     error => {
+  //       if (error.status == 401) {
+  //         this._dashboardService.logoutUser()
+  //       }
+  //     })
+  // }
 
-  selectHideBottlePool123(){
-   this.createBottlingModal,this.selectedPool
-   this.bottle123.hide()
-   }
-
-
-  showBottelPool(){
-    this.bottlepool.show()
-  }
-  showBottles()
-  {
-    this.bottles.show()
-  }
-  openCollectionForm(){
-    this.bottlingForm.show()
+  getStaff() {
+    this._dashboardService.getStaff(this.token).subscribe(response => {
+      console.log("staf", response);
+      this.staffHeader = response.table_headers
+      this.staffData = response.staff_obj
+    },
+      error => {
+        if (error.status == 401) {
+          this._dashboardService.logoutUser()
+        }
+      })
   }
 
-  showBottle123(){
-  this.bottle123.show()
-}
-
-
-selectPoolArray(id : number){
-  this.removeIdIndex = this.poolArray.indexOf(id)
-  if (this.removeIdIndex == -1) {
-    this.poolArray.push(id)
+  getPasturizationPool(){
+    let pasturization_id = this.createBottlingModal.pasturization_id
+    this._dashboardService.getPasturizationPool(this.token, pasturization_id).subscribe(resp => {
+      console.log("Psatu pool -> ", resp)
+      this.past_pool_obj = resp
+      this.pasturizationModal.hide()
+      this.bottleModal.show()
+    })
   }
-  else{
-    this.poolArray.splice(this.removeIdIndex, 1)
+
+  calculateVolumePerBottle(){
+    if(this.createBottlingModal.total_volume <= 0){
+      this.valueLessThanZero = true
+    }
+    else{
+      this.createBottlingModal.total_units = this.selectedPoolVolume / this.createBottlingModal.total_volume
+      console.log(this.createBottlingModal.total_units);
+      if (this.createBottlingModal.total_units == NaN || this.createBottlingModal.total_units == Infinity){
+        console.log("inside");
+        this.createBottlingModal.total_units = null
+      }
+    }    
   }
-  console.log(this.poolArray)
-}
+
+  // Model Open Close
+  selectPasturization(){
+    this.createBottlingModal.pasturization_id = Number(this.pasturizationNativeId)
+    this.pasturizationModal.hide()
+  }
+
+  selectPasturizationPoolModal(){
+    this.createBottlingModal.pool_id = this.nativeSelectedPoolId
+    
+    for(let element of this.past_pool_obj.pooling_obj){
+      if(element.id == this.nativeSelectedPoolId){
+        this.selectedPoolVolume = element.total_volume
+        break;
+      }
+    }
+    this.pasturizationPoolModal.hide()
+  }
+
+  selectIdAndCloseStaffModal() {
+    this.createBottlingModal.staff = Number(this.selectedStaff)
+
+    for (let s of this.staffData) {
+      if (s.id == this.selectedStaff) {
+        this.selectedStaffName = s.staff_full_name
+        break
+      }
+    }
+    this.staffDetailModal.hide()
+  }
+
 }
