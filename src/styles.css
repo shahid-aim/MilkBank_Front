@@ -5,12 +5,6 @@
     src: url(assets/DM_Sans/DMSans-Regular.ttf) format("truetype");
 }
 
-
-/* @font-face {
-    font-family: DM SansSce Bold;
-    src: url(assets/DM_Sans/DMSans-Bold.ttf) format("truetype");
-} */
-
 @font-face {
     font-family: DM SansSce Medium;
     src: url(assets/DM_Sans/DMSans-Medium.ttf) format("truetype");
@@ -20,7 +14,3 @@ html,
 body {
     height: 100%;
 }
-
-
-/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
- */

@@ -45,7 +45,7 @@ select {
 }
 
 .pastTableHead {
-    font-family: Nunito Sans;
+    font-family: DM SansSce Regular;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
@@ -80,7 +80,7 @@ select {
 
 .openCollectionBtn {
     background-color: #f25b87;
-    font-family: Nunito Sans;
+    font-family: DM SansSce Regular;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;

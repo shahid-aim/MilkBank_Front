@@ -92,18 +92,18 @@
                             </div>
                             <div class="row row1">
                                 <div class="col-12 col1">
-                                    <input type="date" name="mixing_date" class="form-control" placeholder="Mixing Date" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date" [(ngModel)]="createPoolModel.mixing_date" required>
+                                    <input type="date" name="mixing_date" class="form-control" placeholder="Mixing Date" [(ngModel)]="createPoolModel.mixing_date" required>
                                     <!-- <input type="date" name="collection_date" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date" placeholder="Collection Date" [(ngModel)]="date" required> -->
                                 </div>
                             </div>
                         </div>
-                        <<<<<<< HEAD=======>>>>>>> 8b529b046b95f9371159a486cf00035c1ca7dd9d
 
-                            <div class="error-msg" *ngIf="isErrorMsgVisible">
-                                <h2>
-                                    {{errorMsg}}
-                                </h2>
-                            </div>
+
+                        <div class="error-msg" *ngIf="isErrorMsgVisible">
+                            <h2>
+                                {{errorMsg}}
+                            </h2>
+                        </div>
 
                     </form>
                 </div>

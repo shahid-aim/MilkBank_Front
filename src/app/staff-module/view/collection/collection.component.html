@@ -108,7 +108,7 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th class="donorTableHead" *ngFor="let header of donorHeader; index as i">{{header}}</th>
+                            <th class="collectionTableHead" *ngFor="let header of donorHeader; index as i">{{header}}</th>
                         </tr>
                     </thead>
 
@@ -150,7 +150,7 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th class="donorTableHead" *ngFor="let header of staffHeader; index as i">{{header}}</th>
+                            <th class="collectionTableHead" *ngFor="let header of staffHeader; index as i">{{header}}</th>
                         </tr>
                     </thead>
 
@@ -168,7 +168,7 @@
                 </table>
 
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer modalButtons">
                 <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="staffDetailModal.hide()">Close</button>
                 <button type="button" class="btn btn-lg modalBtn2" (click)="selectIdAndCloseStaffModal()">Select</button>
 
