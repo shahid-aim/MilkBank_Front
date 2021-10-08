@@ -133,11 +133,27 @@ select {
         display: flex;
         justify-content: left;
     }
-}
-
-.donorTableHead {
-    background: #7E7CA821;
-    border-bottom: 2px solid #7E7CA8 !important;
+    .modalButtons {
+        padding-top: 30px;
+        /* border-top: 0.5px solid #BBBFC8; */
+    }
+    .heading1 {
+        width: auto;
+    }
+    .bottleHead-p {
+        display: none;
+    }
+    .fa-search {
+        content: "\f002";
+        position: relative;
+        color: #7E7CA8;
+        font-size: large;
+        left: 150px;
+        bottom: 35px;
+    }
+    .bottleHead {
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 320px) {
@@ -157,5 +173,26 @@ select {
         color: #7E7CA8;
         font-size: 20px;
         outline: 0;
+    }
+    .heading1 {
+        width: auto;
+    }
+    .modalButtons {
+        padding-top: 30px;
+        /* border-top: 0.5px solid #BBBFC8; */
+    }
+    .fa-search {
+        content: "\f002";
+        position: relative;
+        color: #7E7CA8;
+        font-size: large;
+        left: 150px;
+        bottom: 35px;
+    }
+    .bottleHead-p {
+        display: none;
+    }
+    .bottleHead {
+        text-align: center;
     }
 }
