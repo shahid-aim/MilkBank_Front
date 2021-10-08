@@ -11,7 +11,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DashboardService {
- 
+
   private screenTitle = new BehaviorSubject('default message');
   currentScreenTitle = this.screenTitle.asObservable();
   
