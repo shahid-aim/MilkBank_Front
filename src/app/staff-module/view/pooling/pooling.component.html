@@ -97,13 +97,12 @@
                                 </div>
                             </div>
                         </div>
-                        <<<<<<< HEAD=======>>>>>>> 8b529b046b95f9371159a486cf00035c1ca7dd9d
 
-                            <div class="error-msg" *ngIf="isErrorMsgVisible">
-                                <h2>
-                                    {{errorMsg}}
-                                </h2>
-                            </div>
+                        <div class="error-msg" *ngIf="isErrorMsgVisible">
+                            <h2>
+                                {{errorMsg}}
+                            </h2>
+                        </div>
 
                     </form>
                 </div>
@@ -148,8 +147,8 @@
                                 <div class="col-12 col1">
                                     <select name="test_result" id="test_result" [(ngModel)]="testResultModel.test_result">
                                  <option value="">Test Result</option>       
-                                <option value=true>Pass</option>
-                                <option value=false>Fail</option>
+                                <option value=true>Growth</option>
+                                <option value=false>No Growth</option>
                                 </select>
                                 </div>
                             </div>
@@ -266,7 +265,6 @@
 
 
 <!-- add test -->
-
 <div class="modal fade" bsModal #addTest="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -278,7 +276,7 @@
                             <div class="row row1">
 
                                 <div class="col-12 col1">
-                                    <input type="number" min="1" name="test_sample_qty" placeholder="Test Sample Quantity" class="form-control" [(ngModel)]="poolResultModal.test_sample_qty" required>
+                                    <input type="number" min="1" name="test_sample_qty" placeholder="Test Sample Quantity (ml)" class="form-control" [(ngModel)]="poolResultModal.test_sample_qty" required>
                                 </div>
                             </div>
                         </div>
