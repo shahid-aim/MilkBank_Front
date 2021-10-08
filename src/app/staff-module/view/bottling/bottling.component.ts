@@ -62,7 +62,9 @@ export class BottlingComponent implements OnInit {
   
   createBottling(){
     this._dashboardService.createBottle(this.token, this.createBottlingModal).subscribe(resp => {
-      console.log(resp)
+      this.getBottle()
+      this.bottleModal.hide()
+      this.bottlingForm.hide()
     })
   }
 
