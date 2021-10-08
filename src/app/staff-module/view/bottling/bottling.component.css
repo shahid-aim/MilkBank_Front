@@ -5,7 +5,7 @@
 form {
     text-align: start;
     background-color: #fff;
-    padding-top: 60px;
+    padding-top: 20px;
 }
 
 ::placeholder {
@@ -119,6 +119,13 @@ select {
     right: 48px;
     color: #7E7CA8;
     font-size: large;
+}
+
+.totalVolume {
+    color: #7E7CA8;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
 }
 
 @media screen and (max-width: 600px) {

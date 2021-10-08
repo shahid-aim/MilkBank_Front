@@ -70,7 +70,7 @@
                         <div class="row row1">
 
                             <div class="col-12 col1">
-                                <input type="text" name="staff" id="staff" placeholder="staff" [(ngModel)]="selectedStaffName" (focus)="staffDetailModal.show()">
+                                <input type="text" name="staff" id="staff" placeholder="Staff" [(ngModel)]="selectedStaffName" (focus)="staffDetailModal.show()">
                             </div>
                         </div>
                     </form>
@@ -144,38 +144,39 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
+                <div class="heading1">
+                    <span>
+                        <h4 class="bottleHead">Add New Bottles:</h4>
+                        <P class="bottleHead-p">Please Select and Fill Required Information.</P>
+                        <hr>
+                    </span>
+                </div>
 
                 <div class="container d-flex justify-content-center">
                     <form>
                         <div class="row row1">
-                            <div class="col-6 col1">
-                                <label>Select Pool</label>
-                            </div>
-                            <div class="col-6 col1">
-                                <input type="text" name="pooling_qty" id="pooling_qty" [(ngModel)]="createBottlingModal.pool_id" (focus)="pasturizationPoolModal.show()">
+
+                            <div class="col-12 col1">
+                                <input type="text" name="pooling_qty" id="pooling_qty" placeholder="Select Pool" [(ngModel)]="createBottlingModal.pool_id" (focus)="pasturizationPoolModal.show()">
                             </div>
                         </div>
 
                         <span>
-                            <p>Total Voulme {{this.selectedPoolVolume}}</p>
+                            <p class="totalVolume">Total Volume (ml) {{this.selectedPoolVolume}}</p>
                         </span>
 
                         <div class="row row1">
-                            <div class="col-6 col1">
-                                <label>Volume Per Bottle (ml)</label>
-                            </div>
-                            <div class="col-6 col1">
-                                <input type="number" name="bottle_2" id="bottle_2" [(ngModel)]="createBottlingModal.total_volume" (keyup)="calculateVolumePerBottle()">
+
+                            <div class="col-12 col1">
+                                <input type="number" name="bottle_2" id="bottle_2" placeholder="Volume Per Bottle (ml)" [(ngModel)]="createBottlingModal.total_volume" (keyup)="calculateVolumePerBottle()">
                                 <p *ngIf="valueLessThanZero"> Value must be greater than zero </p>
                             </div>
                         </div>
 
                         <div class="row row1">
-                            <div class="col-6 col1">
-                                <label>Total Bottles</label>
-                            </div>
-                            <div class="col-6 col1">
-                                <input type="number" name="bottle_1" id="bottle_1" [(ngModel)]="createBottlingModal.total_units">
+
+                            <div class="col-12 col1">
+                                <input type="number" name="bottle_1" id="bottle_1" placeholder="Total Bottles" [(ngModel)]="createBottlingModal.total_units">
                             </div>
                         </div>
 
@@ -185,7 +186,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="bottleModal.hide()">Close</button>
-                    <button type="button " class="btn btn-lg modalBtn2" (click)="createBottling()">Add Bottle</button>
+                    <button type="button " class="btn btn-lg modalBtn2" (click)="createBottling()">Add</button>
                 </div>
 
             </div>
@@ -238,7 +239,7 @@
     <div class="modal-dialog modal-fullscreen modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="col-sm">
+                <div class="col-sm text-center">
                     <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
                 </div>
 

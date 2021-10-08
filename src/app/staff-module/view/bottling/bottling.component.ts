@@ -70,7 +70,6 @@ export class BottlingComponent implements OnInit {
 
   getBottle(){
     this._dashboardService.getBottle(this.token).subscribe(resp => {
-      console.log("resp -> ", resp);
       this.bottleData = resp.bottle_obj
     })
   }
@@ -80,6 +79,8 @@ export class BottlingComponent implements OnInit {
     this._dashboardService.getPasturization(this.token).subscribe(response => {
       this.pasturizationHeader = response.table_headers
       this.pasturizationData = response.pasturization_obj
+      console.log(this.pasturizationData);
+      
     },
     error => {
       if (error.status == 401) {
