@@ -78,6 +78,15 @@ label #sidebar_btn {
     margin-left: 60px;
 }
 
+.screenTitle {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 35px;
+    padding-left: 42px;
+}
+
 @media only screen and (max-device-width: 480px) {
     #sidebar_btn {
         position: fixed;
