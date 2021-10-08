@@ -46,7 +46,6 @@ header {
 }
 
 label #sidebar_btn {
-    z-index: 1;
     color: #7E7CA8;
     cursor: pointer;
     font-size: 25px;

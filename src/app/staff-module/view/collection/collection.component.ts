@@ -48,6 +48,7 @@ export class CollectionComponent implements OnInit {
   constructor(private _dashboardService: DashboardService) { }
 
   ngOnInit(): void {
+    this._dashboardService.changeScreenTitle("Raw Collection")
     this.token = localStorage.getItem("token")
     this.getRawCollection()
     this.getDonorInfo()

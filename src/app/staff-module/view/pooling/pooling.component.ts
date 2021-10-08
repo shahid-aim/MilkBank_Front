@@ -59,6 +59,7 @@ export class PoolingComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this._dashboardService.changeScreenTitle("Pooling")
     this.token = localStorage.getItem("token")
     this.getPool()
     this.getRawCollection()

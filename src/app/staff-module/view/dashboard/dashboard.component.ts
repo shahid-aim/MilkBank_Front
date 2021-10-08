@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
   donorAppointmentNative : any
   token : string
 
+
   constructor(private _dashboardService : DashboardService) { }
 
   ngOnInit(): void {
@@ -22,6 +23,8 @@ export class DashboardComponent implements OnInit {
       console.log(this.tableHeaders)
       console.log(this.donorAppointmentNative)
     })
+
+    this._dashboardService.changeScreenTitle("Dashboard")
   }
 
 }

@@ -5,14 +5,22 @@ import { environment } from 'src/environments/environment';
 import { ExternalUrlMappings } from '../shared/UrlMapping';
 import { CreatePasturization, CreatePool, CreateRawCollection, PoolTest, TestResult,CreateBottling} from '../models/phase';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
-  [x: string]: any;
+ 
+  private screenTitle = new BehaviorSubject('default message');
+  currentScreenTitle = this.screenTitle.asObservable();
   
   constructor(private _httpClient: HttpClient, private _router: Router) {}
+
+  changeScreenTitle(screenTitle : string){
+    this.screenTitle.next(screenTitle)
+  }
+
 
   logoutUser() {
     localStorage.removeItem("token")

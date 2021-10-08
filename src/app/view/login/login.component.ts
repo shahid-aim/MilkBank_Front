@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   loginModel: Login = new Login()
 
   textFieldColor: "accent"
+  
 
   constructor(private _commonService: CommonService, private router: Router ,private spinner: NgxSpinnerService) { }
 

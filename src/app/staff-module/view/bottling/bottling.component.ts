@@ -53,6 +53,7 @@ export class BottlingComponent implements OnInit {
   constructor(private _dashboardService: DashboardService) { }
 
   ngOnInit(): void {
+    this._dashboardService.changeScreenTitle("Bottling")
     this.token = localStorage.getItem("token")
     this.getPasturization()
     this.getStaff()

@@ -23,13 +23,13 @@
     input[type=date],
     input[type=time],
     select {
-        width: 30VW;
+        width: 85vw;
         padding: 8px;
         box-sizing: border-box;
         border: 1px solid #7E7CA8;
         border-radius: 20px;
         color: #7E7CA8;
-        font-size: 18px;
+        font-size: 20px;
         outline: 0;
     }
     
