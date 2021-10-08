@@ -59,6 +59,7 @@ export class PasturisationComponent implements OnInit {
     this._dashboardService.getPasturization(this.token).subscribe(response => {
       this.pasturizationHeader = response.table_headers
       this.pasturizationData = response.pasturization_obj
+      console.log("pasturization data -> ", response)
     },
     error => {
       if (error.status == 401) {
@@ -72,7 +73,10 @@ export class PasturisationComponent implements OnInit {
     this._dashboardService.createPasturization(this.token, this.createPasturizationModal).subscribe(response => {
       this.getPasturization()
       this.pasturizationForm.hide()
-
+      this.createPasturizationModal = new CreatePasturization()
+      let el = <HTMLInputElement>document.getElementById("poolCheckBox");
+      el.checked = false
+      this.poolArray = []
     },
     error => {
       if (error.status == 401) {
@@ -108,7 +112,6 @@ export class PasturisationComponent implements OnInit {
     else{
       this.poolArray.splice(this.removeIdIndex, 1)
     }
-    console.log(this.poolArray)
   }
 
 }

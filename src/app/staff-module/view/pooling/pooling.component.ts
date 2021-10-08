@@ -118,7 +118,7 @@ export class PoolingComponent implements OnInit {
         this.createPoolModel = new CreatePool()
         this.selectedStaffName = ""
         this.collectionCheckBoxString = ""
-
+        this.collectionCheckBoxNameString = ""
         this.collectionCheckBox.forEach((id: number) => {
           let el = <HTMLInputElement>document.getElementById(id + "");
           el.checked = false
