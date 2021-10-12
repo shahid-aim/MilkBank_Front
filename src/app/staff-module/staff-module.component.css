@@ -37,9 +37,11 @@ header {
     font-size: 20px;
 }
 
+
+/* 
 .sidebar a:hover {
     background: #7B61FF;
-}
+} */
 
 .sidebar i {
     padding-right: 10px;
@@ -85,6 +87,10 @@ label #sidebar_btn {
     font-size: 26px;
     line-height: 35px;
     padding-left: 42px;
+}
+
+.active {
+    background: #7B61FF;
 }
 
 @media only screen and (max-device-width: 480px) {

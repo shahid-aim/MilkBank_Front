@@ -14,6 +14,9 @@ export class StaffModuleComponent implements OnInit {
   screenTitle: String = "";
   subscription : Subscription;
 
+  tab : any = 'tab1'
+ 
+
   constructor(private _dashboardService: DashboardService, private _router: Router) { }
 
   ngOnInit(): void {
@@ -21,11 +24,11 @@ export class StaffModuleComponent implements OnInit {
   }
 
   routeAndClose(routeTo: string) {
+  
 
     if (routeTo == "dashboard") {
       this.screenTitle = "Dashboard"
       this._router.navigateByUrl("staff/" + InternalUrlMappings.DASHBOARD)
-
     }
     else if (routeTo == "raw-collection")
       this._router.navigateByUrl("staff/" + InternalUrlMappings.RAW_COLLECTION)
@@ -41,7 +44,27 @@ export class StaffModuleComponent implements OnInit {
 
 
   }
-
-
+  onClick(check : any){
+   
+        if(check==1){
+          this.tab = 'tab1';
+        }else if(check==2){
+          this.tab = 'tab2';
+        }else if(check==3){
+          this.tab = 'tab3';
+        }else if(check==4){
+          this.tab = 'tab4';
+        }else if(check==5){
+          this.tab = 'tab5';
+        }else if(check==6){
+          this.tab = 'tab6';
+        }else if(check==7){
+          this.tab = 'tab7'
+        }
+       
+      
+    }
+  
+    
 }
 

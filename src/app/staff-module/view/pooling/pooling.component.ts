@@ -20,7 +20,7 @@ export class PoolingComponent implements OnInit {
 
   
   constructor(private _dashboardService: DashboardService) { }
-
+  isShown: boolean = false ; // hidden by default
   donor: any
   collectionCheckBox: number[] = []
   collectionCheckBoxString: string
@@ -254,6 +254,16 @@ export class PoolingComponent implements OnInit {
   showAddTest(id: number) {
     this.selectedPool = id
     this.addTest.show()
+  }
+
+
+ 
+
+
+  toggleShow() {
+  
+  this.isShown = ! this.isShown;
+  
   }
 
 }

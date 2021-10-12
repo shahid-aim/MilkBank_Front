@@ -89,18 +89,6 @@ export class BottlingComponent implements OnInit {
     })
   }
 
-  // createBottling() {
-  //   this._dashboardService.createBottling(this.token, this.createBottlingModal).subscribe(response => {
-  //     this.bottlingForm.hide()
-
-  //   },
-  //     error => {
-  //       if (error.status == 401) {
-  //         this._dashboardService.logoutUser()
-  //       }
-  //     })
-  // }
-
   getStaff() {
     this._dashboardService.getStaff(this.token).subscribe(response => {
       console.log("staf", response);
