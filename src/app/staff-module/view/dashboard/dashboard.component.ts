@@ -23,7 +23,6 @@ export class DashboardComponent implements OnInit {
       console.log(this.tableHeaders)
       console.log(this.donorAppointmentNative)
     })
-
     this._dashboardService.changeScreenTitle("Dashboard")
   }
 

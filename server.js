@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-// Serve only the static files form the dist directory
+// Serve only the static files form the dist directoryw
 app.use(express.static('./dist/lacto'));
 
 app.get('/*', (req, res) =>

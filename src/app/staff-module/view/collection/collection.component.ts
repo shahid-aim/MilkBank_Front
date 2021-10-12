@@ -25,7 +25,6 @@ export class CollectionComponent implements OnInit {
   time: any
 
 
-  rawCollectionHeader: any
   rawCollectionData: any
 
   staffHeader: any
@@ -73,7 +72,6 @@ export class CollectionComponent implements OnInit {
 
   getRawCollection() {
     this._dashboardService.getRawCollection(this.token).subscribe(response => {
-      this.rawCollectionHeader = response.table_headers
       this.rawCollectionData = response.raw_collection_obj
     },
       error => {
