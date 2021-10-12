@@ -11,17 +11,21 @@
 </header>
 
 <div class="sidebar">
-    <a (click)="routeAndClose('dashboard')"><img src="assets/Dashboard-Icon.svg" alt="Dashboard-Icon"><span> Dashboard</span></a>
-    <a (click)="routeAndClose('raw-collection')"><img src="assets/Raw-Collection-Icon.svg" alt="Raw-Collection-Icon">
+    <a (click)="routeAndClose('dashboard')" (click)="onClick(1)" [ngClass]="{'active': tab==='tab1'}"><img src="assets/Dashboard-Icon.svg" alt="Dashboard-Icon"><span> Dashboard</span></a>
+    <a (click)="routeAndClose('raw-collection')" (click)="onClick(2)" [ngClass]="{'active': tab==='tab2'}"><img src="assets/Raw-Collection-Icon.svg" alt="Raw-Collection-Icon">
         <span style="margin-left: 3px;"> Raw Collection</span></a>
-    <a (click)="routeAndClose('pooling')"><img src="assets/pooling-icon.svg" alt="Pooling-Icon"><span> Pooling</span></a>
-    <a (click)="routeAndClose('pasturization')"><img src="assets/pasturization-icon.svg" alt="Pasturization-Icon"><span> Pasturization</span></a>
-    <a (click)="routeAndClose('bottling')"><img src="assets/bottling.svg" alt="Bottling-icon"><span> Bottling</span></a>
-    <a (click)="routeAndClose('logout')"><img src="assets/logout-icon.svg" alt="Logout-Icon">
+    <a (click)="routeAndClose('pooling')" (click)="onClick(3)" [ngClass]="{'active': tab==='tab3'}"><img src="assets/pooling-icon.svg" alt="Pooling-Icon"><span> Pooling</span></a>
+    <a (click)="routeAndClose('pre-pasturization')" (click)="onClick(4)" [ngClass]="{'active': tab==='tab4'}"><img src="assets/pasturization-icon.svg" alt="Pasturization-Icon"><span>Pre-Pasturization</span></a>
+    <a (click)="routeAndClose('pasturization')" (click)="onClick(5)" [ngClass]="{'active': tab==='tab5'}"><img src="assets/pasturization-icon.svg" alt="Pasturization-Icon"><span> Pasturized</span></a>
+    <a (click)="routeAndClose('bottling')" (click)="onClick(6)" [ngClass]="{'active': tab==='tab6'}"><img src="assets/bottling.svg" alt="Bottling-icon"><span> Bottling</span></a>
+    <a (click)="routeAndClose('logout')" (click)="onClick(7)" [ngClass]="{'active': tab==='tab7'}"><img src="assets/logout-icon.svg" alt="Logout-Icon">
         <span style="margin-left: 3px;">Logout</span></a>
 </div>
+
 <div class="content">
 
-    <router-outlet></router-outlet>
+    <router-outlet>
+
+    </router-outlet>
 </div>
 <!-- </div> -->

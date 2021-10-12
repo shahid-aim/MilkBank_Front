@@ -10,6 +10,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PoolingComponent } from './view/pooling/pooling.component';
 import { PasturisationComponent } from './view/pasturisation/pasturisation.component';
 import { BottlingComponent } from './view/bottling/bottling.component';
+import { PrePasturizationComponent } from './view/pre-pasturization/pre-pasturization.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BottlingComponent } from './view/bottling/bottling.component';
     CollectionComponent,
     PoolingComponent,
     PasturisationComponent,
-    BottlingComponent
+    BottlingComponent,
+    PrePasturizationComponent
   ],
   imports: [
     CommonModule,

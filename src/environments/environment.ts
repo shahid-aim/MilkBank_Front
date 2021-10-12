@@ -5,7 +5,7 @@
 export const environment = {
   production: true,
   ASSET_URL : "lacto/",
-  BASE_URL : "http://192.168.0.176:8000/"
+  BASE_URL : "https://lacto-be.herokuapp.com/"
 };
 /*
  * For easier debugging in development mode, you can import the following file
