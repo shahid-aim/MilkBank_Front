@@ -1,6 +1,4 @@
 <div class="container-fluid">
-
-
     <div class="col-12 col2 py-4">
         <button class="btn openCollectionBtn" (click)="bottlingForm.show()">
                 <i class="fa fa-plus" aria-hidden="true"></i> New Bottle</button>
@@ -207,7 +205,10 @@
                         <thead>
                             <tr class="bottelRow">
                                 <th></th>
-                                <th *ngFor="let header of staffHeader; index as i">{{header}}</th>
+                                <!-- <th *ngFor="let header of staffHeader; index as i">{{header}}</th> -->
+                                <th>Hospital Id </th>
+                                <th>Name</th>
+                                <th>Contact</th>
                             </tr>
                         </thead>
 
@@ -239,8 +240,9 @@
     <div class="modal-dialog modal-fullscreen modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="col-sm text-center">
-                    <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
+                <div class="col-sm text-center py-5">
+                    <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString" style="border-radius: 30px; font-weight: 100;">
+                    <i class="fa fa-search" aria-hidden="true"></i>
                 </div>
 
                 <div class="table-responsive">

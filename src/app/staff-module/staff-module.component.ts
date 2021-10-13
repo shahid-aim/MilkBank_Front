@@ -15,14 +15,15 @@ export class StaffModuleComponent implements OnInit {
   subscription : Subscription;
 
   tab : any = 'tab1'
- 
 
   constructor(private _dashboardService: DashboardService, private _router: Router) { }
 
   ngOnInit(): void {
     this.subscription = this._dashboardService.currentScreenTitle.subscribe(screenTitle => this.screenTitle = screenTitle)
+    this.tab = localStorage.getItem('tab');
+  
   }
-
+ 
   routeAndClose(routeTo: string) {
   
 

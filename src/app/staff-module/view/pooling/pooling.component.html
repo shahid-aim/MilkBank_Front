@@ -8,11 +8,13 @@
     <div class="table-responsive">
         <table class="table table-hover table-bordered text-start">
             <thead>
-                <tr>
-
-                    <th *ngFor="let header of poolHeader" class="px-4 poolTableHead">
+                <tr class="px-4 poolTableHead">
+                    <!-- <th *ngFor="let header of poolHeader" class="px-4 poolTableHead">
                         {{header}}
-                    </th>
+                    </th> -->
+                    <th>Mixing Date</th>
+                    <th>Total Volume</th>
+
                 </tr>
             </thead>
 
@@ -242,9 +244,12 @@
 
                 <table class="table table-hover table-bordered text-start">
                     <thead>
-                        <tr>
+                        <tr class="donorTableHead">
                             <th></th>
-                            <th class="donorTableHead" *ngFor="let header of staffHeader; index as i">{{header}}</th>
+                            <!-- <th class="donorTableHead" *ngFor="let header of staffHeader; index as i">{{header}}</th> -->
+                            <th>Hospital Id</th>
+                            <th>Name</th>
+                            <th>Contact</th>
                         </tr>
                     </thead>
 

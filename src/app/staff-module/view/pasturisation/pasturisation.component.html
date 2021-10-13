@@ -8,10 +8,14 @@
         <div class="collection-table">
             <table class="table table-bordered table-hover text-start">
                 <thead>
-                    <tr>
-                        <th *ngFor="let header of pasturizationHeader; index as i" class="px-4 pastTableHead">
+                    <tr class="px-4 pastTableHead">
+                        <!-- <th *ngFor="let header of pasturizationHeader; index as i" class="px-4 pastTableHead">
                             {{header}}
-                        </th>
+                        </th> -->
+                        <th>Pasturization Date</th>
+                        <th>Pre Result</th>
+                        <th>Post Result</th>
+                        <th>pooling</th>
                     </tr>
                 </thead>
 
@@ -99,11 +103,17 @@
 
                     <table class="table table-hover table-bordered text-start">
                         <thead>
-                            <tr>
+                            <tr class="px-4 donorTableHead">
                                 <th></th>
-                                <th *ngFor="let header of poolHeader" class="px-4 donorTableHead">
+                                <!-- <th *ngFor="let header of poolHeader" class="px-4 donorTableHead">
                                     {{header}}
-                                </th>
+                                </th> -->
+                                <th>Mixing Date</th>
+                                <th>Total Volume</th>
+                                <th>Testing Lab</th>
+                                <th>Test Sample Sent Date</th>
+                                <th>Test Result</th>
+
                             </tr>
                         </thead>
 
