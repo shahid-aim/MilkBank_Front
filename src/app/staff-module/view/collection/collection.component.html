@@ -118,9 +118,14 @@
 
                 <table class="table table-hover table-bordered">
                     <thead>
-                        <tr>
+                        <tr class="collectionTableHead">
                             <th></th>
-                            <th class="collectionTableHead" *ngFor="let header of donorHeader; index as i">{{header}}</th>
+                            <!-- <th class="collectionTableHead" *ngFor="let header of donorHeader; index as i">{{header}}</th> -->
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Mobile No</th>
+                            <th>Email</th>
                         </tr>
                     </thead>
 
@@ -160,9 +165,12 @@
                 <h3 class="selectDonor">Select Executive:</h3>
                 <table class="table table-hover table-bordered ">
                     <thead>
-                        <tr>
+                        <tr class="collectionTableHead">
                             <th></th>
-                            <th class="collectionTableHead" *ngFor="let header of staffHeader; index as i">{{header}}</th>
+                            <!-- <th class="collectionTableHead" *ngFor="let header of staffHeader; index as i">{{header}}</th> -->
+                            <th>Hospital Id</th>
+                            <th>Name</th>
+                            <th>Contact</th>
                         </tr>
                     </thead>
 
