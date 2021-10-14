@@ -48,6 +48,7 @@
                         </ng-template>
 
                     </td>
+
                 </tr>
             </tbody>
         </table>
@@ -99,6 +100,7 @@
                                     <!-- <input type="date" name="collection_date" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date" placeholder="Collection Date" [(ngModel)]="date" required> -->
                                 </div>
                             </div>
+
                         </div>
 
                         <div class="error-msg" *ngIf="isErrorMsgVisible">
@@ -204,17 +206,22 @@
                     <tbody>
                         <tr *ngFor="let data of rawCollectionData | filter : searchTerm">
                             <td>
-                                <input type="checkbox" name="collectionCheckBox" id={{data.id}} (click)="makeRawSelection(data.id, data.donor_full_name)" (click)="toggleShow()">
+                                <input type="checkbox" name="collectionCheckBox" id={{data.id}} (click)="makeRawSelection(data.id, data.donor_full_name)" #chkEnable ngModel type="checkbox">
+                                <!-- <input #chkEnable ngModel type="checkbox" /> -->
                             </td>
 
                             <td>{{data.donor_full_name}}</td>
                             <!-- <td>{{data.receiving_site}}</td> -->
                             <td>{{data.collection_date | date:"dd/MM/yyyy"}}</td>
-                            <td>{{data.volume_collected}}
-
-                            </td>
+                            <td>{{data.volume_collected}}</td>
                             <td>
-                                <input type="text" id="txt-volume-used" *ngIf="isShown" />
+                                <ng-container>
+                                    <td>
+                                        <input type="text" placeholder="Enter volume" [hidden]="!chkEnable.checked" id="txt-volume-used" />
+                                        <!-- <input type="text" id="txt-volume-used" *ngIf="isShown"> -->
+                                    </td>
+
+                                </ng-container>
 
                             </td>
                         </tr>

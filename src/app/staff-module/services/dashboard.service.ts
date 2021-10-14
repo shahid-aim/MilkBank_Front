@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ExternalUrlMappings } from '../shared/UrlMapping';
-import { CreatePasturization, CreatePool, CreateRawCollection, PoolTest, TestResult,CreateBottling} from '../models/phase';
+import { CreatePasturization, CreatePool, CreateRawCollection, PoolTest, TestResult,CreateBottling, Paginator} from '../models/phase';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
@@ -27,6 +27,8 @@ export class DashboardService {
     this._router.navigateByUrl("/login")
   }
 
+
+
   getStaff(token: string): Observable<any> {
     return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_STAFF, { headers: new HttpHeaders().set("Authorization", token) })
   }
@@ -35,8 +37,8 @@ export class DashboardService {
     return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_LATEST_DONOR_APPOINTMENT, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
-  getRawCollection(token: string): Observable<any> {
-    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_RAW_COLLECTION, { headers: new HttpHeaders().set("Authorization", token) })
+  getRawCollection(token: string, paginator : Paginator): Observable<any> {
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.GET_RAW_COLLECTION , paginator, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
   createRawCollection(token: string, createRawCollection: CreateRawCollection): Observable<any> {
@@ -48,8 +50,8 @@ export class DashboardService {
   }
 
 
-  getPool(token : string): Observable<any> {
-    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_POOL, { headers: new HttpHeaders().set("Authorization", token) })
+  getPool(token : string ,pagination : Paginator): Observable<any> {
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.GET_POOL, pagination ,{ headers: new HttpHeaders().set("Authorization", token) })
   }
 
   createPool(token : string, createPool: CreatePool): Observable<any> {

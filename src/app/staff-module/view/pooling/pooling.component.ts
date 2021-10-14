@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { CreatePool, PoolTest, TestResult } from '../../models/phase';
+import { CreatePool, Paginator, PoolTest, TestResult } from '../../models/phase';
 import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
@@ -21,6 +21,7 @@ export class PoolingComponent implements OnInit {
   
   constructor(private _dashboardService: DashboardService) { }
   isShown: boolean = false ; // hidden by default
+  
   donor: any
   collectionCheckBox: number[] = []
   collectionCheckBoxString: string
@@ -56,9 +57,13 @@ export class PoolingComponent implements OnInit {
   testResultModel: TestResult = new TestResult()
   // for pasturization post result
   poolResultModal: PoolTest = new PoolTest()
-
+  paginator : Paginator = new Paginator()
 
   ngOnInit(): void {
+
+    this.paginator.page_start = 0
+    this.paginator.page_end = 10
+
     this._dashboardService.changeScreenTitle("Pooling")
     this.token = localStorage.getItem("token")
     this.getPool()
@@ -70,10 +75,11 @@ export class PoolingComponent implements OnInit {
   // API 
 
   getPool() {
-    this._dashboardService.getPool(this.token).subscribe(resp => {
+    this._dashboardService.getPool(this.token ,this.paginator).subscribe(resp => {
       this.poolHeader = resp.table_header
       this.poolData = resp.pool_obj
-      console.log(this.poolData);
+      // console.log(this.poolData);
+      console.log("pagination ",resp)
     },
       error => {
         if (error.status == 401) {
@@ -146,7 +152,7 @@ export class PoolingComponent implements OnInit {
   }
 
   getRawCollection() {
-    this._dashboardService.getRawCollection(this.token).subscribe(response => {
+    this._dashboardService.getRawCollection(this.token, this.paginator).subscribe(response => {
       this.rawCollectionHeader = response.table_headers
       this.rawCollectionData = response.raw_collection_obj
     },
@@ -259,11 +265,6 @@ export class PoolingComponent implements OnInit {
 
  
 
-
-  toggleShow() {
   
-  this.isShown = ! this.isShown;
-  
-  }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { CreatePasturization, TestResult } from '../../models/phase';
+import { CreatePasturization, Paginator, TestResult } from '../../models/phase';
 import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
@@ -30,10 +30,14 @@ export class PasturisationComponent implements OnInit {
   poolHeader :any;
   
   createPasturizationModal : CreatePasturization = new CreatePasturization()
+  pagination : Paginator =new Paginator()
 
   constructor(private _dashboardService : DashboardService) { }
 
   ngOnInit(): void {
+    this.pagination.page_start=0
+    this.pagination.page_end=10
+
     this._dashboardService.changeScreenTitle("Pasturization")
     this.token = localStorage.getItem("token")
     this.getPasturization()
@@ -43,9 +47,10 @@ export class PasturisationComponent implements OnInit {
   // Api Call
 
   getPool(){
-    this._dashboardService.getPool(this.token).subscribe(resp => {
+    this._dashboardService.getPool(this.token ,this.pagination).subscribe(resp => {
       this.poolHeader = resp.table_header
       this.poolData = resp.pool_obj
+      console.log("pagination",resp)
     },
     error => {
       if (error.status == 401) {

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { CreateRawCollection } from '../../models/phase';
+import { CreateRawCollection, Paginator } from '../../models/phase';
 import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class CollectionComponent implements OnInit {
   date: Date
   time: any
 
-
+ 
   rawCollectionData: any
 
   staffHeader: any
@@ -44,9 +44,14 @@ export class CollectionComponent implements OnInit {
   isErrorMsgVisible: boolean = false
 
   createRawCollectionModal: CreateRawCollection = new CreateRawCollection()
+  paginator : Paginator = new Paginator()
   constructor(private _dashboardService: DashboardService) { }
 
   ngOnInit(): void {
+
+    this.paginator.page_start = 0
+    this.paginator.page_end = 10
+
     this._dashboardService.changeScreenTitle("Raw Collection")
     this.token = localStorage.getItem("token")
     this.getRawCollection()
@@ -59,7 +64,6 @@ export class CollectionComponent implements OnInit {
 
   getStaff() {
     this._dashboardService.getStaff(this.token).subscribe(response => {
-      console.log("staf", response);
       this.staffHeader = response.table_headers
       this.staffData = response.staff_obj
     },
@@ -71,9 +75,11 @@ export class CollectionComponent implements OnInit {
   }
 
   getRawCollection() {
-    this._dashboardService.getRawCollection(this.token).subscribe(response => {
+    this._dashboardService.getRawCollection(this.token, this.paginator).subscribe(response => {
       this.rawCollectionData = response.raw_collection_obj
-    },
+    console.log(response)
+     
+     },
       error => {
         if (error.status == 401) {
           this._dashboardService.logoutUser()
@@ -81,6 +87,7 @@ export class CollectionComponent implements OnInit {
       })
   }
 
+  
   getDonorInfo() {
     this._dashboardService.getDonorInfo(this.token).subscribe(response => {
       this.donorHeader = response.table_header

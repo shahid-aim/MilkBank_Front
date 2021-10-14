@@ -18,6 +18,7 @@ export class CreatePool{
     staff_id : number
     testing_lab_id : number
     raw_collection_id : number[]
+   
 }
 
 export class TestResult{
@@ -49,5 +50,8 @@ export class CreateBottling{
     total_volume:any;
     staff:number;
 }
-
+export class Paginator{
+    "page_start" : number
+    "page_end" :number
+}
 
