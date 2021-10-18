@@ -12,13 +12,13 @@
                         Donor
                     </th>
                     <th class="px-4 rowTableHead">
-                        Receiving Site
-                    </th>
-                    <th class="px-4 rowTableHead">
                         Staff
                     </th>
                     <th class="px-4 rowTableHead">
                         Volume Collected
+                    </th>
+                    <th class="px-4 rowTableHead">
+                        Volume Left
                     </th>
                     <th class="px-4 rowTableHead">
                         Collection Date
@@ -29,9 +29,9 @@
             <tbody>
                 <tr *ngFor="let data of rawCollectionData">
                     <td class="px-4">{{data.donor_full_name}}</td>
-                    <td class="px-4">{{data.receiving_site}}</td>
                     <td class="px-4">{{data.staff_name}}</td>
                     <td class="px-4">{{data.volume_collected}}</td>
+                    <td class="px-4">{{data.volume_left}}</td>
                     <td class="px-4">{{data.collection_date | date:"dd/MM/yyyy"}}</td>
                 </tr>
             </tbody>

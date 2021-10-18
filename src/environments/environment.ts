@@ -5,7 +5,7 @@
 export const environment = {
   production: true,
   ASSET_URL : "lacto/",
-  BASE_URL : "http://192.168.1.162:8000/"
+  BASE_URL : "http://localhost:8000/"
 };
 /*
  * For easier debugging in development mode, you can import the following file
