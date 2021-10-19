@@ -27,9 +27,9 @@ export class PoolRawCollectionId{
 
 export class CreatePasturization{
     pasturization_date:Date;
-    pre_result:boolean;
+    pre_result:Boolean;
     pooling : number[];
-
+    temprature : number
 }
 
 export class CreateBottling{
