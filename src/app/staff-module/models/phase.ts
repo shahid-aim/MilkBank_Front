@@ -51,3 +51,20 @@ export class PasturizationPaginator{
     "page_start" : number
     "page_end" :number
 }
+
+export class PasturizationTest{
+    id : number
+    test_sample_qty : number
+    test_sample_sent_date : Date
+    testing_lab_id : number
+
+}
+
+export class TestResult{
+    id : number
+    test_cert_no : string
+    test_result_date : Date
+    test_result : boolean
+    test_remarks : string
+}
+

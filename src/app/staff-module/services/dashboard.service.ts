@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ExternalUrlMappings } from '../shared/UrlMapping';
-import { CreatePasturization, CreatePool, CreateRawCollection, CreateBottling, Paginator, PasturizationPaginator} from '../models/phase';
+import { CreatePasturization, CreatePool, CreateRawCollection, CreateBottling, Paginator, PasturizationPaginator, TestResult, PasturizationTest} from '../models/phase';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
@@ -87,5 +87,16 @@ export class DashboardService {
   getPasturizationPool(token : string, pasturzationId : number){
     return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.GET_PASTURIZATION_POOL, {"pasturization_id" : pasturzationId}, { headers: new HttpHeaders().set("Authorization", token) })
   }
+
+
+  addPoolTest(token : string, addTest: PasturizationTest): Observable<any> {
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.UPDATE_POOL_TEST, addTest, { headers: new HttpHeaders().set("Authorization", token) })
+  }
+
+  setTestResult(token : string, testResult: TestResult): Observable<any> {
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.SET_TEST_RESULT, testResult, { headers: new HttpHeaders().set("Authorization", token) })
+  }
+
+
 
 }

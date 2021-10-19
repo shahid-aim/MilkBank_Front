@@ -8,8 +8,8 @@
         <div class="collection-table">
             <table class="table table-bordered table-hover text-start">
                 <thead>
-                    <tr>
-                        <th>id</th>
+                    <tr class="pastTableHead">
+                        <th>Id</th>
                         <th>Date</th>
                         <th>Pre Result</th>
                         <th>Pooling</th>
@@ -22,10 +22,140 @@
                         <td class="px-4">{{pd.pasturization_date}}</td>
                         <td class="px-4">{{pd.pre_result}}</td>
                         <td class="px-4">{{pd.pool}}</td>
+                        <td class="px-4 testing_lab" *ngIf="pd.testing_lab != null">{{pd.testing_lab}}</td>
+                        <td class="px-4 test_sample_sent_date" *ngIf="pd.test_sample_sent_date != null">
+                            {{pd.test_sample_sent_date| date:"dd/MM/yyyy"}}
+                        </td>
+                        <td class="px-4 test_result" *ngIf="pd.test_result != null">
+                            <span *ngIf="pd.test_result == true else notAcceptable">
+                                Growth
+                            </span>
+                            <ng-template #notAcceptable>
+                                <span *ngIf="pd.test_result != null">
+                                    No Growth
+                                </span>
+                            </ng-template>
+                        </td>
+                        <td class="px-4" *ngIf="pd.test_result ==  null">
+                            <a *ngIf="pd.testing_lab == null else TestResult" class="addTest" (click)="showAddTest(pd.id)">
+                                Add Test
+                            </a>
+
+                            <ng-template #TestResult>
+                                <a class="btn-sm addResult" (click)="addTestResult(pd.id)">
+                                    Add Result
+                                </a>
+                            </ng-template>
+
+                        </td>
+
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
+</div>
+<!-- Add Result-->
+<div class="modal fade" bsModal #testResult="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <h2 class="addResultHeading">Add Result</h2>
+                <div class="container d-flex justify-content-center">
+                    <form #productdata="ngForm">
+                        <div class="form-group">
+                            <div class="row row1">
+
+                                <div class="col-12">
+                                    <input type="text" placeholder="Test Certificate Number" name="test_cert_no" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row row1">
+
+                                <div class="col-12 col1">
+                                    <input type="date" placeholder="Test Result Date" name="test_result_date" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-12 col1">
+                                    <select name="test_result" id="test_result" aria-placeholder="Test Result">
+                                                <option value=true>Pass</option>
+                                                <option value=false>Fail</option>
+                                              </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row row1">
+
+                                <div class="col-12 col1">
+                                    <input type="text" name="test_remarks" placeholder="Test Remark" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="testResult.hide()">Close</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="setTestResult()">Update</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- add test -->
+
+<div class="modal fade" bsModal #addTest="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2 class="addResultHeading">Add Test</h2>
+                <div class="container d-flex justify-content-center">
+                    <form #poolTest="ngForm">
+                        <div class="form-group">
+                            <div class="row row1">
+
+                                <div class="col-12">
+                                    <input type="number" min="1" name="test_sample_qty" placeholder="Test Sample Quantity" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row row1">
+
+                                <div class="col-12">
+                                    <input type="date" name="test_sample_sent_date" placeholder="Test Sample Send Date" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row row1">
+
+                                <div class="col-12">
+                                    <select name="testing_lab_id" id="testing_lab_id" class="form-control" required>
+                                        <option value="" selected >Testing Lab</option>
+                                        <option>maria testing lab</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="addTest.hide()">Close</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="addPoolTest()">Update</button>
+            </div>
+
+        </div>
+    </div>
 </div>

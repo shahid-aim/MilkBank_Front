@@ -126,19 +126,21 @@ select {
 }
 
 .addResult {
-    font-size: 16px;
-    line-height: 22px;
-    text-align: center;
-    text-decoration-line: underline;
-    color: #7B61FF;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #10467E;
 }
 
 .addTest {
-    font-size: 16px;
-    line-height: 22px;
-    text-align: center;
-    text-decoration-line: underline;
-    color: #7B61FF;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #10467E;
 }
 
 .modal-footer {
