@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { CreatePasturization, Paginator} from '../../models/phase';
+import { CreatePasturization, Paginator, PasturizationPaginator} from '../../models/phase';
 import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
@@ -30,13 +30,13 @@ export class PasturisationComponent implements OnInit {
   poolHeader :any;
   
   createPasturizationModal : CreatePasturization = new CreatePasturization()
-  pagination : Paginator =new Paginator()
+  pasturizationPaginator : PasturizationPaginator = new PasturizationPaginator()
 
   constructor(private _dashboardService : DashboardService) { }
 
   ngOnInit(): void {
-    this.pagination.page_start=0
-    this.pagination.page_end=10
+    this.pasturizationPaginator.page_start=0
+    this.pasturizationPaginator.page_end=10
 
     this._dashboardService.changeScreenTitle("Pasturization")
     this.token = localStorage.getItem("token")
@@ -47,10 +47,10 @@ export class PasturisationComponent implements OnInit {
   // Api Call
 
   getPool(){
-    this._dashboardService.getPool(this.token ,this.pagination).subscribe(resp => {
+    this._dashboardService.getPool(this.token ,this.pasturizationPaginator).subscribe(resp => {
       this.poolHeader = resp.table_header
       this.poolData = resp.pool_obj
-      console.log("pagination",resp)
+      console.log("pasturizationPaginator",resp)
     },
     error => {
       if (error.status == 401) {
@@ -61,7 +61,7 @@ export class PasturisationComponent implements OnInit {
 
 
   getPasturization(){
-    this._dashboardService.getPasturization(this.token).subscribe(response => {
+    this._dashboardService.getPasturization(this.token, this.pasturizationPaginator).subscribe(response => {
       this.pasturizationHeader = response.table_headers
       this.pasturizationData = response.pasturization_obj
       console.log("pasturization data -> ", response)

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ExternalUrlMappings } from '../shared/UrlMapping';
-import { CreatePasturization, CreatePool, CreateRawCollection, CreateBottling, Paginator} from '../models/phase';
+import { CreatePasturization, CreatePool, CreateRawCollection, CreateBottling, Paginator, PasturizationPaginator} from '../models/phase';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
@@ -62,8 +62,8 @@ export class DashboardService {
     return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.CREATE_PASTURIZATION, createPasturization, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
-  getPasturization(token: string): Observable<any> {
-    return this._httpClient.get(environment.BASE_URL + ExternalUrlMappings.GET_PASTURIZATION, { headers: new HttpHeaders().set("Authorization", token) })
+  getPasturization(token: string, pasturizationPaginator : PasturizationPaginator): Observable<any> {
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.GET_PASTURIZATION, pasturizationPaginator, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
   getTestingLabsName(token : string) : Observable<any>{

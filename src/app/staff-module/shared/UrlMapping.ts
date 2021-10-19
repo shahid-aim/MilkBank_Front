@@ -25,5 +25,6 @@ export const  InternalUrlMappings = {
     RAW_COLLECTION : "raw-collection",
     POOLING : "pooling",
     PASTURIZATION : "pasturization",
+    PRE_PASTURIZAION : "pre-pasturization",
     BOTTLING : "bottling"
 }

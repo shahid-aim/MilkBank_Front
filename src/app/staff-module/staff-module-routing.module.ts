@@ -7,6 +7,7 @@ import { CollectionComponent } from './view/collection/collection.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { PasturisationComponent } from './view/pasturisation/pasturisation.component';
 import { PoolingComponent } from './view/pooling/pooling.component';
+import { PrePasturizationComponent } from './view/pre-pasturization/pre-pasturization.component';
 
 const routes: Routes = [
   { path: '', component: StaffModuleComponent,
@@ -15,6 +16,7 @@ const routes: Routes = [
       {path : InternalUrlMappings.RAW_COLLECTION, component : CollectionComponent},
       {path : InternalUrlMappings.POOLING, component : PoolingComponent},
       {path : InternalUrlMappings.PASTURIZATION,component:PasturisationComponent},
+      {path : InternalUrlMappings.PRE_PASTURIZAION,component:PrePasturizationComponent},
       {path : InternalUrlMappings.BOTTLING, component : BottlingComponent},
     ]
   },

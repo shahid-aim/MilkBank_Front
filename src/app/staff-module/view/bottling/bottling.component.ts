@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { CreateBottling } from '../../models/phase';
+import { CreateBottling, PasturizationPaginator } from '../../models/phase';
 import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
@@ -49,10 +49,15 @@ export class BottlingComponent implements OnInit {
   past_pool_obj : any
 
   createBottlingModal: CreateBottling = new CreateBottling()
+  pasturizationPaginator : PasturizationPaginator = new PasturizationPaginator()
+
 
   constructor(private _dashboardService: DashboardService) { }
 
   ngOnInit(): void {
+    this.pasturizationPaginator.page_start = 0
+    this.pasturizationPaginator.page_end = 10
+    this.pasturizationPaginator.screen = "post"
     this._dashboardService.changeScreenTitle("Bottling")
     this.token = localStorage.getItem("token")
     this.getPasturization()
@@ -76,7 +81,7 @@ export class BottlingComponent implements OnInit {
 
 
   getPasturization(){
-    this._dashboardService.getPasturization(this.token).subscribe(response => {
+    this._dashboardService.getPasturization(this.token, this.pasturizationPaginator).subscribe(response => {
       this.pasturizationHeader = response.table_headers
       this.pasturizationData = response.pasturization_obj
       console.log(this.pasturizationData);

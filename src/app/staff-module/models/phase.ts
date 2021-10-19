@@ -46,3 +46,8 @@ export class Paginator{
     "page_end" :number
 }
 
+export class PasturizationPaginator{
+    "screen" : string
+    "page_start" : number
+    "page_end" :number
+}

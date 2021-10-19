@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="col-12 col2 py-4">
-        <button class="btn openCollectionBtn"><i class="fa fa-plus"
-                    aria-hidden="true"></i> New Pre-Pasturization</button>
+        <button class="btn openCollectionBtn"><i class="fa fa-plus" aria-hidden="true"></i> New
+            Pre-Pasturization</button>
     </div>
 
     <div class="table-responsive">
@@ -9,123 +9,23 @@
             <table class="table table-bordered table-hover text-start">
                 <thead>
                     <tr>
-                        <th>
-
-                        </th>
+                        <th>id</th>
+                        <th>Date</th>
+                        <th>Pre Result</th>
+                        <th>Pooling</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td class="px-4"></td>
-                        <td class="px-4"></td>
-                        <td class="px-4"></td>
-                        <td class="px-4"></td>
+                    <tr *ngFor="let pd of pasturizationData">
+                        <td class="px-4">{{pd.id}}</td>
+                        <td class="px-4">{{pd.pasturization_date}}</td>
+                        <td class="px-4">{{pd.pre_result}}</td>
+                        <td class="px-4">{{pd.pool}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- <div class="modal fade" bsModal #pasturizationForm="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="heading1">
-                        <span>
-                            <h4 class="pastuHead">Add New Pasturization:</h4>
-                            <P class="pastuHead-p">Please Select and Fill Required Information.</P>
-                            <hr>
-                        </span>
-                    </div>
-                    <div class="container d-flex justify-content-center">
-                        <form>
-                            <div class="row row1">
-                                <div class="col-12 col1">
-                                    <input type="date" name="pasturization_date" id="pasturization_date" [(ngModel)]="createPasturizationModal.pasturization_date" placeholder="Pasturization Date" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date">
-                                </div>
-                            </div>
-
-                            <div class="row row1">
-                                <div class="col-12 col1">
-                                    <select name="pre_result" id="pre_result" placeholder="" [(ngModel)]="createPasturizationModal.pre_result">
-                                        <option value="">Pre Result</option>
-                                        <option value=true>Growth</option>
-                                        <option value=false>No Growth</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row row1">
-                                <div class="col-12 col1">
-                                    <input type="text" name="pooling" placeholder="Pooling" [(ngModel)]="createPasturizationModal.pooling" (click)="showPoolModal()">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="pasturizationForm.hide()">Close</button>
-                        <button type="button" class="btn btn-lg modalBtn2" (click)="createPasturization()">Create</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <!--  pooling modal -->
-    <!-- <div class="modal fade" bsModal #poolModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
-        <div class="modal-dialog modal-fullscreen modal-dialog-centered">
-            <div class="modal-content text-center">
-                <div class="modal-body">
-
-                    <div class="col-sm py-5">
-                        <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString" style="border-radius: 30px; font-weight: 100;">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </div>
-
-                    <table class="table table-hover table-bordered text-start">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th *ngFor="let header of poolHeader" class="px-4 donorTableHead">
-                                    {{header}}
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-                            <tr *ngFor="let p of poolData |filter:searchString" (dblclick)="doubleClicked(p.id)">
-                                <td>
-                                    <input type="checkbox" id="poolCheckBox" value="" (click)="selectPoolArray(p.id)"></td>
-                                <td>{{p.mixing_date | date:"dd/MM/yyyy "}}</td>
-                                <td>{{p.total_volume}}</td>
-                                <td>{{p.testing_lab}}</td>
-                                <td>{{p.test_sample_sent_date| date:"dd/MM/yyyy "}}</td>
-                                <td class="px-4 test_result" *ngIf="p.test_result != null">
-                                    <span *ngIf="p.test_result == true else notAcceptable">
-                                        Growth
-                                    </span>
-                                    <ng-template #notAcceptable>
-                                        <span *ngIf="p.test_result != null">
-                                           No Growth
-                                       </span>
-                                    </ng-template>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-lg modalBtn1" (click)="poolModal.hide()">Close</button>
-                    <button type="button" class="btn btn-lg modalBtn2" (click)="seleceHidePool()">Select</button>
-                </div>
-
-            </div>
-        </div>
-    </div> -->
+</div>
