@@ -45,7 +45,7 @@
 .banner-parent-container {
     height: 73vh;
     width: 100%;
-    background-position: center;
+    /* background-position: center; */
     background-size: cover;
     /* background-image: url(/assets/home-image.jpg); */
 }

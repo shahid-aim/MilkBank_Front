@@ -221,7 +221,8 @@ export class PoolingComponent implements OnInit {
       this.inputValue =  Number(this.element.value)
       
       if(this.inputValue > this.rawCollectionData[ele].volume_left || this.inputValue <= 0){
-        this.element.style.background = "red"
+        // this.element.style.background = "red"
+        this.element.style.border = "1px solid red"
         isError = true
         break;
       }
@@ -238,7 +239,7 @@ export class PoolingComponent implements OnInit {
   }
 
   removeRawCollectionValidationError(id : number){
-    document.getElementById("txt-volume-used-" + id).style.background = "none"
+    document.getElementById("txt-volume-used-" + id).style.border= "none"
   }
 
 }
