@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { CreatePasturization, Paginator, TestResult } from '../../models/phase';
+import { CreatePasturization, Paginator} from '../../models/phase';
 import { DashboardService } from '../../services/dashboard.service';
 
 @Component({

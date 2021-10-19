@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { CreatePool, Paginator, PoolTest, TestResult } from '../../models/phase';
+import { CreatePool, Paginator, PoolRawCollectionId } from '../../models/phase';
 import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
@@ -18,21 +18,17 @@ export class PoolingComponent implements OnInit {
   @ViewChild("productdata") productdata: NgForm;
   @ViewChild("poolTest") poolTest: NgForm;
 
-  
+
   constructor(private _dashboardService: DashboardService) { }
-  isShown: boolean = false ; // hidden by default
-  
-  donor: any
+
   collectionCheckBox: number[] = []
   collectionCheckBoxString: string
-  collectionCheckBoxNameArray : string[] = []
-  collectionCheckBoxNameString : string
-  searchTerm: string
-  removeIndex: number
+  collectionCheckBoxNameArray: string[] = []
+  collectionCheckBoxNameString: string 
+  searchTerm: string 
+  removeIndex: number 
 
-  rawCollectionHeader: any
-  rawCollectionData: any
-  poolHeader: any
+  rawCollectionData: any 
   poolData: any
 
   staffHeader: any
@@ -41,7 +37,6 @@ export class PoolingComponent implements OnInit {
   selectedPool: number
   selectedStaff: number
 
-  testingLabs: any
 
   searchString: string
 
@@ -53,12 +48,16 @@ export class PoolingComponent implements OnInit {
   selectedStaffName: string
 
 
-  createPoolModel: CreatePool = new CreatePool()
-  testResultModel: TestResult = new TestResult()
-  // for pasturization post result
-  poolResultModal: PoolTest = new PoolTest()
-  paginator : Paginator = new Paginator()
+  // extras
+  element : HTMLInputElement
+  inputValue : number
 
+  selectedPoolCheckBox : boolean[]
+
+  createPoolModel: CreatePool = new CreatePool()
+
+  // for pasturization post result
+  paginator: Paginator = new Paginator()
   ngOnInit(): void {
 
     this.paginator.page_start = 0
@@ -69,17 +68,14 @@ export class PoolingComponent implements OnInit {
     this.getPool()
     this.getRawCollection()
     this.getStaff()
-    this.getTestingLabName()
   }
 
   // API 
 
   getPool() {
-    this._dashboardService.getPool(this.token ,this.paginator).subscribe(resp => {
-      this.poolHeader = resp.table_header
+    this._dashboardService.getPool(this.token, this.paginator).subscribe(resp => {
       this.poolData = resp.pool_obj
-      // console.log(this.poolData);
-      console.log("pagination ",resp)
+      console.log("pagination ", resp)
     },
       error => {
         if (error.status == 401) {
@@ -88,23 +84,10 @@ export class PoolingComponent implements OnInit {
       })
   }
 
-
   createPool() {
-
     console.log(this.productdata)
     this.isErrorMsgVisible = false
     this.errorMsg = ""
-
-
-    if (this.createPoolModel.total_units < 1) {
-      this.isErrorMsgVisible = true
-      this.errorMsg = "Total unit cannot be less than 1"
-    }
-
-    if (this.createPoolModel.test_sample_qty < 1) {
-      this.isErrorMsgVisible = true
-      this.errorMsg = "Test sample quantity cannot be less than 1"
-    }
 
     if (this.createPoolModel.total_volume < 1) {
       this.isErrorMsgVisible = true
@@ -117,7 +100,7 @@ export class PoolingComponent implements OnInit {
     }
 
     if (!this.isErrorMsgVisible) {
-      this.createPoolModel.raw_collection_id = this.collectionCheckBox
+      // this.createPoolModel.raw_collection_id = this.collectionCheckBox
       this._dashboardService.createPool(this.token, this.createPoolModel).subscribe(response => {
         this.getPool()
         this.newPool.hide()
@@ -140,21 +123,11 @@ export class PoolingComponent implements OnInit {
     }
   }
 
-  getTestingLabName() {
-    this._dashboardService.getTestingLabsName(this.token).subscribe(resp => {
-      this.testingLabs = resp
-    },
-      error => {
-        if (error.status == 401) {
-          this._dashboardService.logoutUser()
-        }
-      })
-  }
-
   getRawCollection() {
     this._dashboardService.getRawCollection(this.token, this.paginator).subscribe(response => {
-      this.rawCollectionHeader = response.table_headers
       this.rawCollectionData = response.raw_collection_obj
+      console.log(this.rawCollectionData);
+      
     },
       error => {
         if (error.status == 401) {
@@ -175,36 +148,6 @@ export class PoolingComponent implements OnInit {
       })
   }
 
-  setTestResult() {    
-    this.testResultModel.pool_id = this.selectedPool
-    this._dashboardService.setTestResult(this.token, this.testResultModel).subscribe(response => {
-      this.getPool()
-      this.testResult.hide()
-      this.testResultModel = new TestResult()
-    },
-      error => {
-        if (error.status == 401) {
-          this._dashboardService.logoutUser()
-        }
-      })
-  }
-
-  addPoolTest() {
-    this.poolResultModal.pool_id = this.selectedPool
-    this._dashboardService.addPoolTest(this.token, this.poolResultModal).subscribe(response => {
-      this.getPool()
-      this.addTest.hide()
-      this.poolResultModal = new PoolTest()
-      console.log("Test Updated");
-      
-    },
-      error => {
-        if (error.status == 401) {
-          this._dashboardService.logoutUser()
-        }
-      })
-  }
-
   // END API
 
   openNewPoolModal() {
@@ -215,7 +158,9 @@ export class PoolingComponent implements OnInit {
     this.rawCollectionModal.show()
   }
 
-  makeRawSelection(id: number, donorNameArray : string) {
+  makeRawSelection(id: number, donorNameArray: string) {
+    this.removeRawCollectionValidationError(id)
+
     if (this.collectionCheckBox.includes(id)) {
       this.removeIndex = this.collectionCheckBox.indexOf(id, 0)
       this.collectionCheckBox.splice(this.removeIndex, 1)
@@ -262,9 +207,35 @@ export class PoolingComponent implements OnInit {
     this.addTest.show()
   }
 
-
- 
-
   
+  setRawCollectionVolume() {
+
+    let isError = false
+
+    this.createPoolModel.raw_collection_id = []
+
+    for(let ele of this.collectionCheckBox){
+      this.element = <HTMLInputElement>document.getElementById("txt-volume-used-" + ele)
+      this.inputValue =  Number(this.element.value)
+      
+      if(this.inputValue > this.rawCollectionData[ele].volume_left || this.inputValue <= 0){
+        this.element.style.background = "red"
+        isError = true
+        break;
+      }
+      else{
+        this.createPoolModel.raw_collection_id.push(new PoolRawCollectionId(this.rawCollectionData[ele].id,this.inputValue))
+      }
+    }
+
+    if(!isError){
+      this.rawCollectionModal.hide()
+    }
+
+  }
+
+  removeRawCollectionValidationError(id : number){
+    document.getElementById("txt-volume-used-" + id).style.background = "none"
+  }
 
 }
