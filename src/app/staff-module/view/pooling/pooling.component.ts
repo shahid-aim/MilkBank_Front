@@ -210,6 +210,8 @@ export class PoolingComponent implements OnInit {
   
   setRawCollectionVolume() {
 
+    this.createPoolModel.total_volume = 0
+
     let isError = false
 
     this.createPoolModel.raw_collection_id = []
@@ -224,6 +226,7 @@ export class PoolingComponent implements OnInit {
         break;
       }
       else{
+        this.createPoolModel.total_volume += this.inputValue
         this.createPoolModel.raw_collection_id.push(new PoolRawCollectionId(this.rawCollectionData[ele].id,this.inputValue))
       }
     }
