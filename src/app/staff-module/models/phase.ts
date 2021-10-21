@@ -53,7 +53,7 @@ export class PasturizationPaginator{
 }
 
 export class PasturizationTest{
-    id : number
+    pasturization_id: number
     test_sample_qty : number
     test_sample_sent_date : Date
     testing_lab_id : number
@@ -61,10 +61,24 @@ export class PasturizationTest{
 }
 
 export class TestResult{
-    id : number
+    pasturization_id : number
     test_cert_no : string
     test_result_date : Date
     test_result : boolean
     test_remarks : string
+
+
+
 }
 
+
+export class RawCollectionUpdate{
+    // Modal to Update Exisitng Raw Collection after pooling
+    index : number
+    update_volume : number
+    constructor(index:number, update_volume : number){
+        this.index = index
+        this.update_volume = update_volume
+    }
+
+}

@@ -1,7 +1,8 @@
+import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { CreatePool, Paginator, PoolRawCollectionId } from '../../models/phase';
+import { CreatePool, Paginator, PoolRawCollectionId, RawCollectionUpdate } from '../../models/phase';
 import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
@@ -55,7 +56,7 @@ export class PoolingComponent implements OnInit {
   selectedPoolCheckBox : boolean[]
 
   createPoolModel: CreatePool = new CreatePool()
-
+  rawCollectionUpdateModel : RawCollectionUpdate[] = []
   // for pasturization post result
   paginator: Paginator = new Paginator()
   ngOnInit(): void {
@@ -75,7 +76,6 @@ export class PoolingComponent implements OnInit {
   getPool() {
     this._dashboardService.getPool(this.token, this.paginator).subscribe(resp => {
       this.poolData = resp.pool_obj
-      console.log("pagination ", resp)
     },
       error => {
         if (error.status == 401) {
@@ -85,7 +85,6 @@ export class PoolingComponent implements OnInit {
   }
 
   createPool() {
-    console.log(this.productdata)
     this.isErrorMsgVisible = false
     this.errorMsg = ""
 
@@ -100,7 +99,6 @@ export class PoolingComponent implements OnInit {
     }
 
     if (!this.isErrorMsgVisible) {
-      // this.createPoolModel.raw_collection_id = this.collectionCheckBox
       this._dashboardService.createPool(this.token, this.createPoolModel).subscribe(response => {
         this.getPool()
         this.newPool.hide()
@@ -108,12 +106,28 @@ export class PoolingComponent implements OnInit {
         this.selectedStaffName = ""
         this.collectionCheckBoxString = ""
         this.collectionCheckBoxNameString = ""
+
         this.collectionCheckBox.forEach((id: number) => {
           let el = <HTMLInputElement>document.getElementById(id + "");
           el.checked = false
         })
-
         this.collectionCheckBox = []
+
+        console.group("Raw Collection Id");
+        this.rawCollectionUpdateModel.forEach((ele : RawCollectionUpdate) => {
+          
+          if(ele.update_volume == 0){
+            this.rawCollectionData.splice(ele.index, 1)
+          }else{
+            console.log("index -> ", ele.index);
+            
+            this.rawCollectionData[ele.index]["volume_left"] = ele.update_volume
+            let el = <HTMLInputElement>document.getElementById("txt-volume-used-" + ele.index);
+            el.value = null
+          }
+        })
+
+        console.groupEnd();
       },
         error => {
           if (error.status == 401) {
@@ -126,7 +140,7 @@ export class PoolingComponent implements OnInit {
   getRawCollection() {
     this._dashboardService.getRawCollection(this.token, this.paginator).subscribe(response => {
       this.rawCollectionData = response.raw_collection_obj
-      console.log(this.rawCollectionData);
+      
       
     },
       error => {
@@ -209,28 +223,30 @@ export class PoolingComponent implements OnInit {
 
   
   setRawCollectionVolume() {
-
     this.createPoolModel.total_volume = 0
-
     let isError = false
-
     this.createPoolModel.raw_collection_id = []
+    this.rawCollectionUpdateModel = []
 
     for(let ele of this.collectionCheckBox){
       this.element = <HTMLInputElement>document.getElementById("txt-volume-used-" + ele)
       this.inputValue =  Number(this.element.value)
       
       if(this.inputValue > this.rawCollectionData[ele].volume_left || this.inputValue <= 0){
-        // this.element.style.background = "red"
         this.element.style.border = "1px solid red"
         isError = true
         break;
       }
       else{
         this.createPoolModel.total_volume += this.inputValue
+        this.rawCollectionUpdateModel.push(new RawCollectionUpdate(ele, (this.rawCollectionData[ele].volume_left - this.inputValue)))
+        console.log(this.rawCollectionUpdateModel);
         this.createPoolModel.raw_collection_id.push(new PoolRawCollectionId(this.rawCollectionData[ele].id,this.inputValue))
       }
     }
+
+    console.log(this.rawCollectionUpdateModel);
+    
 
     if(!isError){
       this.rawCollectionModal.hide()

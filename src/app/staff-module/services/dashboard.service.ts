@@ -21,6 +21,7 @@ export class DashboardService {
     this.screenTitle.next(screenTitle)
   }
 
+  
 
   logoutUser() {
     localStorage.removeItem("token")
@@ -90,7 +91,7 @@ export class DashboardService {
 
 
   addPoolTest(token : string, addTest: PasturizationTest): Observable<any> {
-    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.UPDATE_POOL_TEST, addTest, { headers: new HttpHeaders().set("Authorization", token) })
+    return this._httpClient.post(environment.BASE_URL + ExternalUrlMappings.UPDATE_PASTURIZATION_TEST, addTest, { headers: new HttpHeaders().set("Authorization", token) })
   }
 
   setTestResult(token : string, testResult: TestResult): Observable<any> {

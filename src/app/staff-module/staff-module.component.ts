@@ -20,7 +20,7 @@ export class StaffModuleComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this._dashboardService.currentScreenTitle.subscribe(screenTitle => this.screenTitle = screenTitle)
-    this.tab = localStorage.getItem('tab');
+   
   
   }
  
@@ -45,7 +45,7 @@ export class StaffModuleComponent implements OnInit {
       this._dashboardService.logoutUser()
     }
 
-
+    
   }
   onClick(check : any){
    

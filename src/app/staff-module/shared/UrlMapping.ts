@@ -5,7 +5,7 @@ export const  ExternalUrlMappings = {
     GET_DONOR_INFO : "donor/get-donor-info",
     GET_POOL : "phase/get-pool",
     CREATE_POOL : "phase/create-pool",
-    UPDATE_POOL_TEST : "phase/update-pool-test",
+    UPDATE_PASTURIZATION_TEST : "phase/update-pasturization-test",
     SET_TEST_RESULT : "phase/set-test-result",
     CREATE_PASTURIZATION : "phase/create-pasturization",
     GET_PASTURIZATION: "phase/get-pasturization",
@@ -13,7 +13,7 @@ export const  ExternalUrlMappings = {
     GET_TESTING_LABS_NAME : "common/get-testing-labs-name",
     UPDATE_PASTURIZATION_POST_RESULT:"phase/update-pasturization-post-result",
     
-
+    // "phase/update-pool-test",
     // GET_BOTTLE :
     GET_PASTURIZATION_POOL : "phase/get-pasturization-pool",
     CREATE_BOTTLE : "phase/create-bottle",
