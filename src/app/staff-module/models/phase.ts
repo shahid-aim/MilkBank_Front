@@ -51,3 +51,15 @@ export class PasturizationPaginator{
     "page_start" : number
     "page_end" :number
 }
+
+
+export class RawCollectionUpdate{
+    // Modal to Update Exisitng Raw Collection after pooling
+    index : number
+    update_volume : number
+    constructor(index:number, update_volume : number){
+        this.index = index
+        this.update_volume = update_volume
+    }
+
+}

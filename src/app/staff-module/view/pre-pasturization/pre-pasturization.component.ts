@@ -29,8 +29,10 @@ export class PrePasturizationComponent implements OnInit {
   poolData: any;
   poolHeader: any;
 
+
   createPasturizationModal: CreatePasturization = new CreatePasturization()
   pasturizationPaginator: PasturizationPaginator = new PasturizationPaginator()
+  
   constructor(private _dashboardService: DashboardService) { }
 
   ngOnInit(): void {
@@ -110,10 +112,6 @@ export class PrePasturizationComponent implements OnInit {
   }
 
   selectPoolArray(id: number) {
-
-    console.log("Id -> ", id);
-    
-
     this.removeIdIndex = this.poolArray.indexOf(id)
     if (this.removeIdIndex == -1) {
       this.poolArray.push(id)
@@ -121,10 +119,6 @@ export class PrePasturizationComponent implements OnInit {
     else {
       this.poolArray.splice(this.removeIdIndex, 1)
     }
-
-    console.log("Pool Array", this.poolArray);
-    
-
   }
 
 }
