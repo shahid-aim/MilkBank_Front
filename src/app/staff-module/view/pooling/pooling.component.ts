@@ -1,4 +1,3 @@
-import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
@@ -25,11 +24,11 @@ export class PoolingComponent implements OnInit {
   collectionCheckBox: number[] = []
   collectionCheckBoxString: string
   collectionCheckBoxNameArray: string[] = []
-  collectionCheckBoxNameString: string 
-  searchTerm: string 
-  removeIndex: number 
+  collectionCheckBoxNameString: string
+  searchTerm: string
+  removeIndex: number
 
-  rawCollectionData: any 
+  rawCollectionData: any
   poolData: any
 
   staffHeader: any
@@ -50,13 +49,13 @@ export class PoolingComponent implements OnInit {
 
 
   // extras
-  element : HTMLInputElement
-  inputValue : number
+  element: HTMLInputElement
+  inputValue: number
 
-  selectedPoolCheckBox : boolean[]
+  selectedPoolCheckBox: boolean[]
 
   createPoolModel: CreatePool = new CreatePool()
-  rawCollectionUpdateModel : RawCollectionUpdate[] = []
+  rawCollectionUpdateModel: RawCollectionUpdate[] = []
   // for pasturization post result
   paginator: Paginator = new Paginator()
   ngOnInit(): void {
@@ -99,6 +98,7 @@ export class PoolingComponent implements OnInit {
     }
 
     if (!this.isErrorMsgVisible) {
+      this.refreshRawCollectionEntries()
       this._dashboardService.createPool(this.token, this.createPoolModel).subscribe(response => {
         this.getPool()
         this.newPool.hide()
@@ -112,22 +112,7 @@ export class PoolingComponent implements OnInit {
           el.checked = false
         })
         this.collectionCheckBox = []
-
-        console.group("Raw Collection Id");
-        this.rawCollectionUpdateModel.forEach((ele : RawCollectionUpdate) => {
-          
-          if(ele.update_volume == 0){
-            this.rawCollectionData.splice(ele.index, 1)
-          }else{
-            console.log("index -> ", ele.index);
-            
-            this.rawCollectionData[ele.index]["volume_left"] = ele.update_volume
-            let el = <HTMLInputElement>document.getElementById("txt-volume-used-" + ele.index);
-            el.value = null
-          }
-        })
-
-        console.groupEnd();
+        this.refreshRawCollectionEntries()
       },
         error => {
           if (error.status == 401) {
@@ -137,11 +122,23 @@ export class PoolingComponent implements OnInit {
     }
   }
 
+  refreshRawCollectionEntries() {
+    let slicer: Number[] = []
+    this.rawCollectionUpdateModel.forEach((ele: RawCollectionUpdate) => {
+      if (ele.update_volume == 0) {
+        slicer.push(ele.index)
+      }
+      this.rawCollectionData[ele.index]["volume_left"] = ele.update_volume
+      let el = <HTMLInputElement>document.getElementById("txt-volume-used-" + ele.index);
+      el.value = null
+    })
+  }
+
   getRawCollection() {
     this._dashboardService.getRawCollection(this.token, this.paginator).subscribe(response => {
       this.rawCollectionData = response.raw_collection_obj
-      
-      
+
+
     },
       error => {
         if (error.status == 401) {
@@ -221,41 +218,42 @@ export class PoolingComponent implements OnInit {
     this.addTest.show()
   }
 
-  
+
   setRawCollectionVolume() {
     this.createPoolModel.total_volume = 0
     let isError = false
     this.createPoolModel.raw_collection_id = []
     this.rawCollectionUpdateModel = []
 
-    for(let ele of this.collectionCheckBox){
+    for (let ele of this.collectionCheckBox) {
       this.element = <HTMLInputElement>document.getElementById("txt-volume-used-" + ele)
-      this.inputValue =  Number(this.element.value)
-      
-      if(this.inputValue > this.rawCollectionData[ele].volume_left || this.inputValue <= 0){
+      this.inputValue = Number(this.element.value)
+
+      if (this.inputValue > this.rawCollectionData[ele].volume_left || this.inputValue <= 0) {
         this.element.style.border = "1px solid red"
         isError = true
         break;
       }
-      else{
+      else {
         this.createPoolModel.total_volume += this.inputValue
+        console.log("volume_left -> ", this.rawCollectionData[ele].volume_left, "Input Value -> ", this.inputValue);
         this.rawCollectionUpdateModel.push(new RawCollectionUpdate(ele, (this.rawCollectionData[ele].volume_left - this.inputValue)))
-        console.log(this.rawCollectionUpdateModel);
-        this.createPoolModel.raw_collection_id.push(new PoolRawCollectionId(this.rawCollectionData[ele].id,this.inputValue))
+        this.createPoolModel.raw_collection_id.push(new PoolRawCollectionId(this.rawCollectionData[ele].id, this.inputValue))
       }
     }
 
-    console.log(this.rawCollectionUpdateModel);
-    
+    console.log("Data Modal", this.rawCollectionData);
+    console.log("Update modal -> ", this.rawCollectionUpdateModel);
 
-    if(!isError){
+
+    if (!isError) {
       this.rawCollectionModal.hide()
     }
 
   }
 
-  removeRawCollectionValidationError(id : number){
-    document.getElementById("txt-volume-used-" + id).style.border= "none"
+  removeRawCollectionValidationError(id: number) {
+    document.getElementById("txt-volume-used-" + id).style.border = "none"
   }
 
 }

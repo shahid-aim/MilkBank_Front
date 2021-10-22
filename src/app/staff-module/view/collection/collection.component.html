@@ -9,6 +9,9 @@
             <thead>
                 <tr>
                     <th class="px-4 rowTableHead">
+                        ID
+                    </th>
+                    <th class="px-4 rowTableHead">
                         Donor
                     </th>
                     <th class="px-4 rowTableHead">
@@ -28,6 +31,7 @@
 
             <tbody>
                 <tr *ngFor="let data of rawCollectionData">
+                    <td class="px-4">{{data.id}}</td>
                     <td class="px-4">{{data.donor_full_name}}</td>
                     <td class="px-4">{{data.staff_name}}</td>
                     <td class="px-4">{{data.volume_collected}}</td>
