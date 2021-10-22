@@ -24,7 +24,17 @@
                 <tr *ngFor="let pd of pasturizationData">
                     <td class="px-4">{{pd.id}}</td>
                     <td class="px-4">{{pd.pasturization_date}}</td>
-                    <td class="px-4">{{pd.pre_result}}</td>
+                    <td class="px-4">
+                        <span *ngIf="pd.pre_result == true else notAcceptable">
+                            Growth
+                        </span>
+                        <ng-template #notAcceptable>
+                            <span *ngIf="pd.pre_result != null">
+                                No Growth
+                            </span>
+                        </ng-template>
+                    </td>
+
                     <td class="px-4">{{pd.pool}}</td>
                     <td class="px-4 testing_lab" *ngIf="pd.testing_lab != null">{{pd.testing_lab}}</td>
                     <td class="px-4 test_sample_sent_date" *ngIf="pd.test_sample_sent_date != null">
@@ -90,8 +100,8 @@
                                     <div class="col-12">
                                         <select name="test_result" id="test_result" [(ngModel)]="testResultModel.test_result">
                                             <option value=""> Test Result</option>
-                                    <option value=true>Pass</option>
-                                    <option value=false>Fail</option>
+                                    <option value=true>Growth</option>
+                                    <option value=false>No Growth</option>
                                   </select>
                                     </div>
                                 </div>
@@ -144,7 +154,8 @@
                                                         <option value="">Pre Result</option>
                                                         <option value=true>Growth</option>
                                                         <option value=false>No Growth</option>
-                                                    </select>
+
+                                    </select>
                                 </div>
                             </div>
 
@@ -187,7 +198,7 @@
                                 <div class="row row1">
 
                                     <div class="col-12">
-                                        <input type="number" min="1" name="test_sample_qty" placeholder="Test Sample Quantity" class="form-control" [(ngModel)]="pasturizationResultModal.test_sample_qty" required>
+                                        <input type="number" min="1" name="test_sample_qty" placeholder="Test Sample Quantity(ml)" class="form-control" [(ngModel)]="pasturizationResultModal.test_sample_qty" required>
                                     </div>
                                 </div>
                             </div>
@@ -204,7 +215,7 @@
 
                                     <div class="col-12">
                                         <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]=" pasturizationResultModal.testing_lab_id" required>
-                                            <option value="" selected >Testing Lab</option>
+                                            <option value="" disabled selected >Select Testing Lab</option>
                                             <option *ngFor = "let labs of testingLabs" value={{labs.id}}>{{labs.name}}</option>
                                         </select>
                                     </div>
