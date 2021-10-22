@@ -27,6 +27,8 @@ export class PasturisationComponent implements OnInit {
     this.getPool()
   }
 
+  
+
   getPasturization() {
     this._dashboardService.getPasturization(this.token, this.pasturizationPaginator).subscribe(response => {
       this.pasturizationData = response.pasturization_obj

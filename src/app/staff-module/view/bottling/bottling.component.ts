@@ -64,6 +64,12 @@ export class BottlingComponent implements OnInit {
     this.getStaff()
     this.getBottle()
   }
+
+  
+  //for future date not selected
+  getToday(): string {
+    return new Date().toISOString().split('T')[0]
+ }
   
   createBottling(){
     this._dashboardService.createBottle(this.token, this.createBottlingModal).subscribe(resp => {

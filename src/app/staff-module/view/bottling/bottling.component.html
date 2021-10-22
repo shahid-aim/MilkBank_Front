@@ -60,7 +60,7 @@
                         <div class="row row1">
 
                             <div class="col-12 col1">
-                                <input type="date" name=" date_added" id="date_added" placeholder="Date Added" [(ngModel)]="createBottlingModal.date_added" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date">
+                                <input type="date" [max]="getToday()" name=" date_added" id="date_added" placeholder="Date Added" [(ngModel)]="createBottlingModal.date_added" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date">
                             </div>
 
                         </div>
