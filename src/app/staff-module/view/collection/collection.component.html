@@ -81,8 +81,11 @@
                         </div>
                         <div class="row row1">
                             <div class="col-12 col1">
-                                <input type="date" name="collection_date" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date" placeholder="Collection Date" [(ngModel)]="date" required>
+                                <!-- <input type="date" name="collection_date" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date" placeholder="Collection Date" [(ngModel)]="date" required> -->
+                                <input type="date" [max]="getToday()" name="collection_date" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date" placeholder="Collection Date" [(ngModel)]="date" required>
                                 <!-- <input placeholder="Collection Date" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date"> -->
+
+
                             </div>
                         </div>
 

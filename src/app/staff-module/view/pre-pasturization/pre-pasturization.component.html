@@ -90,7 +90,7 @@
                                 <div class="row row1">
 
                                     <div class="col-12">
-                                        <input type="date" name="test_result_date" class="form-control" placeholder="Test Result Date" [(ngModel)]="testResultModel.test_result_date">
+                                        <input type="date" [max]="getToday()" name="test_result_date" class="form-control" placeholder="Test Result Date" [(ngModel)]="testResultModel.test_result_date">
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@
                         <form>
                             <div class="row row1">
                                 <div class="col-12 col1">
-                                    <input type="date" name="pasturization_date" id="pasturization_date" [(ngModel)]="createPasturizationModal.pasturization_date" placeholder="Pasturization Date" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date">
+                                    <input type="date" [max]="getToday()" name="pasturization_date" id="pasturization_date" [(ngModel)]="createPasturizationModal.pasturization_date" placeholder="Pasturization Date" class="textbox-n" type="text" onfocus="(this.type = 'date')" id="date">
                                 </div>
                             </div>
 
@@ -206,7 +206,7 @@
                                 <div class="row row1">
 
                                     <div class="col-12">
-                                        <input type="date" name="test_sample_sent_date" placeholder="Test Sample Send Date" class="form-control" [(ngModel)]="pasturizationResultModal.test_sample_sent_date" required>
+                                        <input type="date" [max]="getToday()" name="test_sample_sent_date" placeholder="Test Sample Send Date" class="form-control" [(ngModel)]="pasturizationResultModal.test_sample_sent_date" required>
                                     </div>
                                 </div>
                             </div>

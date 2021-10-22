@@ -69,7 +69,10 @@ export class PoolingComponent implements OnInit {
     this.getRawCollection()
     this.getStaff()
   }
-
+ //for future date not selected
+  getToday(): string {
+    return new Date().toISOString().split('T')[0]
+ }
   // API 
 
   getPool() {

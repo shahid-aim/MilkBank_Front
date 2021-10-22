@@ -10,7 +10,7 @@ import { DashboardService } from '../../services/dashboard.service';
   styleUrls: ['./collection.component.css']
 })
 export class CollectionComponent implements OnInit {
-
+ 
 
   @ViewChild("collectionForm") collectionForm: ModalDirective;
   @ViewChild("donorDetailModal") donorDetailModal: ModalDirective;
@@ -57,8 +57,12 @@ export class CollectionComponent implements OnInit {
     this.getRawCollection()
     this.getDonorInfo()
     this.getStaff()
-
   }
+  
+   //for future date not selected
+  getToday(): string {
+    return new Date().toISOString().split('T')[0]
+ }
 
   // Api Call
 

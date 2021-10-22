@@ -59,6 +59,11 @@ export class PrePasturizationComponent implements OnInit {
     this.getPool()
    
   }
+  
+  //for future date not selected
+  getToday(): string {
+    return new Date().toISOString().split('T')[0]
+ }
 
   getPool() {
     this._dashboardService.getPool(this.token,this.pasturizationPaginator).subscribe(resp => {
