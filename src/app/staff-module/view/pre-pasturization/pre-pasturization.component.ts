@@ -82,7 +82,8 @@ export class PrePasturizationComponent implements OnInit {
   getPasturization() {
     this._dashboardService.getPasturization(this.token, this.pasturizationPaginator).subscribe(response => {
       this.pasturizationData = response.pasturization_obj
-    
+      console.log(this.pasturizationData);
+      
     },
       error => {
         if (error.status == 401) {
@@ -94,7 +95,6 @@ export class PrePasturizationComponent implements OnInit {
   getTestingLabName() {
     this._dashboardService.getTestingLabsName(this.token).subscribe(resp => {
       this.testingLabs = resp
-      console.log(resp)
     },
       error => {
         if (error.status == 401) {

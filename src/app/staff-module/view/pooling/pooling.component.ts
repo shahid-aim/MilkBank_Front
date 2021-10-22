@@ -103,6 +103,7 @@ export class PoolingComponent implements OnInit {
     if (!this.isErrorMsgVisible) {
       this.refreshRawCollectionEntries()
       this._dashboardService.createPool(this.token, this.createPoolModel).subscribe(response => {
+        window.location.reload()
         this.getPool()
         this.newPool.hide()
         this.createPoolModel = new CreatePool()

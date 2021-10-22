@@ -22,7 +22,7 @@
                 <tbody>
                     <tr *ngFor="let data of pasturizationData | filter:searchString">
                         <td class="px-4">{{data.pasturization_date}}</td>
-                        <td class="px-4 pre_result" *ngIf="data.pre_result != null">{{pre_result}}
+                        <td class="px-4 pre_result" *ngIf="data.pre_result != null">
                             <span *ngIf="data.pre_result == true else notAcceptable">
                                 Growth
                             </span>
@@ -33,7 +33,19 @@
                             </ng-template>
                         </td>
 
-                        <td class="px-4">{{data.test_result}}</td>
+                        <td class="px-4">
+
+
+                            <span *ngIf="data.test_result == true else notAcceptable">
+                                Growth
+                            </span>
+                            <ng-template #notAcceptable>
+                                <span *ngIf="data.test_result != null">
+                                    No Growth
+                                </span>
+                            </ng-template>
+
+                        </td>
                         <td class="px-4">{{data.pool}}</td>
                     </tr>
                 </tbody>
