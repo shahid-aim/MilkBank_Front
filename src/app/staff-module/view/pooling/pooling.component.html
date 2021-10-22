@@ -9,6 +9,7 @@
         <table class="table table-hover table-bordered text-start">
             <thead>
                 <tr class="px-4 poolTableHead">
+                    <th>ID</th>
                     <th>Mixing Date</th>
                     <th>Total Volume</th>
                     <th>Raw Collections</th>
@@ -17,6 +18,7 @@
 
             <tbody>
                 <tr *ngFor="let p of poolData |filter:searchTerm">
+                    <td class="px-4">{{p.id}}</td>
                     <td class="px-4">{{p.mixing_date | date:"dd/MM/yyyy"}}</td>
                     <td class="px-4 total_volume">{{p.volume}}</td>
                     <td class="px-4 total_volume">{{p.raw_string}}</td>
@@ -110,6 +112,7 @@
                     <thead>
                         <tr class="donorTableHead">
                             <th></th>
+                            <th>ID</th>
                             <th>Donor Name</th>
                             <th>Collection Date</th>
                             <th>Volume Left</th>
@@ -117,20 +120,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let data of rawCollectionData | filter : searchTerm; let i = index ">
-                            <td>
-                                <input type="checkbox" name="collectionCheckBox" id={{i}} (click)="makeRawSelection(i, data.donor_full_name)" #chkEnable ngModel type="checkbox">
-                            </td>
 
-                            <td>{{data.donor_full_name}}</td>
-                            <td>{{data.collection_date | date:"dd/MM/yyyy"}}</td>
-                            <td>{{data.volume_left}}</td>
-                            <td>
-                                <ng-container>
-                                    <input type="text" placeholder="Enter volume" [hidden]="!chkEnable.checked" id="txt-volume-used-{{i}}" (focus)="removeRawCollectionValidationError(i)" />
-                                </ng-container>
-                            </td>
-                        </tr>
+                        <ng-container *ngFor="let data of rawCollectionData | filter : searchTerm; let i = index ">
+                            <tr *ngIf="data.volume_left > 0">
+                                <td>
+                                    <input type="checkbox" name="collectionCheckBox" id={{i}} (click)="makeRawSelection(i, data.donor_full_name)" #chkEnable ngModel type="checkbox">
+                                </td>
+                                <td>{{data.id}}</td>
+                                <td>{{data.donor_full_name}}</td>
+                                <td>{{data.collection_date | date:"dd/MM/yyyy"}}</td>
+                                <td>{{data.volume_left}}</td>
+                                <td>
+                                    <ng-container>
+                                        <input type="text" placeholder="Enter volume" [hidden]="!chkEnable.checked" id="txt-volume-used-{{i}}" (focus)="removeRawCollectionValidationError(i)" />
+                                    </ng-container>
+                                </td>
+                            </tr>
+                        </ng-container>
+
                     </tbody>
                 </table>
 
