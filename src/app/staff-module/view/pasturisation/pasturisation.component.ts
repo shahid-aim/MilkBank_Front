@@ -24,7 +24,6 @@ export class PasturisationComponent implements OnInit {
     this._dashboardService.changeScreenTitle("Pasturization")
     this.token = localStorage.getItem("token")
     this.getPasturization()
-    this.getPool()
   }
 
   
@@ -32,7 +31,7 @@ export class PasturisationComponent implements OnInit {
   getPasturization() {
     this._dashboardService.getPasturization(this.token, this.pasturizationPaginator).subscribe(response => {
       this.pasturizationData = response.pasturization_obj
-      console.log(response)
+      console.log(this.pasturizationData)
       console.log(this.pasturizationPaginator)
     },
       error => {

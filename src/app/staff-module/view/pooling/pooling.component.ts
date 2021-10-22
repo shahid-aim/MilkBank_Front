@@ -111,6 +111,7 @@ export class PoolingComponent implements OnInit {
         this.collectionCheckBoxNameString = ""
 
         this.collectionCheckBox.forEach((id: number) => {
+          debugger
           let el = <HTMLInputElement>document.getElementById(id + "");
           el.checked = false
         })
@@ -135,6 +136,11 @@ export class PoolingComponent implements OnInit {
       let el = <HTMLInputElement>document.getElementById("txt-volume-used-" + ele.index);
       el.value = null
     })
+
+    
+    console.log("Data Modal", this.rawCollectionData);
+    console.log("Update modal -> ", this.rawCollectionUpdateModel);
+
   }
 
   getRawCollection() {
@@ -229,6 +235,7 @@ export class PoolingComponent implements OnInit {
     this.rawCollectionUpdateModel = []
 
     for (let ele of this.collectionCheckBox) {
+      debugger
       this.element = <HTMLInputElement>document.getElementById("txt-volume-used-" + ele)
       this.inputValue = Number(this.element.value)
 
