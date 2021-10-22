@@ -14,14 +14,11 @@ export class StaffModuleComponent implements OnInit {
   screenTitle: String = "";
   subscription : Subscription;
 
-  tab : any = 'tab1'
 
   constructor(private _dashboardService: DashboardService, private _router: Router) { }
 
   ngOnInit(): void {
     this.subscription = this._dashboardService.currentScreenTitle.subscribe(screenTitle => this.screenTitle = screenTitle)
-   
-  
   }
  
   routeAndClose(routeTo: string) {
@@ -44,29 +41,7 @@ export class StaffModuleComponent implements OnInit {
     else if (routeTo == "logout") {
       this._dashboardService.logoutUser()
     }
-
-    
   }
-  onClick(check : any){
-   
-        if(check==1){
-          this.tab = 'tab1';
-        }else if(check==2){
-          this.tab = 'tab2';
-        }else if(check==3){
-          this.tab = 'tab3';
-        }else if(check==4){
-          this.tab = 'tab4';
-        }else if(check==5){
-          this.tab = 'tab5';
-        }else if(check==6){
-          this.tab = 'tab6';
-        }else if(check==7){
-          this.tab = 'tab7'
-        }
-       
-      
-    }
   
     
 }
